@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="63" id="KGk-i7-Jjw" customClass="MailAttachmentCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="62.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="附件一:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1P-il-Ndb">
+                        <rect key="frame" x="8" y="5" width="49.5" height="52.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4年来我和愚蠢,妄想,懦弱的斗争(译).pdf" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIH-pj-pxT">
+                        <rect key="frame" x="57.5" y="5" width="254.5" height="52.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.16862745100000001" green="0.63137254899999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="yIH-pj-pxT" firstAttribute="leading" secondItem="u1P-il-Ndb" secondAttribute="trailing" id="1J8-Qj-NZ3"/>
+                    <constraint firstItem="yIH-pj-pxT" firstAttribute="bottom" secondItem="u1P-il-Ndb" secondAttribute="bottom" id="1VQ-o3-qwX"/>
+                    <constraint firstAttribute="trailing" secondItem="yIH-pj-pxT" secondAttribute="trailing" constant="8" id="6RB-lD-gOb"/>
+                    <constraint firstAttribute="bottom" secondItem="yIH-pj-pxT" secondAttribute="bottom" constant="5" id="I9d-wh-xgk"/>
+                    <constraint firstAttribute="trailing" secondItem="yIH-pj-pxT" secondAttribute="trailing" constant="10" id="Rxx-ti-6QZ"/>
+                    <constraint firstItem="yIH-pj-pxT" firstAttribute="top" secondItem="u1P-il-Ndb" secondAttribute="top" id="gf8-p3-EEt"/>
+                    <constraint firstItem="yIH-pj-pxT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="nH8-r5-Sav"/>
+                    <constraint firstItem="yIH-pj-pxT" firstAttribute="top" secondItem="u1P-il-Ndb" secondAttribute="top" id="p0a-FZ-SXG"/>
+                    <constraint firstItem="u1P-il-Ndb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="xkS-bW-sNM"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Rxx-ti-6QZ"/>
+                        <exclude reference="gf8-p3-EEt"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="attchmentLabel" destination="yIH-pj-pxT" id="H3q-uH-cJw"/>
+                <outlet property="attchmentTitle" destination="u1P-il-Ndb" id="cvC-vW-h8n"/>
+            </connections>
+            <point key="canvasLocation" x="334" y="217.5"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>189</key>
+	<dict>
+		<key>fetchMailHost</key>
+		<string>imap.189.cn</string>
+		<key>fetchMailPort</key>
+		<integer>143</integer>
+		<key>sendMailHost</key>
+		<string>smtp.189.cn</string>
+		<key>sendMailPort</key>
+		<integer>25</integer>
+		<key>mailStoreProtocol</key>
+		<string>imap</string>
+		<key>serverName</key>
+		<string>189.cn</string>
+		<key>ssl</key>
+		<false/>
+	</dict>
+	<key>sina</key>
+	<dict>
+		<key>fetchMailHost</key>
+		<string>imap.sina.com</string>
+		<key>fetchMailPort</key>
+		<integer>993</integer>
+		<key>sendMailHost</key>
+		<string>smtp.sina.com</string>
+		<key>sendMailPort</key>
+		<integer>25</integer>
+		<key>mailStoreProtocol</key>
+		<string>imap</string>
+		<key>serverName</key>
+		<string>sina.com</string>
+		<key>ssl</key>
+		<true/>
+	</dict>
+</dict>
+</plist>

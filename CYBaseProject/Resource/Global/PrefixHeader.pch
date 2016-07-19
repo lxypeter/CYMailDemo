@@ -1,0 +1,21 @@
+//
+//  ZTESoftProject-PrefixHeader.pch
+//  ZTESoftProject
+//
+//  Created by YYang on 16/2/6.
+//  Copyright © 2016年 YYang. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#pragma mark - 头文件部分
+#import "CocoaLumberjack.h"
+#import "MainMacro.h"
+
+#import "UIView+Toast.h"
+#import "UIColor+HexString.h"
+#import "NSString+CYVerification.h"
+
+
+#endif /* ZTESoftProject_PrefixHeader_pch */

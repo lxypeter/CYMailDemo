@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MailContactListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="李克勤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTc-LA-3Ki">
+                        <rect key="frame" x="15" y="10" width="42" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addr_book_list_item_addr" translatesAutoresizingMaskIntoConstraints="NO" id="xT5-ZL-cmB">
+                        <rect key="frame" x="15" y="37" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="12i-hI-2XU"/>
+                            <constraint firstAttribute="width" secondItem="xT5-ZL-cmB" secondAttribute="height" multiplier="1:1" id="EjS-BJ-kiX"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13800138000" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFw-EM-RVF">
+                        <rect key="frame" x="65" y="10" width="91" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.066666666669999999" green="0.66274509800000003" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addr_book_list_item_email" translatesAutoresizingMaskIntoConstraints="NO" id="O04-YP-DEt">
+                        <rect key="frame" x="15" y="59" width="12" height="12"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广西移动分公司" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgN-HY-gtZ">
+                        <rect key="frame" x="35" y="36.5" width="84" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123@qq.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ou-05-mci">
+                        <rect key="frame" x="35" y="57.5" width="74" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dx4-Gy-dwq">
+                        <rect key="frame" x="285" y="35" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="dx4-Gy-dwq" secondAttribute="height" multiplier="1:1" id="OIW-e6-BzU"/>
+                            <constraint firstAttribute="width" constant="20" id="ZNM-bT-6wn"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="my_work_4"/>
+                        <state key="selected" backgroundImage="my_work_5"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="O04-YP-DEt" firstAttribute="width" secondItem="xT5-ZL-cmB" secondAttribute="width" id="1QZ-l9-jtG"/>
+                    <constraint firstItem="MgN-HY-gtZ" firstAttribute="centerY" secondItem="xT5-ZL-cmB" secondAttribute="centerY" id="4G2-4p-zxm"/>
+                    <constraint firstItem="tTc-LA-3Ki" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="825-2Q-YOO"/>
+                    <constraint firstItem="dx4-Gy-dwq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BkI-n5-MXG"/>
+                    <constraint firstItem="O04-YP-DEt" firstAttribute="height" secondItem="xT5-ZL-cmB" secondAttribute="height" id="Phk-y8-pLc"/>
+                    <constraint firstItem="MgN-HY-gtZ" firstAttribute="leading" secondItem="xT5-ZL-cmB" secondAttribute="trailing" constant="8" id="YZI-ru-uhj"/>
+                    <constraint firstItem="9ou-05-mci" firstAttribute="centerY" secondItem="O04-YP-DEt" secondAttribute="centerY" id="ZNF-go-TN2"/>
+                    <constraint firstItem="O04-YP-DEt" firstAttribute="leading" secondItem="tTc-LA-3Ki" secondAttribute="leading" id="bEd-0s-IRQ"/>
+                    <constraint firstAttribute="trailing" secondItem="dx4-Gy-dwq" secondAttribute="trailing" constant="15" id="bbp-JU-xqG"/>
+                    <constraint firstItem="O04-YP-DEt" firstAttribute="top" secondItem="xT5-ZL-cmB" secondAttribute="bottom" constant="10" id="dLT-cn-BSI"/>
+                    <constraint firstItem="TFw-EM-RVF" firstAttribute="centerY" secondItem="tTc-LA-3Ki" secondAttribute="centerY" id="gL7-v8-UJZ"/>
+                    <constraint firstItem="9ou-05-mci" firstAttribute="leading" secondItem="MgN-HY-gtZ" secondAttribute="leading" id="k0T-oc-dW4"/>
+                    <constraint firstItem="xT5-ZL-cmB" firstAttribute="top" secondItem="tTc-LA-3Ki" secondAttribute="bottom" constant="10" id="lof-bu-S30"/>
+                    <constraint firstItem="xT5-ZL-cmB" firstAttribute="leading" secondItem="tTc-LA-3Ki" secondAttribute="leading" id="odP-S5-NEb"/>
+                    <constraint firstItem="TFw-EM-RVF" firstAttribute="leading" secondItem="tTc-LA-3Ki" secondAttribute="trailing" constant="8" id="y8a-oE-1NP"/>
+                    <constraint firstItem="tTc-LA-3Ki" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="yoS-XF-xzh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addrLabel" destination="MgN-HY-gtZ" id="USg-do-6Wq"/>
+                <outlet property="checkBoxBtn" destination="dx4-Gy-dwq" id="8XD-LC-CSa"/>
+                <outlet property="emailLabel" destination="9ou-05-mci" id="wLF-Hi-wRY"/>
+                <outlet property="nameLabel" destination="tTc-LA-3Ki" id="zI9-Go-giR"/>
+                <outlet property="phoneLabel" destination="TFw-EM-RVF" id="Gk5-cY-6JF"/>
+            </connections>
+            <point key="canvasLocation" x="337" y="244"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="addr_book_list_item_addr" width="22" height="22"/>
+        <image name="addr_book_list_item_email" width="22" height="22"/>
+        <image name="my_work_4" width="40" height="40"/>
+        <image name="my_work_5" width="40" height="40"/>
+    </resources>
+</document>
