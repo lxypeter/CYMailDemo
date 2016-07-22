@@ -8,6 +8,11 @@
 
 #import "MailContactCell.h"
 
+@implementation MailContactCellModel
+
+
+@end
+
 @implementation MailContactCell
 
 - (void)awakeFromNib {
@@ -15,9 +20,16 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+//    [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setModel:(MailContactCellModel *)model{
+    _model = model;
+    
+    self.titleLabel.text = model.title;
+    self.contentLabel.text = [model.content stringByReplacingOccurrencesOfString:@";" withString:@";\n"];
 }
 
 @end

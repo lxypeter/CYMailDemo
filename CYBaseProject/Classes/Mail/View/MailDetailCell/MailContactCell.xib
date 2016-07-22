@@ -3,63 +3,79 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MailContactCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MailContactCell" rowHeight="33" id="KGk-i7-Jjw" customClass="MailContactCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="32.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="收件人:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dth-bu-Knb">
-                        <rect key="frame" x="16" y="11" width="56" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="收件人:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dth-bu-Knb">
+                        <rect key="frame" x="16" y="8" width="46.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="one" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Kf-hv-XpH">
-                        <rect key="frame" x="77" y="13" width="228" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.13333333333333333" green="0.61176470588235299" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvM-jU-0Ey">
-                        <rect key="frame" x="275" y="5" width="40" height="33"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="-" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Kf-hv-XpH">
+                        <rect key="frame" x="145.5" y="8" width="144.5" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="a43-Wx-BGd"/>
-                            <constraint firstAttribute="height" constant="33" id="vgr-LI-Yxi"/>
+                            <constraint firstAttribute="width" constant="160" id="4WL-1i-D4T"/>
                         </constraints>
-                        <state key="normal" backgroundImage="M_Unfold"/>
-                        <state key="disabled" backgroundImage="M_Fold"/>
-                        <state key="selected" backgroundImage="M_Fold"/>
-                    </button>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="M_Fold" translatesAutoresizingMaskIntoConstraints="NO" id="eQZ-yb-8MY">
+                        <rect key="frame" x="291" y="5.5" width="25" height="21.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="eQZ-yb-8MY" secondAttribute="height" multiplier="7:6" id="jI2-rK-hVB"/>
+                            <constraint firstAttribute="width" constant="25" id="rLZ-no-uhL"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="rvM-jU-0Ey" firstAttribute="leading" secondItem="7Kf-hv-XpH" secondAttribute="trailing" priority="750" constant="10" id="101-xU-uOs"/>
+                    <constraint firstItem="7Kf-hv-XpH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4ip-r3-bGh"/>
                     <constraint firstItem="dth-bu-Knb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="92T-52-2lP"/>
+                    <constraint firstItem="eQZ-yb-8MY" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="CaJ-uI-KHL"/>
                     <constraint firstItem="dth-bu-Knb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="EnU-Fv-Ywx"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="7Kf-hv-XpH" secondAttribute="bottom" constant="3" id="Hgw-oz-yN8"/>
                     <constraint firstItem="7Kf-hv-XpH" firstAttribute="leading" secondItem="dth-bu-Knb" secondAttribute="trailing" constant="5" id="N8b-hO-nOS"/>
-                    <constraint firstAttribute="trailing" secondItem="7Kf-hv-XpH" secondAttribute="trailing" priority="751" constant="15" id="Xeo-i1-ef1"/>
-                    <constraint firstAttribute="trailing" secondItem="rvM-jU-0Ey" secondAttribute="trailing" constant="5" id="cHB-vj-2f6"/>
+                    <constraint firstAttribute="trailing" secondItem="eQZ-yb-8MY" secondAttribute="trailing" constant="4" id="OwE-ri-rZi"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="7Kf-hv-XpH" secondAttribute="bottom" constant="-0.5" id="Qz8-IV-NH3"/>
+                    <constraint firstAttribute="trailing" secondItem="7Kf-hv-XpH" secondAttribute="trailing" priority="751" constant="30" id="Xeo-i1-ef1"/>
+                    <constraint firstItem="7Kf-hv-XpH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="b5k-MR-lSY"/>
+                    <constraint firstItem="7Kf-hv-XpH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="c9a-S9-3lV"/>
+                    <constraint firstItem="eQZ-yb-8MY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oFD-AU-8j5"/>
                     <constraint firstItem="7Kf-hv-XpH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qca-Cf-yIf"/>
-                    <constraint firstItem="rvM-jU-0Ey" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tu8-8z-SM6"/>
+                    <constraint firstItem="7Kf-hv-XpH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="xNU-bd-c52"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="4ip-r3-bGh"/>
+                        <exclude reference="Hgw-oz-yN8"/>
+                        <exclude reference="N8b-hO-nOS"/>
+                        <exclude reference="b5k-MR-lSY"/>
+                        <exclude reference="c9a-S9-3lV"/>
+                        <exclude reference="qca-Cf-yIf"/>
+                        <exclude reference="CaJ-uI-KHL"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="FoldBtn" destination="rvM-jU-0Ey" id="oo0-Dp-qZ7"/>
-                <outlet property="contactOneLabel" destination="7Kf-hv-XpH" id="HSD-ef-uhS"/>
+                <outlet property="accessoryImageView" destination="eQZ-yb-8MY" id="FHZ-9o-Gjn"/>
+                <outlet property="contentLabel" destination="7Kf-hv-XpH" id="iRT-YF-jOL"/>
                 <outlet property="titleLabel" destination="dth-bu-Knb" id="Fhh-W4-cTF"/>
-                <outlet property="trailingWithBtn" destination="101-xU-uOs" id="iTR-A0-BJ3"/>
-                <outlet property="trailingWithSuper" destination="Xeo-i1-ef1" id="Drh-Ka-Eos"/>
             </connections>
-            <point key="canvasLocation" x="386" y="277"/>
+            <point key="canvasLocation" x="386" y="263.5"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="M_Fold" width="70" height="60"/>
-        <image name="M_Unfold" width="70" height="60"/>
     </resources>
 </document>

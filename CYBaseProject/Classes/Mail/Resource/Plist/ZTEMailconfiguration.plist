@@ -4,6 +4,8 @@
 <dict>
 	<key>189</key>
 	<dict>
+		<key>smtpAuthType</key>
+		<integer>2</integer>
 		<key>fetchMailHost</key>
 		<string>imap.189.cn</string>
 		<key>fetchMailPort</key>
@@ -21,6 +23,8 @@
 	</dict>
 	<key>sina</key>
 	<dict>
+		<key>smtpAuthType</key>
+		<integer>2</integer>
 		<key>fetchMailHost</key>
 		<string>imap.sina.com</string>
 		<key>fetchMailPort</key>
@@ -35,6 +39,44 @@
 		<string>sina.com</string>
 		<key>ssl</key>
 		<true/>
+	</dict>
+	<key>qq</key>
+	<dict>
+		<key>smtpAuthType</key>
+		<integer>2</integer>
+		<key>fetchMailHost</key>
+		<string>imap.qq.com</string>
+		<key>fetchMailPort</key>
+		<integer>993</integer>
+		<key>sendMailHost</key>
+		<string>smtp.qq.com</string>
+		<key>sendMailPort</key>
+		<integer>25</integer>
+		<key>mailStoreProtocol</key>
+		<string>imap</string>
+		<key>serverName</key>
+		<string>qq.com</string>
+		<key>ssl</key>
+		<true/>
+	</dict>
+	<key>163</key>
+	<dict>
+		<key>fetchMailHost</key>
+		<string>imap.163.com</string>
+		<key>fetchMailPort</key>
+		<integer>993</integer>
+		<key>sendMailHost</key>
+		<string>smtp.163.com</string>
+		<key>sendMailPort</key>
+		<integer>25</integer>
+		<key>mailStoreProtocol</key>
+		<string>imap</string>
+		<key>serverName</key>
+		<string>163.com</string>
+		<key>ssl</key>
+		<true/>
+		<key>smtpAuthType</key>
+		<integer>2</integer>
 	</dict>
 </dict>
 </plist>

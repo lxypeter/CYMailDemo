@@ -83,6 +83,7 @@
     }
     
     ZTEMailSessionUtil *sessionUtil = [ZTEMailSessionUtil shareUtil];
+    [sessionUtil clear];
     sessionUtil.username = username;
     sessionUtil.password = password;
     sessionUtil.imapHostname = configDict[@"fetchMailHost"];

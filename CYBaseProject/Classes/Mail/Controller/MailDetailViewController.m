@@ -10,7 +10,6 @@
 #import "MailInputView.h"
 #import "SheetView.h"
 #import "MailContactCell.h"
-#import "MailMoreContactCell.h"
 #import "AttachmentViewController.h"
 #import "MailFolderViewController.h"
 #import "MailEditeViewController.h"
@@ -22,6 +21,7 @@
 #import "ZTEMailAttachment.h"
 #import "ZTEMailCoreDataUtil.h"
 #import "ZTEFolderModel.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 typedef NS_ENUM(NSUInteger,FoldButtonTag){
     FoldButtonTagFrom,
@@ -42,22 +42,24 @@ static CGFloat ImageViewWidth = 20.f;
 
 @end
 
+static NSString *kMailDetailCellId = @"MailContactCell";
+
 @interface MailDetailViewController ()<SideSlipViewDelegate,UIWebViewDelegate,UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic,strong) SheetView *sv;
-@property (nonatomic,strong) NSArray *cellTitles;
-@property (nonatomic,strong) NSArray *ccArray;
-@property (nonatomic,strong) NSArray *toArray;
+@property (nonatomic, strong) SheetView *sv;
+@property (nonatomic, strong) NSArray *infosArray;
+@property (nonatomic, strong) NSArray *modifyIndexPaths;
+@property (nonatomic, strong) NSArray *ccArray;
+@property (nonatomic, strong) NSArray *toArray;
 @property (nonatomic, strong) NSArray<ZTEMailAttachment *> *attachments;
-@property (nonatomic,assign) NSInteger rowsCount ;
-@property (nonatomic,assign) BOOL isFold;
-@property (nonatomic,assign) BOOL isCopyFold;
-@property (nonatomic,assign) float webViewHeight;
-//TODO:考虑删除
-@property (nonatomic,strong) UIFont *textFont;
-@property (nonatomic,strong) NSString *folderName;
-@property (nonatomic,strong) SideSlipView *sideSlipView;
+@property (nonatomic, assign) CGFloat webViewHeight;
+@property (nonatomic, assign) CGFloat subjectHeight;
+@property (nonatomic, strong) NSString *folderName;
+@property (nonatomic, strong) SideSlipView *sideSlipView;
 @property (nonatomic, strong) AttachmentViewController *attachmentVC;
+@property (nonatomic, strong) UIView *footerView;
 @property (nonatomic, strong) UIWebView *mailDetailWebView;
+@property (nonatomic, strong) UIView *subjectView;
+@property (nonatomic, assign) BOOL isUnfold;
 
 @property (weak, nonatomic) IBOutlet UIView *attachmetnView;
 @property (weak, nonatomic) IBOutlet UIButton *showInputBtn;//弹出回复框
@@ -88,9 +90,6 @@ static CGFloat ImageViewWidth = 20.f;
 #pragma mark - init Views
 - (void)configureSubview{
     
-    self.rowsCount = 5;
-    self.isFold = YES;
-    self.isCopyFold = YES;
     self.title = @"邮件详情";
     
     //2.加载快速回复窗口
@@ -100,15 +99,18 @@ static CGFloat ImageViewWidth = 20.f;
     self.inputTextView = input.inputTextView;
     self.sv = [SheetView sheetViewWithContentView:input andSuperview:self.view];
     
+    self.subjectHeight = [self.mailModel.subject boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width-32, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kFont_20} context:nil].size.height+5;
+    
     self.myTableView.rowHeight = UITableViewAutomaticDimension;
-    self.myTableView.estimatedRowHeight = 44.0;
+    self.myTableView.estimatedRowHeight = 25;
+    [self.myTableView registerNib:[UINib nibWithNibName:kMailDetailCellId bundle:nil] forCellReuseIdentifier:kMailDetailCellId];
+    self.myTableView.backgroundColor = [UIColor whiteColor];
     
     //附件
-    [self.mailDetailWebView loadHTMLString:self.mailModel.content baseURL:nil];
     if(self.attachments.count>0){
         self.attachmetnView.hidden = NO;
     }
-
+    
     //顶部按钮
     [self configureTopButtonArea];
 }
@@ -198,16 +200,42 @@ static CGFloat ImageViewWidth = 20.f;
 
 #pragma mark tableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.rowsCount;
+    return self.isUnfold?self.infosArray.count:1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self configureCellWithIndexPath:indexPath];
+    
+    MailContactCell *cell = [tableView dequeueReusableCellWithIdentifier:kMailDetailCellId];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell setModel:self.infosArray[indexPath.row]];
+    
+    if (self.isUnfold) {
+        
+    }else{
+        
+    }
+    return cell;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    __weak typeof(self) weakSelf = self;
+    return [tableView fd_heightForCellWithIdentifier:kMailDetailCellId cacheByIndexPath:indexPath configuration:^(id cell) {
+        [cell setModel:weakSelf.infosArray[indexPath.row]];
+    }];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     if (section == 0) {
-        return self.mailDetailWebView;
+        return self.footerView;
+    }
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return self.subjectView;
     }
     return nil;
 }
@@ -220,7 +248,20 @@ static CGFloat ImageViewWidth = 20.f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return self.subjectHeight;
+    }
     return 0.1;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.isUnfold = !self.isUnfold;
+    
+    if (self.isUnfold) {
+        [self.myTableView insertRowsAtIndexPaths:self.modifyIndexPaths withRowAnimation:UITableViewRowAnimationTop];
+    }else{
+        [self.myTableView deleteRowsAtIndexPaths:self.modifyIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
+    }
 }
 
 #pragma mark webView
@@ -229,7 +270,7 @@ static CGFloat ImageViewWidth = 20.f;
     [self hideHud];
     
     //控制页面宽度
-    NSString *meta = [NSString stringWithFormat:@"document.getElementsByName(\"viewport\")[0].content = \"width=%f, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\"", webView.frame.size.width];
+    NSString *meta = [NSString stringWithFormat:@"document.getElementsByName(\"viewport\")[0].content = \"width=%f, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\"", [UIScreen mainScreen].bounds.size.width - 32];
     [webView stringByEvaluatingJavaScriptFromString:meta];
 
     //获取页面高度
@@ -238,7 +279,7 @@ static CGFloat ImageViewWidth = 20.f;
     newFrame.size.height= webViewHeight;
     newFrame.size.width = [UIScreen mainScreen].bounds.size.width;
     self.webViewHeight = webViewHeight;
-    webView.frame= newFrame;
+    self.footerView.frame= newFrame;
     
     [self.myTableView reloadData];
 }
@@ -257,113 +298,6 @@ static CGFloat ImageViewWidth = 20.f;
 }
 
 #pragma mark - Private Methods
-//折叠 contact
-- (void)foldCell:(NSUInteger)btnTag{
-    if (btnTag == FoldButtonTagCopy) {
-        self.isCopyFold = !self.isCopyFold;
-    }else if (btnTag == FoldButtonTagFrom) {
-        self.isFold = !self.isFold;
-    }
-    
-    int count = 5;
-    if(!self.isCopyFold&&!self.isFold){
-        count = 7;
-    }else if (self.isCopyFold==!self.isFold){
-        count = 6;
-    }
-    
-    self.rowsCount = count;
-    [self.myTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
-- (UITableViewCell *)configureCellWithIndexPath:(NSIndexPath *)indexPath
-{
-    if(indexPath.row <3){
-        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"null0"];
-        cell.textLabel.text = self.cellTitles[indexPath.row];
-        cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
-        cell.detailTextLabel.minimumScaleFactor = 0.8;
-        cell.detailTextLabel.numberOfLines = 0;
-        cell.detailTextLabel.font = kFont_15;
-        switch (indexPath.row) {
-            case 0:{
-                cell.detailTextLabel.text = self.mailModel.subject;
-                break;
-            }
-            case 1:{
-                NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-                formatter.dateFormat = @"yyyy-MM-dd hh:mm:ss";
-                cell.detailTextLabel.text = [formatter stringFromDate:self.mailModel.receivedDate];
-                cell.detailTextLabel.textColor = UICOLOR(@"#b0b0b0");
-                break;
-            }
-            case 2:
-                cell.detailTextLabel.text = self.mailModel.fromName;
-                cell.detailTextLabel.textColor = [UIColor colorWithRed:0.114 green:0.600 blue:0.902 alpha:1.000];
-                break;
-                
-            default:
-                break;
-        }
-        return cell;
-        
-    }
-    else if(indexPath.row == 3){//收件人
-        MailContactCell*cell = (MailContactCell*)([[[NSBundle mainBundle]loadNibNamed:@"MailContactCell" owner:nil options:nil]lastObject]);
-        
-        cell.contactOneLabel.text = self.toArray[0];
-        
-        self.isFold ?[cell.FoldBtn setSelected:NO] : [cell.FoldBtn setSelected:YES];
-        cell.FoldBtn.tag = FoldButtonTagFrom;
-        self.toArray.count >1?
-        [cell.FoldBtn addTarget:self action:@selector(FoldBtnClicked:) forControlEvents:UIControlEventTouchUpInside] : [cell.FoldBtn setHidden:YES];
-        cell.trailingWithBtn.priority = self.toArray.count >1?752:750;
-        self.textFont = cell.contactOneLabel.font;
-        return cell;
-    }
-    else if(indexPath.row == 4){//抄送人/收件人详情
-        
-        if (!self.isFold) {
-            MailMoreContactCell *cell = [[MailMoreContactCell alloc]initWithDataSource:self.toArray andTextFont:self.textFont];
-            return cell;
-        }
-        
-        MailContactCell *cell = (MailContactCell*)([[[NSBundle mainBundle]loadNibNamed:@"MailContactCell" owner:nil options:nil]lastObject]);
-        cell.titleLabel.text = @"抄送人:";
-        cell.contactOneLabel.text = self.ccArray.count>0?self.ccArray[0]:@"";
-        
-        self.isCopyFold ?[cell.FoldBtn setSelected:NO] : [cell.FoldBtn setSelected:YES];
-        cell.FoldBtn.tag = FoldButtonTagCopy;
-        self.ccArray.count >1?
-        [cell.FoldBtn addTarget:self action:@selector(FoldBtnClicked:) forControlEvents:UIControlEventTouchUpInside] : [cell.FoldBtn setHidden:YES];
-        cell.trailingWithBtn.priority = self.ccArray.count >1?752:750;
-        self.textFont = cell.contactOneLabel.font;
-        return cell;
-    }
-    else if(indexPath.row == 5){//抄送人/抄送人详情
-        
-        if (self.isFold&&!self.isCopyFold) {
-            MailMoreContactCell *cell = [[MailMoreContactCell alloc]initWithDataSource:self.ccArray andTextFont:self.textFont];
-            return cell;
-        }
-        
-        MailContactCell*cell = (MailContactCell*)([[[NSBundle mainBundle]loadNibNamed:@"MailContactCell" owner:nil options:nil]lastObject]);
-        cell.titleLabel.text = @"抄送人:";
-        cell.contactOneLabel.text = self.ccArray.count>0?self.ccArray[0]:@"";
-        
-        self.isCopyFold ?[cell.FoldBtn setSelected:NO] : [cell.FoldBtn setSelected:YES];
-        cell.FoldBtn.tag = FoldButtonTagCopy;
-        self.ccArray.count >1?
-        [cell.FoldBtn addTarget:self action:@selector(FoldBtnClicked:) forControlEvents:UIControlEventTouchUpInside] : [cell.FoldBtn setHidden:YES];
-        cell.trailingWithBtn.priority = self.ccArray.count >1?752:750;
-        self.textFont = cell.contactOneLabel.font;
-        return cell;
-    }else{
-        MailMoreContactCell *cell = [[MailMoreContactCell alloc]initWithDataSource:self.ccArray andTextFont:self.textFont];
-        return cell;
-    }
-}
-
 - (BOOL)isTrashFolder:(ZTEFolderModel *)folderModel{
     
     //根据目录标识
@@ -498,7 +432,6 @@ static CGFloat ImageViewWidth = 20.f;
     
 }
 
-
 #pragma mark - Event Response
 //弹出附件
 - (IBAction)attachmentBtnClicked:(UIButton *)sender {
@@ -526,17 +459,49 @@ static CGFloat ImageViewWidth = 20.f;
     [self sendMail];
 }
 
-//折叠联系人
-- (void)FoldBtnClicked:(UIButton *)sender{
-    [self foldCell:sender.tag];
+#pragma mark -Getters and Setters
+- (NSArray *)infosArray{
+    if(!_infosArray){
+        NSMutableArray *infosArray = [NSMutableArray array];
+        MailContactCellModel *sendModel = [[MailContactCellModel alloc]init];
+        sendModel.title = @"发件人：";
+        sendModel.content = [NSString isBlankString:self.mailModel.fromName]?self.mailModel.fromAddress:self.mailModel.fromName;
+        [infosArray addObject:sendModel];
+        
+        MailContactCellModel *receiveModel = [[MailContactCellModel alloc]init];
+        receiveModel.title = @"收件人：";
+        receiveModel.content = self.mailModel.to;
+        [infosArray addObject:receiveModel];
+        
+        if(![NSString isBlankString:self.mailModel.cc]){
+            MailContactCellModel *ccModel = [[MailContactCellModel alloc]init];
+            ccModel.title = @"抄送人：";
+            ccModel.content = self.mailModel.cc;
+            [infosArray addObject:ccModel];
+        }
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+        formatter.dateFormat = @"yyyy-MM-dd hh:mm:ss";
+        MailContactCellModel *dateModel = [[MailContactCellModel alloc]init];
+        dateModel.title = @"时间：";
+        dateModel.content = [formatter stringFromDate:self.mailModel.receivedDate];
+        [infosArray addObject:dateModel];
+        
+        _infosArray = [infosArray copy];
+    }
+    return _infosArray;
 }
 
-#pragma mark -Getters and Setters
-- (NSArray *)cellTitles{
-    if(!_cellTitles){
-        _cellTitles = @[@"主    题:",@"日    期:",@"发件人:"];
+- (NSArray *)modifyIndexPaths{
+    if (!_modifyIndexPaths) {
+        NSMutableArray *modifyIndexPaths = [NSMutableArray array];
+        for (NSInteger i=1; i<self.infosArray.count; i++) {
+            NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:0];
+            [modifyIndexPaths addObject:ip];
+        }
+        _modifyIndexPaths = [modifyIndexPaths copy];
     }
-    return _cellTitles;
+    return _modifyIndexPaths;
 }
 
 - (NSArray *)toArray{
@@ -611,8 +576,50 @@ static CGFloat ImageViewWidth = 20.f;
         _mailDetailWebView = [[UIWebView alloc]init];
         _mailDetailWebView.delegate = self;
         _mailDetailWebView.scrollView.bounces = NO;
+        [_mailDetailWebView loadHTMLString:self.mailModel.content baseURL:nil];
     }
     return _mailDetailWebView;
+}
+
+- (UIView *)footerView{
+    if (!_footerView) {
+        _footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 1)];
+        UIView *seperationLine = [[UIView alloc]init];
+        seperationLine.backgroundColor = [UIColor darkGrayColor];
+        [_footerView addSubview:seperationLine];
+        [seperationLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(0);
+            make.left.mas_equalTo(16);
+            make.right.mas_equalTo(-16);
+            make.height.mas_equalTo(0.5);
+        }];
+        [_footerView addSubview:self.mailDetailWebView];
+        [self.mailDetailWebView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(1);
+            make.left.mas_equalTo(16);
+            make.right.mas_equalTo(-16);
+            make.bottom.mas_equalTo(0);
+        }];
+    }
+    return _footerView;
+}
+
+- (UIView *)subjectView{
+    if (!_subjectView) {
+        _subjectView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0)];
+        UILabel *titleLabel = [[UILabel alloc]init];
+        titleLabel.font = kFont_20;
+        titleLabel.text = self.mailModel.subject;
+        titleLabel.numberOfLines = 0;
+        [_subjectView addSubview:titleLabel];
+        [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(0);
+            make.left.mas_equalTo(16);
+            make.right.mas_equalTo(-16);
+            make.bottom.mas_equalTo(0);
+        }];
+    }
+    return _subjectView;
 }
 
 @end

@@ -23,6 +23,7 @@ static NSString * const ZTEMailUsersKey = @"ZTEMailUsers";
 @property (nonatomic, assign) NSInteger sendMailPort;
 @property (nonatomic, copy) NSString *mailStoreProtocol;
 @property (nonatomic, assign) BOOL ssl;
+@property (nonatomic, assign) NSInteger smtpAuthType;
 
 + (ZTEMailUser *)shareUser;
 

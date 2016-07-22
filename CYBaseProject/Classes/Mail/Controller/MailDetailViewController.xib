@@ -107,12 +107,12 @@
                         <constraint firstAttribute="height" constant="40" id="JIa-z8-Nn0"/>
                     </constraints>
                 </scrollView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="24K-Mo-Zhs">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="24K-Mo-Zhs">
                     <rect key="frame" x="0.0" y="40" width="375" height="582"/>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="QFB-4b-maT"/>
-                        <outlet property="delegate" destination="-1" id="ZEW-w4-Ykw"/>
+                        <outlet property="delegate" destination="-1" id="ico-ph-rUz"/>
                     </connections>
                 </tableView>
             </subviews>

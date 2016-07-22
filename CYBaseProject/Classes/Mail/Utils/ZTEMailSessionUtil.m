@@ -107,6 +107,11 @@
     self.smtpSession.port = _smtpPort;
 }
 
+- (void)setSmtpAuthType:(NSInteger)smtpAuthType{
+    _smtpAuthType = smtpAuthType;
+    self.smtpSession.authType = smtpAuthType;
+}
+
 #pragma mark - 邮箱方法
 /**
  *  @author CY.Lee, 16-07-12 10:07:43

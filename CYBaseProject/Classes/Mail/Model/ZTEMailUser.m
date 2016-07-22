@@ -92,7 +92,8 @@
              @"serverName":self.serverName.length == 0 ? @"" : self.serverName,
              @"nickName":self.nickName.length == 0 ? self.username : self.nickName,
              @"realName":self.realName.length == 0 ? @"" : self.realName,
-             @"ssl":@(self.ssl)
+             @"ssl":@(self.ssl),
+             @"smtpAuthType":@(self.smtpAuthType)
              };
 }
 

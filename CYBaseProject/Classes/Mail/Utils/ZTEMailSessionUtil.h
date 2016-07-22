@@ -87,6 +87,7 @@ typedef NS_OPTIONS(NSInteger, ZTEMailFolderFlag) {
 @property (nonatomic, assign) ZTEMailConnectionType imapConnectionType;
 @property (nonatomic, copy) NSString *smtpHostname;
 @property (nonatomic, assign) NSInteger smtpPort;
+@property (nonatomic, assign) NSInteger smtpAuthType;
 
 + (ZTEMailSessionUtil *)shareUtil;
 

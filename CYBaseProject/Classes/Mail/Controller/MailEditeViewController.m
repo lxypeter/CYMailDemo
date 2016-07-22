@@ -324,9 +324,9 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
 #pragma mark - NetworkMethod
 -(void)sendMail{
     
-    NSMutableArray *toArrs =(NSMutableArray *) [self.toAddr.string componentsSeparatedByString:@","] ;
-    NSMutableArray *ccArrs =(NSMutableArray *) [self.ccAddr.string componentsSeparatedByString:@","];
-    NSMutableArray *bccArrs = (NSMutableArray *) [self.bccAddr.string componentsSeparatedByString:@","];
+    NSMutableArray *toArrs =[NSMutableArray arrayWithArray:[self.toAddr.string componentsSeparatedByString:@","]] ;
+    NSMutableArray *ccArrs =[NSMutableArray arrayWithArray:[self.ccAddr.string componentsSeparatedByString:@","]];
+    NSMutableArray *bccArrs = [NSMutableArray arrayWithArray:[self.bccAddr.string componentsSeparatedByString:@","]];
     [toArrs enumerateObjectsUsingBlock:^(NSString *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([NSString isBlankString:obj]) {
             [toArrs removeObject:obj];
@@ -387,7 +387,7 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
     
 }
 
--(void)rightBtnClicked:(UIButton *)sender
+- (void)rightBtnClicked:(UIButton *)sender
 {
     if([NSString isBlankString: self.toAddr.string] ){
         [self.view makeToast:@"请您选择收件人!"];
@@ -403,11 +403,31 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
 
 
 #pragma mark -Getters and Setters
--(NSMutableArray *)attachments{
+- (NSMutableArray *)attachments{
     if(!_attachments){
         _attachments  = [NSMutableArray array];
     }
     return _attachments;
 }
 
+- (NSMutableAttributedString *)toAddr{
+    if (!_toAddr) {
+        _toAddr = [NSMutableAttributedString new];
+    }
+    return _toAddr;
+}
+
+- (NSMutableAttributedString *)ccAddr{
+    if (!_ccAddr) {
+        _ccAddr = [NSMutableAttributedString new];
+    }
+    return _ccAddr;
+}
+
+- (NSMutableAttributedString *)bccAddr{
+    if (!_bccAddr) {
+        _bccAddr = [NSMutableAttributedString new];
+    }
+    return _bccAddr;
+}
 @end

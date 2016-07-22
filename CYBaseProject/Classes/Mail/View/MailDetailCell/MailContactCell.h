@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@interface MailContactCellModel : NSObject
+
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *content;
+
+@end
+
 @interface MailContactCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *contactOneLabel;
-@property (weak, nonatomic) IBOutlet UIButton *FoldBtn;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *trailingWithSuper;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *trailingWithBtn;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *accessoryImageView;
+
+@property (strong, nonatomic) MailContactCellModel *model;
 
 @end

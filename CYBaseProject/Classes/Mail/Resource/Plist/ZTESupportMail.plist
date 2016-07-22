@@ -14,5 +14,17 @@
 		<key>configKey</key>
 		<string>189</string>
 	</dict>
+	<dict>
+		<key>address</key>
+		<string>qq.com</string>
+		<key>configKey</key>
+		<string>qq</string>
+	</dict>
+	<dict>
+		<key>address</key>
+		<string>163.com</string>
+		<key>configKey</key>
+		<string>163</string>
+	</dict>
 </array>
 </plist>
