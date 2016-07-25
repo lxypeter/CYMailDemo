@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *departmentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *attachIconImageView;
 
 @property (nonatomic, strong) ZTEMailModel *mailModel;
 

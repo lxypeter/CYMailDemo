@@ -63,7 +63,6 @@
 - (MCOSMTPSession *)smtpSession{
     if (!_smtpSession) {
         _smtpSession = [[MCOSMTPSession alloc] init];
-        _smtpSession.authType = MCOAuthTypeSASLPlain;
         _smtpSession.connectionType = MCOConnectionTypeClear;
     }
     return _smtpSession;
@@ -208,7 +207,7 @@
 
      MCOIMAPMessagesRequestKindInternalDate |MCOIMAPMessagesRequestKindHeaderSubject |
 
-     MCOIMAPMessagesRequestKindFlags);
+     MCOIMAPMessagesRequestKindFlags |MCOIMAPMessagesRequestKindFullHeaders);
 
     MCOIndexSet *numberRange = [MCOIndexSet indexSetWithRange:MCORangeMake(location,size)];
 
@@ -242,7 +241,7 @@
      
      MCOIMAPMessagesRequestKindInternalDate |MCOIMAPMessagesRequestKindHeaderSubject |
      
-     MCOIMAPMessagesRequestKindFlags);
+     MCOIMAPMessagesRequestKindFlags |MCOIMAPMessagesRequestKindFullHeaders);
     
     MCOIndexSet *uids = [MCOIndexSet indexSetWithRange:MCORangeMake(startUid,length)];
     
@@ -425,7 +424,7 @@
     }];
 }
 
-#pragma SMTP
+#pragma mark SMTP
 /**
  *  @author CY.Lee, 16-07-18 15:07:06
  *

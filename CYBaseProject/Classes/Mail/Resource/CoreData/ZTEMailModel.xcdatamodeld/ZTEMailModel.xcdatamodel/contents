@@ -19,6 +19,7 @@
         <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="ZTEMailModel" representedClassName="ZTEMailModel" syncable="YES">
+        <attribute name="attachmentCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="bcc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
@@ -36,6 +37,6 @@
     <elements>
         <element name="ZTEFolderModel" positionX="-54" positionY="81" width="128" height="180"/>
         <element name="ZTEMailAttachment" positionX="-54" positionY="81" width="128" height="120"/>
-        <element name="ZTEMailModel" positionX="-380" positionY="-69" width="128" height="240"/>
+        <element name="ZTEMailModel" positionX="-380" positionY="-69" width="128" height="255"/>
     </elements>
 </model>

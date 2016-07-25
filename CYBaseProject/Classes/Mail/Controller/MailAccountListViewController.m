@@ -12,6 +12,8 @@
 #import "ZTEMailUser.h"
 #import "Masonry.h"
 #import "MailLoginViewController.h"
+#import "ZTEMailCoreDataUtil.h"
+#import <CoreData/CoreData.h>
 
 @interface MailAccountListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -124,11 +126,41 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     ZTEMailUser *user = self.accounts[indexPath.row];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self clearCacheWithUsername:user.username];
         [ZTEMailUser clearAccountInfo:user];
+        [self.accounts removeObjectAtIndex:indexPath.row];
+        [self.accountTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
     }
-    [self.accounts removeObjectAtIndex:indexPath.row];
+}
+
+#pragma mark - CoreData Method
+- (void)clearCacheWithUsername:(NSString *)username{
+    NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
+    //删除邮件缓存
+    NSFetchRequest *mailRequest = [NSFetchRequest fetchRequestWithEntityName:@"ZTEMailModel"];
+    NSPredicate *mailPre = [NSPredicate predicateWithFormat:@"ownerAddress=%@",username];
+    mailRequest.predicate = mailPre;
+    NSError *error = nil;
+    NSArray *mails = [coreDataContext executeFetchRequest:mailRequest error:&error];
+    if (!error&&mails.count>0) {
+        for (id mailModel in mails) {
+            [coreDataContext deleteObject:mailModel];
+        }
+        [coreDataContext save:nil];
+    }
     
-    [self.accountTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+    //删除附件缓存
+    NSFetchRequest *attachRequest = [NSFetchRequest fetchRequestWithEntityName:@"ZTEMailAttachment"];
+    NSPredicate *attachPre = [NSPredicate predicateWithFormat:@"ownerAddress=%@",username];
+    attachRequest.predicate = attachPre;
+    error = nil;
+    NSArray *attachs = [coreDataContext executeFetchRequest:attachRequest error:&error];
+    if (!error&&attachs.count>0) {
+        for (id attachModel in attachs) {
+            [coreDataContext deleteObject:attachModel];
+        }
+        [coreDataContext save:nil];
+    }
 }
 
 #pragma mark - Accessors

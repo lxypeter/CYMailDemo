@@ -92,6 +92,7 @@
     sessionUtil.smtpPort = [configDict[@"sendMailPort"] integerValue];
     sessionUtil.realname = @"";
     sessionUtil.nickname = self.nicknameTextField.text;
+    sessionUtil.smtpAuthType = [configDict[@"smtpAuthType"] integerValue];
     if ([configDict[@"ssl"] boolValue]) {
         sessionUtil.imapConnectionType = ZTEMailConnectionTypeTLS;
     }else{
@@ -149,6 +150,7 @@
         user.sendMailPort = weakSession.smtpPort;
         user.realName = weakSession.realname;
         user.nickName = weakSession.nickname;
+        user.smtpAuthType = weakSession.smtpAuthType;
         user.ssl = (weakSession.imapConnectionType == ZTEMailConnectionTypeTLS);
         // 存储登录成功的帐号
         [ZTEMailUser storeAccountInfo:user];

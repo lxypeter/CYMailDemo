@@ -227,6 +227,7 @@ static NSString *const demoCellReuseIdentifier = @"MailListCell";
         }
         mailListModel.to = to;
         NSArray *attachments = message.attachments;
+        mailListModel.attachmentCount = @(attachments.count);
         for (MCOIMAPPart *attachment in attachments) {
             ZTEMailAttachment *mailAttachment = [NSEntityDescription insertNewObjectForEntityForName:@"ZTEMailAttachment" inManagedObjectContext:coreDataContext];
             mailAttachment.ownerAddress = mailListModel.ownerAddress;

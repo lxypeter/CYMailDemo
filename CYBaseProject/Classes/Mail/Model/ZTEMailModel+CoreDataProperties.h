@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *cc;
 @property (nullable, nonatomic, retain) NSString *to;
 @property (nullable, nonatomic, retain) NSString *content;
+@property (nullable, nonatomic, retain) NSNumber *attachmentCount;
 
 @end
 

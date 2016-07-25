@@ -22,5 +22,10 @@
 @dynamic read;
 @dynamic folderPath;
 @dynamic ownerAddress;
+@dynamic bcc;
+@dynamic cc;
+@dynamic to;
+@dynamic content;
+@dynamic attachmentCount;
 
 @end

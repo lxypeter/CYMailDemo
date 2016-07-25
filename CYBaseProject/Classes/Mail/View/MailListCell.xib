@@ -39,11 +39,20 @@
                             <constraint firstAttribute="height" constant="16" id="OCp-Za-8ZG"/>
                         </constraints>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attachment_lte" translatesAutoresizingMaskIntoConstraints="NO" id="7W1-1f-uWp">
+                        <rect key="frame" x="241" y="11" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="iP3-jC-01H"/>
+                            <constraint firstAttribute="height" constant="20" id="wmf-l4-jow"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Cd9-hl-YTi" firstAttribute="leading" secondItem="aJ8-ny-HuI" secondAttribute="leading" id="0S4-i3-cfF"/>
                     <constraint firstAttribute="bottom" secondItem="Cd9-hl-YTi" secondAttribute="bottom" constant="11.5" id="9xM-cE-0fd"/>
+                    <constraint firstItem="QNX-aE-xMv" firstAttribute="centerY" secondItem="7W1-1f-uWp" secondAttribute="centerY" id="BfA-Ju-Sx4"/>
                     <constraint firstItem="TtD-j1-yIz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Fw6-I8-N8h"/>
+                    <constraint firstItem="QNX-aE-xMv" firstAttribute="leading" secondItem="7W1-1f-uWp" secondAttribute="trailing" constant="10" id="Uu1-dS-cDO"/>
                     <constraint firstAttribute="trailing" secondItem="Cd9-hl-YTi" secondAttribute="trailing" constant="16" id="gnF-Ai-ziW"/>
                     <constraint firstAttribute="trailing" secondItem="QNX-aE-xMv" secondAttribute="trailing" constant="16" id="jSJ-AW-sfL"/>
                     <constraint firstItem="QNX-aE-xMv" firstAttribute="centerY" secondItem="aJ8-ny-HuI" secondAttribute="centerY" id="jru-qT-YqR"/>
@@ -54,6 +63,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="attachIconImageView" destination="7W1-1f-uWp" id="8ps-U0-Qmm"/>
                 <outlet property="contentLabel" destination="Cd9-hl-YTi" id="dEn-xL-0Me"/>
                 <outlet property="departmentLabel" destination="aJ8-ny-HuI" id="VcI-nJ-0gQ"/>
                 <outlet property="timeLabel" destination="QNX-aE-xMv" id="cOS-1a-poY"/>
@@ -63,6 +73,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="attachment_lte" width="32" height="32"/>
         <image name="mUnread" width="26" height="26"/>
     </resources>
 </document>

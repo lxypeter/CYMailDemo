@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -22,8 +21,8 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="-" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Kf-hv-XpH">
-                        <rect key="frame" x="145.5" y="8" width="144.5" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Kf-hv-XpH">
+                        <rect key="frame" x="150" y="8" width="160" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="160" id="4WL-1i-D4T"/>
                         </constraints>
@@ -31,27 +30,17 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="M_Fold" translatesAutoresizingMaskIntoConstraints="NO" id="eQZ-yb-8MY">
-                        <rect key="frame" x="291" y="5.5" width="25" height="21.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="eQZ-yb-8MY" secondAttribute="height" multiplier="7:6" id="jI2-rK-hVB"/>
-                            <constraint firstAttribute="width" constant="25" id="rLZ-no-uhL"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="7Kf-hv-XpH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4ip-r3-bGh"/>
                     <constraint firstItem="dth-bu-Knb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="92T-52-2lP"/>
-                    <constraint firstItem="eQZ-yb-8MY" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="CaJ-uI-KHL"/>
                     <constraint firstItem="dth-bu-Knb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="EnU-Fv-Ywx"/>
                     <constraint firstAttribute="bottomMargin" secondItem="7Kf-hv-XpH" secondAttribute="bottom" constant="3" id="Hgw-oz-yN8"/>
                     <constraint firstItem="7Kf-hv-XpH" firstAttribute="leading" secondItem="dth-bu-Knb" secondAttribute="trailing" constant="5" id="N8b-hO-nOS"/>
-                    <constraint firstAttribute="trailing" secondItem="eQZ-yb-8MY" secondAttribute="trailing" constant="4" id="OwE-ri-rZi"/>
                     <constraint firstAttribute="bottomMargin" secondItem="7Kf-hv-XpH" secondAttribute="bottom" constant="-0.5" id="Qz8-IV-NH3"/>
-                    <constraint firstAttribute="trailing" secondItem="7Kf-hv-XpH" secondAttribute="trailing" priority="751" constant="30" id="Xeo-i1-ef1"/>
+                    <constraint firstAttribute="trailing" secondItem="7Kf-hv-XpH" secondAttribute="trailing" priority="751" constant="10" id="Xeo-i1-ef1"/>
                     <constraint firstItem="7Kf-hv-XpH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="b5k-MR-lSY"/>
                     <constraint firstItem="7Kf-hv-XpH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="c9a-S9-3lV"/>
-                    <constraint firstItem="eQZ-yb-8MY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oFD-AU-8j5"/>
                     <constraint firstItem="7Kf-hv-XpH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qca-Cf-yIf"/>
                     <constraint firstItem="7Kf-hv-XpH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="xNU-bd-c52"/>
                 </constraints>
@@ -63,19 +52,14 @@
                         <exclude reference="b5k-MR-lSY"/>
                         <exclude reference="c9a-S9-3lV"/>
                         <exclude reference="qca-Cf-yIf"/>
-                        <exclude reference="CaJ-uI-KHL"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="accessoryImageView" destination="eQZ-yb-8MY" id="FHZ-9o-Gjn"/>
                 <outlet property="contentLabel" destination="7Kf-hv-XpH" id="iRT-YF-jOL"/>
                 <outlet property="titleLabel" destination="dth-bu-Knb" id="Fhh-W4-cTF"/>
             </connections>
             <point key="canvasLocation" x="386" y="263.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="M_Fold" width="70" height="60"/>
-    </resources>
 </document>

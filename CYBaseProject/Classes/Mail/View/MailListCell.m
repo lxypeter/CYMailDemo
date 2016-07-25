@@ -28,12 +28,17 @@
         subject = @"(无题)";
     }
     self.contentLabel.text = subject;
-    self.departmentLabel.text = mailModel.fromName;
+    
+    NSString *from = mailModel.fromName;
+    if ([NSString isBlankString:from]) {
+        from = mailModel.fromAddress;
+    }
+    self.departmentLabel.text = from;
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     formatter.dateFormat = @"yyyy-MM-dd hh:mm:ss";
     self.timeLabel.text = [formatter stringFromDate:mailModel.receivedDate];
-    
-    self.unReadImage.image    = [mailModel.read boolValue] ? [UIImage imageNamed:@"mRead"] : [UIImage imageNamed:@"mUnread"];
+    self.attachIconImageView.hidden = ([mailModel.attachmentCount integerValue]<=0);
+    self.unReadImage.image = [mailModel.read boolValue] ? [UIImage imageNamed:@"mRead"] : [UIImage imageNamed:@"mUnread"];
     
 }
 

@@ -396,6 +396,7 @@ void IMAPSession::init()
     mFirstUnseenUid = 0;
     mYahooServer = false;
     mRamblerRuServer = false;
+    mHermesServer = false;
     mLastFetchedSequenceNumber = 0;
     mCurrentFolder = NULL;
     pthread_mutex_init(&mIdleLock, NULL);
@@ -715,6 +716,7 @@ void IMAPSession::connect(ErrorCode * pError)
             mNamespaceEnabled = true;
         }
         mRamblerRuServer = (mHostname->locationOfString(MCSTR(".rambler.ru")) != -1);
+        mHermesServer = (mWelcomeString->locationOfString(MCSTR("Hermes")) != -1);
     }
     
     mState = STATE_CONNECTED;
@@ -3444,7 +3446,6 @@ IndexSet * IMAPSession::search(String * folder, IMAPSearchExpression * expressio
 {
     struct mailimap_search_key * key;
     
-    key = searchKeyFromSearchExpression(expression);
     selectIfNeeded(folder, pError);
     if (* pError != ErrorNone)
         return NULL;
@@ -3457,6 +3458,7 @@ IndexSet * IMAPSession::search(String * folder, IMAPSearchExpression * expressio
     }
     
     int r;
+    key = searchKeyFromSearchExpression(expression);
     if (mIsGmail) {
         r = mailimap_uid_search_literalplus(mImap, charset, key, &result_list);
     }
@@ -4227,8 +4229,13 @@ void IMAPSession::applyCapabilities(IndexSet * capabilities)
     if (capabilities->containsIndex(IMAPCapabilityXOAuth2)) {
         mXOauth2Enabled = true;
     }
-    if (capabilities->containsIndex(IMAPCapabilityNamespace)) {
-        mNamespaceEnabled = true;
+    if (mHermesServer) {
+        // Hermes server improperly advertise a namespace capability.
+    }
+    else {
+        if (capabilities->containsIndex(IMAPCapabilityNamespace)) {
+            mNamespaceEnabled = true;
+        }
     }
     if (capabilities->containsIndex(IMAPCapabilityCompressDeflate)) {
         mCompressionEnabled = true;
@@ -4329,11 +4336,12 @@ String * IMAPSession::htmlRendering(IMAPMessage * message, String * folder, Erro
                                                            NULL);
     * pError = dataCallback->error();
     
+    MC_SAFE_RELEASE(dataCallback);
+
     if (* pError != ErrorNone) {
         return NULL;
     }
     
-    MC_SAFE_RELEASE(dataCallback);
     return htmlString;
 }
 
@@ -4350,12 +4358,13 @@ String * IMAPSession::htmlBodyRendering(IMAPMessage * message, String * folder, 
 
     * pError = dataCallback->error();
     
+    MC_SAFE_RELEASE(dataCallback);
+    MC_SAFE_RELEASE(htmlCallback);
+
     if (* pError != ErrorNone) {
         return NULL;
     }
     
-    MC_SAFE_RELEASE(dataCallback);
-    MC_SAFE_RELEASE(htmlCallback);
     return htmlBodyString;
 }
 
@@ -4412,10 +4421,10 @@ bool IMAPSession::enableFeature(String * feature)
     
     struct mailimap_capability_data * result;
     r = mailimap_enable(mImap, caps, &result);
+    mailimap_capability_data_free(caps);
     if (r != MAILIMAP_NO_ERROR)
         return false;
     
-    mailimap_capability_data_free(caps);
     mailimap_capability_data_free(result);
     
     return true;

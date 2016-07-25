@@ -210,9 +210,21 @@ static NSString *kMailDetailCellId = @"MailContactCell";
     [cell setModel:self.infosArray[indexPath.row]];
     
     if (self.isUnfold) {
-        
+        if(indexPath.row == self.infosArray.count-1){
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 20, 20*6/7)];
+            imageView.image = [UIImage imageNamed:@"M_Fold"];
+            cell.accessoryView = imageView;
+        }else{
+            cell.accessoryView = nil;
+        }
     }else{
-        
+        if(indexPath.row == 0){
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 20, 20*6/7)];
+            imageView.image = [UIImage imageNamed:@"M_Unfold"];
+            cell.accessoryView = imageView;
+        }else{
+            cell.accessoryView = nil;
+        }
     }
     return cell;
     
@@ -262,6 +274,8 @@ static NSString *kMailDetailCellId = @"MailContactCell";
     }else{
         [self.myTableView deleteRowsAtIndexPaths:self.modifyIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
     }
+    
+    [self.myTableView reloadData];
 }
 
 #pragma mark webView
