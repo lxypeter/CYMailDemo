@@ -8,7 +8,7 @@
 
 #import "ZTEBaseMailViewController.h"
 
-@interface MailTopButton : UIButton
+@interface MailBottomButton : UIButton
 
 @end
 

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E1CC2EDC1D3E0C1B005FEA04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC2EDB1D3E0C1B005FEA04 /* ViewController.m */; };
 		E1CC33B51D3E0C86005FEA04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC2EEF1D3E0C85005FEA04 /* AppDelegate.m */; };
 		E1CC33B61D3E0C86005FEA04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CC2EF01D3E0C85005FEA04 /* LaunchScreen.storyboard */; };
 		E1CC33B71D3E0C86005FEA04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CC2EF21D3E0C85005FEA04 /* Main.storyboard */; };
@@ -132,14 +131,9 @@
 		E1CC37AE1D3E1589005FEA04 /* ZTEMailModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37391D3E1589005FEA04 /* ZTEMailModel.xcdatamodeld */; };
 		E1CC37BE1D3E1589005FEA04 /* ZTEMailconfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1CC374C1D3E1589005FEA04 /* ZTEMailconfiguration.plist */; };
 		E1CC37BF1D3E1589005FEA04 /* ZTESupportMail.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1CC374D1D3E1589005FEA04 /* ZTESupportMail.plist */; };
-		E1CC37C91D3E1589005FEA04 /* MailContactListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37661D3E1589005FEA04 /* MailContactListCell.m */; };
-		E1CC37CA1D3E1589005FEA04 /* MailContactListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37671D3E1589005FEA04 /* MailContactListCell.xib */; };
 		E1CC37CB1D3E1589005FEA04 /* MailAttachmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC376A1D3E1589005FEA04 /* MailAttachmentTableViewCell.m */; };
 		E1CC37CC1D3E1589005FEA04 /* MailContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC376C1D3E1589005FEA04 /* MailContactCell.m */; };
 		E1CC37CD1D3E1589005FEA04 /* MailContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC376D1D3E1589005FEA04 /* MailContactCell.xib */; };
-		E1CC37CE1D3E1589005FEA04 /* MailInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC376F1D3E1589005FEA04 /* MailInputView.m */; };
-		E1CC37CF1D3E1589005FEA04 /* MailInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37701D3E1589005FEA04 /* MailInputView.xib */; };
-		E1CC37D01D3E1589005FEA04 /* MailMoreContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37721D3E1589005FEA04 /* MailMoreContactCell.m */; };
 		E1CC37D11D3E1589005FEA04 /* MailAddAddrCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37751D3E1589005FEA04 /* MailAddAddrCell.m */; };
 		E1CC37D21D3E1589005FEA04 /* MailAddAddrCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37761D3E1589005FEA04 /* MailAddAddrCell.xib */; };
 		E1CC37D31D3E1589005FEA04 /* MailAttachmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37781D3E1589005FEA04 /* MailAttachmentCell.m */; };
@@ -150,7 +144,6 @@
 		E1CC37D81D3E1589005FEA04 /* MailTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC377F1D3E1589005FEA04 /* MailTopicCell.xib */; };
 		E1CC37D91D3E1589005FEA04 /* MailListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37811D3E1589005FEA04 /* MailListCell.m */; };
 		E1CC37DA1D3E1589005FEA04 /* MailListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37821D3E1589005FEA04 /* MailListCell.xib */; };
-		E1CC37DB1D3E1589005FEA04 /* SheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37841D3E1589005FEA04 /* SheetView.m */; };
 		E1CC37E71D3E16C0005FEA04 /* DocPreviewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37DE1D3E16C0005FEA04 /* DocPreviewUtil.m */; };
 		E1CC37E81D3E16C0005FEA04 /* MailAddAddrTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37E01D3E16C0005FEA04 /* MailAddAddrTextParser.m */; };
 		E1CC37E91D3E16C0005FEA04 /* YYSandBoxUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37E21D3E16C0005FEA04 /* YYSandBoxUtil.m */; };
@@ -260,8 +253,6 @@
 
 /* Begin PBXFileReference section */
 		E1CC2ED11D3E0C1B005FEA04 /* CYMailDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CYMailDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1CC2EDA1D3E0C1B005FEA04 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E1CC2EDB1D3E0C1B005FEA04 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E1CC2EEE1D3E0C85005FEA04 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E1CC2EEF1D3E0C85005FEA04 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E1CC2EF11D3E0C85005FEA04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -510,19 +501,11 @@
 		E1CC373A1D3E1589005FEA04 /* ZTEMailModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZTEMailModel.xcdatamodel; sourceTree = "<group>"; };
 		E1CC374C1D3E1589005FEA04 /* ZTEMailconfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ZTEMailconfiguration.plist; sourceTree = "<group>"; };
 		E1CC374D1D3E1589005FEA04 /* ZTESupportMail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ZTESupportMail.plist; sourceTree = "<group>"; };
-		E1CC37651D3E1589005FEA04 /* MailContactListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailContactListCell.h; sourceTree = "<group>"; };
-		E1CC37661D3E1589005FEA04 /* MailContactListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailContactListCell.m; sourceTree = "<group>"; };
-		E1CC37671D3E1589005FEA04 /* MailContactListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailContactListCell.xib; sourceTree = "<group>"; };
 		E1CC37691D3E1589005FEA04 /* MailAttachmentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAttachmentTableViewCell.h; sourceTree = "<group>"; };
 		E1CC376A1D3E1589005FEA04 /* MailAttachmentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAttachmentTableViewCell.m; sourceTree = "<group>"; };
 		E1CC376B1D3E1589005FEA04 /* MailContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailContactCell.h; sourceTree = "<group>"; };
 		E1CC376C1D3E1589005FEA04 /* MailContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailContactCell.m; sourceTree = "<group>"; };
 		E1CC376D1D3E1589005FEA04 /* MailContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailContactCell.xib; sourceTree = "<group>"; };
-		E1CC376E1D3E1589005FEA04 /* MailInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailInputView.h; sourceTree = "<group>"; };
-		E1CC376F1D3E1589005FEA04 /* MailInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailInputView.m; sourceTree = "<group>"; };
-		E1CC37701D3E1589005FEA04 /* MailInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailInputView.xib; sourceTree = "<group>"; };
-		E1CC37711D3E1589005FEA04 /* MailMoreContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailMoreContactCell.h; sourceTree = "<group>"; };
-		E1CC37721D3E1589005FEA04 /* MailMoreContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailMoreContactCell.m; sourceTree = "<group>"; };
 		E1CC37741D3E1589005FEA04 /* MailAddAddrCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAddAddrCell.h; sourceTree = "<group>"; };
 		E1CC37751D3E1589005FEA04 /* MailAddAddrCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAddAddrCell.m; sourceTree = "<group>"; };
 		E1CC37761D3E1589005FEA04 /* MailAddAddrCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailAddAddrCell.xib; sourceTree = "<group>"; };
@@ -538,8 +521,6 @@
 		E1CC37801D3E1589005FEA04 /* MailListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailListCell.h; sourceTree = "<group>"; };
 		E1CC37811D3E1589005FEA04 /* MailListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailListCell.m; sourceTree = "<group>"; };
 		E1CC37821D3E1589005FEA04 /* MailListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailListCell.xib; sourceTree = "<group>"; };
-		E1CC37831D3E1589005FEA04 /* SheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SheetView.h; sourceTree = "<group>"; };
-		E1CC37841D3E1589005FEA04 /* SheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SheetView.m; sourceTree = "<group>"; };
 		E1CC37DD1D3E16C0005FEA04 /* DocPreviewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocPreviewUtil.h; sourceTree = "<group>"; };
 		E1CC37DE1D3E16C0005FEA04 /* DocPreviewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocPreviewUtil.m; sourceTree = "<group>"; };
 		E1CC37DF1D3E16C0005FEA04 /* MailAddAddrTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAddAddrTextParser.h; sourceTree = "<group>"; };
@@ -654,8 +635,6 @@
 				E1CC2EFC1D3E0C85005FEA04 /* Vender */,
 				E1CC2EEB1D3E0C85005FEA04 /* Classes */,
 				E1CC381D1D3E21CA005FEA04 /* Framework */,
-				E1CC2EDA1D3E0C1B005FEA04 /* ViewController.h */,
-				E1CC2EDB1D3E0C1B005FEA04 /* ViewController.m */,
 			);
 			path = CYBaseProject;
 			sourceTree = "<group>";
@@ -1261,16 +1240,11 @@
 		E1CC37611D3E1589005FEA04 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E1CC37651D3E1589005FEA04 /* MailContactListCell.h */,
-				E1CC37661D3E1589005FEA04 /* MailContactListCell.m */,
-				E1CC37671D3E1589005FEA04 /* MailContactListCell.xib */,
 				E1CC37681D3E1589005FEA04 /* MailDetailCell */,
 				E1CC37731D3E1589005FEA04 /* MailEditeCell */,
 				E1CC37801D3E1589005FEA04 /* MailListCell.h */,
 				E1CC37811D3E1589005FEA04 /* MailListCell.m */,
 				E1CC37821D3E1589005FEA04 /* MailListCell.xib */,
-				E1CC37831D3E1589005FEA04 /* SheetView.h */,
-				E1CC37841D3E1589005FEA04 /* SheetView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1283,11 +1257,6 @@
 				E1CC376B1D3E1589005FEA04 /* MailContactCell.h */,
 				E1CC376C1D3E1589005FEA04 /* MailContactCell.m */,
 				E1CC376D1D3E1589005FEA04 /* MailContactCell.xib */,
-				E1CC376E1D3E1589005FEA04 /* MailInputView.h */,
-				E1CC376F1D3E1589005FEA04 /* MailInputView.m */,
-				E1CC37701D3E1589005FEA04 /* MailInputView.xib */,
-				E1CC37711D3E1589005FEA04 /* MailMoreContactCell.h */,
-				E1CC37721D3E1589005FEA04 /* MailMoreContactCell.m */,
 			);
 			path = MailDetailCell;
 			sourceTree = "<group>";
@@ -1614,7 +1583,6 @@
 				E1CC37DA1D3E1589005FEA04 /* MailListCell.xib in Resources */,
 				E1CC37D81D3E1589005FEA04 /* MailTopicCell.xib in Resources */,
 				E1CC36B51D3E1195005FEA04 /* IQKeyboardManager.bundle in Resources */,
-				E1CC37CF1D3E1589005FEA04 /* MailInputView.xib in Resources */,
 				E1CC387E1D3E27EF005FEA04 /* SideSilpViewHeader.xib in Resources */,
 				E1CC37981D3E1589005FEA04 /* MailLoginViewController.xib in Resources */,
 				E1CC33BA1D3E0C86005FEA04 /* Info.plist in Resources */,
@@ -1628,7 +1596,6 @@
 				E1CC37951D3E1589005FEA04 /* MailListViewController.xib in Resources */,
 				E1CC33B91D3E0C86005FEA04 /* Assets.xcassets in Resources */,
 				E1CC37D21D3E1589005FEA04 /* MailAddAddrCell.xib in Resources */,
-				E1CC37CA1D3E1589005FEA04 /* MailContactListCell.xib in Resources */,
 				E1CC37901D3E1589005FEA04 /* MailFolderViewController.xib in Resources */,
 				E1CC37D61D3E1589005FEA04 /* MailAttachmentHeader.xib in Resources */,
 				E1CC37BE1D3E1589005FEA04 /* ZTEMailconfiguration.plist in Resources */,
@@ -1656,7 +1623,6 @@
 				E1CC36B11D3E1195005FEA04 /* IQBarButtonItem.m in Sources */,
 				E1CC36A81D3E1195005FEA04 /* IQNSArray+Sort.m in Sources */,
 				E1CC35B21D3E0C87005FEA04 /* DDASLLogCapture.m in Sources */,
-				E1CC37C91D3E1589005FEA04 /* MailContactListCell.m in Sources */,
 				E1CC36E31D3E1195005FEA04 /* SDImageCache.m in Sources */,
 				E1CC37CC1D3E1589005FEA04 /* MailContactCell.m in Sources */,
 				E1CC36AC1D3E1195005FEA04 /* IQUIViewController+Additions.m in Sources */,
@@ -1665,9 +1631,7 @@
 				E1CC36AD1D3E1195005FEA04 /* IQUIWindow+Hierarchy.m in Sources */,
 				E1CC36B41D3E1195005FEA04 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				E1CC35B51D3E0C87005FEA04 /* DDLog.m in Sources */,
-				E1CC2EDC1D3E0C1B005FEA04 /* ViewController.m in Sources */,
 				E1CC36D31D3E1195005FEA04 /* MJRefreshAutoNormalFooter.m in Sources */,
-				E1CC37D01D3E1589005FEA04 /* MailMoreContactCell.m in Sources */,
 				E1CC36C31D3E1195005FEA04 /* MASConstraint.m in Sources */,
 				E1CC36E21D3E1195005FEA04 /* NSData+ImageContentType.m in Sources */,
 				E1CC36EE1D3E1195005FEA04 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -1748,7 +1712,6 @@
 				E1CC36BE1D3E1195005FEA04 /* JGProgressHUDIndicatorView.m in Sources */,
 				E1CC35B91D3E0C87005FEA04 /* DDMultiFormatter.m in Sources */,
 				E1CC36AB1D3E1195005FEA04 /* IQUIView+Hierarchy.m in Sources */,
-				E1CC37CE1D3E1589005FEA04 /* MailInputView.m in Sources */,
 				E1CC36D41D3E1195005FEA04 /* MJRefreshAutoStateFooter.m in Sources */,
 				E1CC36E81D3E1195005FEA04 /* SDWebImageManager.m in Sources */,
 				E1CC36AA1D3E1195005FEA04 /* IQUITextFieldView+Additions.m in Sources */,
@@ -1777,7 +1740,6 @@
 				E1CC37AA1D3E1589005FEA04 /* ZTEMailModel.m in Sources */,
 				E1CC36A01D3E1195005FEA04 /* AFSecurityPolicy.m in Sources */,
 				E1CC36D61D3E1195005FEA04 /* MJRefreshBackNormalFooter.m in Sources */,
-				E1CC37DB1D3E1589005FEA04 /* SheetView.m in Sources */,
 				E1CC386C1D3E2769005FEA04 /* YYTextParser.m in Sources */,
 				E1CC36E11D3E1195005FEA04 /* MKAnnotationView+WebCache.m in Sources */,
 				E1CC36B31D3E1195005FEA04 /* IQToolbar.m in Sources */,

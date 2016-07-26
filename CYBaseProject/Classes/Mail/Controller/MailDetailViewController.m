@@ -7,8 +7,6 @@
 //
 
 #import "MailDetailViewController.h"
-#import "MailInputView.h"
-#import "SheetView.h"
 #import "MailContactCell.h"
 #import "AttachmentViewController.h"
 #import "MailFolderViewController.h"
@@ -23,21 +21,31 @@
 #import "ZTEFolderModel.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 
-typedef NS_ENUM(NSUInteger,FoldButtonTag){
-    FoldButtonTagFrom,
-    FoldButtonTagCopy
-};
-
 static CGFloat ImageViewWidth = 20.f;
 
-@implementation MailTopButton
+@implementation MailBottomButton
+
+- (instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        UIColor *btnColor = UICOLOR(@"#555555");
+        [self setTitleColor:btnColor forState:UIControlStateNormal];
+        self.titleLabel.font = kFont_12;
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return self;
+}
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect{
     CGFloat imageW = ImageViewWidth;
     CGFloat imageH = ImageViewWidth;
-    CGFloat imageX = 5;
-    CGFloat imageY = contentRect.size.height / 2 - imageH / 2;
+    CGFloat imageX = (contentRect.size.width - imageW)/2 ;
+    CGFloat imageY = 5;
     return CGRectMake(imageX, imageY, imageW, imageH);
+}
+
+- (CGRect)titleRectForContentRect:(CGRect)contentRect{
+    return CGRectMake(0, contentRect.size.height - 12 -5, contentRect.size.width, 12);
 }
 
 @end
@@ -45,7 +53,7 @@ static CGFloat ImageViewWidth = 20.f;
 static NSString *kMailDetailCellId = @"MailContactCell";
 
 @interface MailDetailViewController ()<SideSlipViewDelegate,UIWebViewDelegate,UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) SheetView *sv;
+
 @property (nonatomic, strong) NSArray *infosArray;
 @property (nonatomic, strong) NSArray *modifyIndexPaths;
 @property (nonatomic, strong) NSArray *ccArray;
@@ -61,12 +69,9 @@ static NSString *kMailDetailCellId = @"MailContactCell";
 @property (nonatomic, strong) UIView *subjectView;
 @property (nonatomic, assign) BOOL isUnfold;
 
-@property (weak, nonatomic) IBOutlet UIView *attachmetnView;
-@property (weak, nonatomic) IBOutlet UIButton *showInputBtn;//弹出回复框
-@property (weak, nonatomic) IBOutlet UIButton *attachmentBtn;//弹出附件页面
+
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
-@property (nonatomic,strong) UITextView *inputTextView;
-@property (weak, nonatomic) IBOutlet UIScrollView *topBtnAreaView;
 
 @end
 
@@ -80,7 +85,6 @@ static NSString *kMailDetailCellId = @"MailContactCell";
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.topBtnAreaView.contentSize = CGSizeMake(550, 0);
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -92,104 +96,46 @@ static NSString *kMailDetailCellId = @"MailContactCell";
     
     self.title = @"邮件详情";
     
-    //2.加载快速回复窗口
-    MailInputView *input = [[NSBundle mainBundle] loadNibNamed:@"MailInputView" owner:self options:nil].lastObject;
-    [input.replyBtn addTarget:self action:@selector(inputViewClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [input.attachmentBtn addTarget:self action:@selector(inputViewClicked:) forControlEvents:UIControlEventTouchUpInside];
-    self.inputTextView = input.inputTextView;
-    self.sv = [SheetView sheetViewWithContentView:input andSuperview:self.view];
-    
-    self.subjectHeight = [self.mailModel.subject boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width-32, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kFont_20} context:nil].size.height+5;
+    self.subjectHeight = [self.mailModel.subject boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width-32, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kFont_20} context:nil].size.height+15;
     
     self.myTableView.rowHeight = UITableViewAutomaticDimension;
     self.myTableView.estimatedRowHeight = 25;
     [self.myTableView registerNib:[UINib nibWithNibName:kMailDetailCellId bundle:nil] forCellReuseIdentifier:kMailDetailCellId];
     self.myTableView.backgroundColor = [UIColor whiteColor];
     
+    [self configureBottomButton];
+}
+
+- (void)configureBottomButton{
+    
+    CGFloat btnWidth = [UIScreen mainScreen].bounds.size.width/4;
+    CGFloat btnHeight = self.bottomView.frame.size.height;
+    
+    MailBottomButton *replyButton = [self generateBottomButtonWithTitle:@"回复/转发" imageName:@"tab_reply" frame:CGRectMake(0,0,btnWidth,btnHeight)];
+    [replyButton addTarget:self action:@selector(clickReplyButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.bottomView addSubview:replyButton];
+    
+    MailBottomButton *deleteButton = [self generateBottomButtonWithTitle:@"删除" imageName:@"tab_delete" frame:CGRectMake(btnWidth,0,btnWidth,btnHeight)];
+    [deleteButton addTarget:self action:@selector(deleteMail) forControlEvents:UIControlEventTouchUpInside];
+    [self.bottomView addSubview:deleteButton];
+    
+    MailBottomButton *moveButton = [self generateBottomButtonWithTitle:@"移动" imageName:@"tab_move" frame:CGRectMake(btnWidth*2,0,btnWidth,btnHeight)];
+    [moveButton addTarget:self action:@selector(pushFolderChoice) forControlEvents:UIControlEventTouchUpInside];
+    [self.bottomView addSubview:moveButton];
+    
     //附件
     if(self.attachments.count>0){
-        self.attachmetnView.hidden = NO;
+        MailBottomButton *replyButton = [self generateBottomButtonWithTitle:@"附件" imageName:@"attachment" frame:CGRectMake(btnWidth*3,0,btnWidth,btnHeight)];
+        [replyButton addTarget:self action:@selector(clickAttachmentButton) forControlEvents:UIControlEventTouchUpInside];
+        [self.bottomView addSubview:replyButton];
     }
     
-    //顶部按钮
-    [self configureTopButtonArea];
 }
 
-- (void)configureTopButtonArea{
-    
-    //转发按钮
-    MailTopButton *forwardBtn = [self generateTopButtonWithTitle:@"转发" imageName:@"forward_lte"];
-    [forwardBtn addTarget:self action:@selector(pushForward) forControlEvents:UIControlEventTouchUpInside];
-    [self.topBtnAreaView addSubview:forwardBtn];
-    [forwardBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(5);
-        make.left.mas_equalTo(10);
-        make.bottom.mas_equalTo(0);
-        make.width.mas_equalTo(80);
-    }];
-    
-    //回复
-    MailTopButton *replyBtn = [self generateTopButtonWithTitle:@"回复" imageName:@"reply_lte"];
-    [replyBtn addTarget:self action:@selector(pushReply) forControlEvents:UIControlEventTouchUpInside];
-    [self.topBtnAreaView addSubview:replyBtn];
-    [replyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(5);
-        make.left.equalTo(forwardBtn.mas_right).offset(10);
-        make.bottom.mas_equalTo(0);
-        make.width.mas_equalTo(80);
-    }];
-    
-    //回复所有人
-    MailTopButton *replyAllBtn = [self generateTopButtonWithTitle:@"回复所有人" imageName:@"reply_all_lte"];
-    [replyAllBtn addTarget:self action:@selector(pushReplyAll) forControlEvents:UIControlEventTouchUpInside];
-    [self.topBtnAreaView addSubview:replyAllBtn];
-    [replyAllBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(5);
-        make.left.equalTo(replyBtn.mas_right).offset(10);
-        make.bottom.mas_equalTo(0);
-        make.width.mas_equalTo(110);
-    }];
-    
-    //删除
-    MailTopButton *deleteBtn = [self generateTopButtonWithTitle:@"删除" imageName:@"delete_lte"];
-    [deleteBtn addTarget:self action:@selector(deleteMail) forControlEvents:UIControlEventTouchUpInside];
-    [self.topBtnAreaView addSubview:deleteBtn];
-    [deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(5);
-        make.left.equalTo(replyAllBtn.mas_right).offset(10);
-        make.bottom.mas_equalTo(0);
-        make.width.mas_equalTo(80);
-    }];
-    
-    //转移文件夹
-    MailTopButton *moveBtn = [self generateTopButtonWithTitle:@"转移文件夹" imageName:@"move_lte"];
-    [moveBtn addTarget:self action:@selector(pushFolderChoice) forControlEvents:UIControlEventTouchUpInside];
-    [self.topBtnAreaView addSubview:moveBtn];
-    [moveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(5);
-        make.left.equalTo(deleteBtn.mas_right).offset(10);
-        make.bottom.mas_equalTo(0);
-        make.width.mas_equalTo(110);
-    }];
-    
-    self.topBtnAreaView.contentSize = CGSizeMake(550, 0);
-}
-
-- (MailTopButton *)generateTopButtonWithTitle:(NSString *)title imageName:(NSString *)imageName{
-    UIColor *btnColor = UICOLOR(@"#555555");
-    UIColor *borderColor = UICOLOR(@"#888888");
-    
-    MailTopButton *btn = [[MailTopButton alloc]init];
-    btn.backgroundColor = [UIColor whiteColor];
-    btn.translatesAutoresizingMaskIntoConstraints = NO;
+- (MailBottomButton *)generateBottomButtonWithTitle:(NSString *)title imageName:(NSString *)imageName frame:(CGRect)frame{
+    MailBottomButton *btn = [[MailBottomButton alloc]initWithFrame:frame];
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    [btn setTitleColor:btnColor forState:UIControlStateNormal];
-    [btn.layer setCornerRadius:3.0]; //设置矩形四个圆角半径
-    [btn.layer setMasksToBounds:YES];
-    [btn.layer setBorderWidth:1]; //边框宽度
-    [btn.layer setBorderColor:borderColor.CGColor];
-    btn.titleLabel.font = kFont_15;
     return btn;
 }
 
@@ -344,26 +290,20 @@ static NSString *kMailDetailCellId = @"MailContactCell";
     return nil;
 }
 
-#pragma mark - 邮件操作
+#pragma mark - Mail method
 - (void)pushFolderChoice{
     MailFolderViewController *folder = [[MailFolderViewController alloc]init];
     folder.mailModel = self.mailModel;
     [self.navigationController pushViewController:folder animated:YES];
 }
 
-- (void)pushReply{
-    MailEditeViewController *edite = [[MailEditeViewController  alloc]init];
-    edite.subject = [NSString stringWithFormat:@"回复 : %@",self.mailModel.subject];
-    edite.to = [NSString stringWithFormat:@"%@,", self.mailModel.fromAddress];
-    edite.mailModel = self.mailModel;
-    [self.navigationController pushViewController:edite animated:YES];
-}
-
 - (void)pushReplyAll{
     MailEditeViewController *edite = [[MailEditeViewController  alloc]init];
     edite.subject = [NSString stringWithFormat:@"回复 : %@",self.mailModel.subject];
     edite.to = [NSString stringWithFormat:@"%@,", self.mailModel.fromAddress];
-    edite.cc = [NSString stringWithFormat:@"%@,", self.mailModel.cc];
+    if (![NSString isBlankString:self.mailModel.cc]) {
+        edite.cc = [NSString stringWithFormat:@"%@,", self.mailModel.cc];
+    }
     [self.navigationController pushViewController:edite animated:YES];
 }
 
@@ -380,48 +320,6 @@ static NSString *kMailDetailCellId = @"MailContactCell";
     [coreDataContext deleteObject:self.mailModel];
     [coreDataContext save:nil];
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)sendMail{
-    NSMutableArray *toArrs =(NSMutableArray *) [self.mailModel.to componentsSeparatedByString:@","] ;
-    [toArrs enumerateObjectsUsingBlock:^(NSString *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([NSString isBlankString:obj]) {
-            [toArrs removeObject:obj];
-        }
-    }];
-    
-    NSString *folder;
-    NSInteger uid;
-    if (self.mailModel) {
-        folder = self.mailModel.folderPath;
-        uid = [self.mailModel.uid integerValue];
-    }
-    
-    NSString *subject = [NSString stringWithFormat:@"回复：%@",self.mailModel.subject];
-    
-    [self showHudWithMsg:@"正在发送..."];
-    __weak typeof(self) weakSelf = self;
-    ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
-    [util sendMailWithSubject:subject content:self.inputTextView.text toArray:toArrs ccArray:@[] bccArray:@[] imageAttachmentArray:@[] uid:uid folder:folder success:^{
-        
-        [self hideHud];
-        
-        [[UIApplication sharedApplication].keyWindow makeToast:@"发送邮件成功"];
-        
-        [weakSelf.navigationController.viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if([obj isKindOfClass:NSClassFromString(@"MailHomeViewController")]){
-                [weakSelf.navigationController popToViewController:obj animated:YES];
-                *stop = YES;
-            }
-        }];
-        
-    } failure:^(NSError *error) {
-        [self hideHud];
-        [weakSelf.view makeToast:[NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]]];
-    } progress:^(NSInteger current, NSInteger maximum) {
-        [self hideNormalHud];
-        [self showRingHUDWithMsg:@"发送中..." andTotalSize:maximum andTotalReaded:current];
-    }];
 }
 
 #pragma mark - Network method
@@ -443,12 +341,11 @@ static NSString *kMailDetailCellId = @"MailContactCell";
             }];
         }
     }
-    
 }
 
 #pragma mark - Event Response
 //弹出附件
-- (IBAction)attachmentBtnClicked:(UIButton *)sender {
+- (void)clickAttachmentButton {
     
     [self.sideSlipView removeFromSuperview];
     [self.sideSlipView.hideSideSlipBtn removeFromSuperview];
@@ -458,19 +355,20 @@ static NSString *kMailDetailCellId = @"MailContactCell";
     [self.sideSlipView show];
 }
 
-//弹出回复框
-- (IBAction)showInputBtnClicked:(UIButton *)sender {
-    [self.sv showActionSheet];
-}
-
-//弹出框
-- (void)inputViewClicked:(UIButton *)sender{
-    if([NSString isBlankString: self.inputTextView.text]){
-        [self.view makeToast:@"请输入回复内容!"];
-        return;
-    }
-    [self.view endEditing:YES];
-    [self sendMail];
+- (void)clickReplyButton{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"回复" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self pushReplyAll];
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"转发" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self pushForward];
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark -Getters and Setters
@@ -627,7 +525,7 @@ static NSString *kMailDetailCellId = @"MailContactCell";
         titleLabel.numberOfLines = 0;
         [_subjectView addSubview:titleLabel];
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(0);
+            make.top.mas_equalTo(10);
             make.left.mas_equalTo(16);
             make.right.mas_equalTo(-16);
             make.bottom.mas_equalTo(0);

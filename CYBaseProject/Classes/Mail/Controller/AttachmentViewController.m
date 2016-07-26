@@ -107,7 +107,7 @@
         [self hideHud];
         [self.myTableVeiw reloadData];
     } progress:^(NSInteger current, NSInteger maximum) {
-        [self hideHud];
+        [self hideNormalHud];
         [self showRingHUDWithMsg:@"下载中..." andTotalSize:maximum andTotalReaded:current];
     }];
     

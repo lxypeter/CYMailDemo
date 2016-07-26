@@ -22,13 +22,18 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Kf-hv-XpH">
-                        <rect key="frame" x="150" y="8" width="160" height="17"/>
+                        <rect key="frame" x="112.5" y="8" width="197.5" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="160" id="4WL-1i-D4T"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4WL-1i-D4T"/>
+                            </mask>
+                        </variation>
                     </label>
                 </subviews>
                 <constraints>
@@ -43,6 +48,7 @@
                     <constraint firstItem="7Kf-hv-XpH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="c9a-S9-3lV"/>
                     <constraint firstItem="7Kf-hv-XpH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qca-Cf-yIf"/>
                     <constraint firstItem="7Kf-hv-XpH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="xNU-bd-c52"/>
+                    <constraint firstItem="7Kf-hv-XpH" firstAttribute="leading" secondItem="dth-bu-Knb" secondAttribute="trailing" constant="50" id="xow-YB-geS"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
