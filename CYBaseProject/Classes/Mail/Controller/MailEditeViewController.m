@@ -59,8 +59,7 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
     }
     
     if (self.mailModel) {
-        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[[self generateForwardContent] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-        self.editTextView.attributedText = attributedString;
+        self.editTextView.attributedText = [self generateForwardContent];
     }
     
     //只有附件部分的 cell 重用
@@ -305,20 +304,27 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
     }];
 }
 
-- (NSString *)generateForwardContent{
+- (NSMutableAttributedString *)generateForwardContent{
     
+    NSMutableAttributedString *forwardContent = [[NSMutableAttributedString alloc]init];
+    
+    //头部
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     formatter.dateFormat = @"yyyy-MM-dd hh:mm:ss";
+    NSMutableString *forwardHeader = [NSMutableString stringWithString:@"\n\n\n\n\n"];
+    [forwardHeader appendString:@"------------原邮件------------\n"];
+    [forwardHeader appendString:[NSString stringWithFormat:@"发件人:%@\n",self.mailModel.fromAddress]];
+    [forwardHeader appendString:[NSString stringWithFormat:@"发送日期:%@\n",[formatter stringFromDate:self.mailModel.sendDate]]];
+    [forwardHeader appendString:[NSString stringWithFormat:@"收件人:%@\n",self.mailModel.to]];
+    [forwardHeader appendString:[NSString stringWithFormat:@"主题:%@\n",self.mailModel.subject]];
+    [forwardHeader appendString:@"*********************************\n"];
     
-    NSMutableString *forwardContent = [NSMutableString stringWithString:@"<br/><br/><br/><br/><br/>"];
-    [forwardContent appendString:@"------------转发的邮件------------<br/>"];
-    [forwardContent appendString:[NSString stringWithFormat:@"发件人:%@<br/>",self.mailModel.fromAddress]];
-    [forwardContent appendString:[NSString stringWithFormat:@"发送日期:%@<br/>",[formatter stringFromDate:self.mailModel.sendDate]]];
-    [forwardContent appendString:[NSString stringWithFormat:@"收件人:%@<br/>",self.mailModel.to]];
-    [forwardContent appendString:[NSString stringWithFormat:@"主题:%@<br/>",self.mailModel.subject]];
-    [forwardContent appendString:@"*********************************<br/>"];
-    [forwardContent appendString:self.mailModel.content];
-    return [forwardContent copy];
+    [forwardContent appendAttributedString:[[NSAttributedString alloc]initWithString:forwardHeader attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}]];
+    
+    NSAttributedString *forwardBody = [[NSAttributedString alloc] initWithData:[self.mailModel.content dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    [forwardContent appendAttributedString:forwardBody];
+    
+    return forwardContent;
 }
 
 #pragma mark - NetworkMethod

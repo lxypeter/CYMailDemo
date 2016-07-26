@@ -40,10 +40,10 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attachment_lte" translatesAutoresizingMaskIntoConstraints="NO" id="7W1-1f-uWp">
-                        <rect key="frame" x="241" y="11" width="20" height="20"/>
+                        <rect key="frame" x="245" y="13" width="16" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="20" id="iP3-jC-01H"/>
-                            <constraint firstAttribute="height" constant="20" id="wmf-l4-jow"/>
+                            <constraint firstAttribute="width" constant="16" id="iP3-jC-01H"/>
+                            <constraint firstAttribute="height" constant="16" id="wmf-l4-jow"/>
                         </constraints>
                     </imageView>
                 </subviews>
