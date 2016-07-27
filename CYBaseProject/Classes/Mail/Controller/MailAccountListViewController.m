@@ -111,6 +111,7 @@
     sessionUtil.smtpPort = user.sendMailPort;
     sessionUtil.realname = user.realName;
     sessionUtil.nickname = user.nickName;
+    sessionUtil.smtpAuthType = user.smtpAuthType;
     if (user.ssl) {
         sessionUtil.imapConnectionType = ZTEMailConnectionTypeTLS;
     }else{

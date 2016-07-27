@@ -5,7 +5,7 @@
 	<key>189</key>
 	<dict>
 		<key>smtpAuthType</key>
-		<integer>2</integer>
+		<integer>0</integer>
 		<key>fetchMailHost</key>
 		<string>imap.189.cn</string>
 		<key>fetchMailPort</key>

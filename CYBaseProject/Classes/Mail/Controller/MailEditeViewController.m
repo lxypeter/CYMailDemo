@@ -20,15 +20,14 @@
 
 #define kKeyPath @"contentOffset"
 
-@interface MailEditeViewController ()<YYTextViewDelegate,UITextViewDelegate,JSImagePickerViewControllerDelegate>
+@interface MailEditeViewController ()<JSImagePickerViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UITextView *editTextView;
 
-//用于保存输入内容
-@property (nonatomic,strong) NSMutableAttributedString *toAddr;//收件人
-@property (nonatomic,strong) NSMutableAttributedString *ccAddr;//抄送
-@property (nonatomic,strong) NSMutableAttributedString *bccAddr;//密送
-@property (nonatomic,strong) NSString *topicStr;//主题
+@property (nonatomic, strong) MailAddAddrCell *toAddrCell;
+@property (nonatomic, strong) MailAddAddrCell *ccAddrCell;
+@property (nonatomic, strong) MailAddAddrCell *bccAddrCell;
+@property (nonatomic, strong) MailTopicCell *subjectCell;
 
 @property (nonatomic,strong) NSMutableArray *attachments;
 
@@ -50,13 +49,6 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
     self.title = @"写邮件";
     self.myTableView.estimatedRowHeight =  44;
     self.myTableView.rowHeight = UITableViewAutomaticDimension;
-    
-    //初始化邮件内容
-    self.topicStr = self.subject;
-    self.toAddr = [self generateAddrWithAddrStr:self.to];
-    if (![NSString isBlankString:self.cc]) {
-        self.ccAddr = [self generateAddrWithAddrStr:self.cc];
-    }
     
     if (self.mailModel) {
         self.editTextView.attributedText = [self generateForwardContent];
@@ -81,19 +73,23 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    id cell ;
+    id cell;
     switch (indexPath.section) {
         case 0:
-            if (indexPath.row<3) {
-                cell = (MailAddAddrCell*)([[NSBundle mainBundle]loadNibNamed:@"MailAddAddrCell" owner:nil options:nil].lastObject);
-                [self configureEditCellWithCell:cell andIndexPath:indexPath];
-                
-            }else{
-                cell = (MailTopicCell*) ([[NSBundle mainBundle]loadNibNamed:@"MailTopicCell" owner:nil options:nil].lastObject);
-                ((MailTopicCell *)cell).topicTextView.delegate =self;
-                ((MailTopicCell *)cell).topicTextView.text = self.topicStr;
+            switch (indexPath.row) {
+                case 0:
+                    cell = self.toAddrCell;
+                    break;
+                case 1:
+                    cell = self.ccAddrCell;
+                    break;
+                case 2:
+                    cell = self.bccAddrCell;
+                    break;
+                default:
+                    cell = self.subjectCell;
+                    break;
             }
-
             break;
         case 1:
             cell = [tableView dequeueReusableCellWithIdentifier:demoCellReuseIdentifier forIndexPath:indexPath];
@@ -142,14 +138,10 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
 //设置允许编辑的 cell
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section== 0)
-    {
-        return NO;
-    }
-    else
-    {
+    if(indexPath.section== 1){
         return YES;
     }
+    return NO;
 }
 
 //编辑类型
@@ -183,50 +175,6 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
     }
 }
 
-#pragma mark - Delegate Method
-#pragma mark - YYDelegte
-- (void)textViewDidChange:(YYTextView *)textView {
-    if (textView.text.length == 0) {
-        textView.textColor = [UIColor blackColor];
-    }
-    if([textView isKindOfClass:[UITextView class]] && textView.tag != 8){
-        if(self.subject){
-            self.topicStr =[NSString stringWithFormat:@"%@ %@",self.subject,textView.text];
-        }else{
-            self.topicStr = textView.text;
-        }
-    }
-    
-}
-
-- (void)textViewDidBeginEditing:(YYTextView *)textView {
-
-}
-
-- (void)textViewDidEndEditing:(YYTextView *)textView {
-    [self.view endEditing:YES];
-    
-    NSString *muStr;
-    if([textView isKindOfClass:[YYTextView class]] && ![muStr isEqualToString:textView.attributedText.string])
-    {
-        NSIndexPath *idx = [NSIndexPath indexPathForRow:textView.tag inSection:0];
-        if(idx.row == 0 )
-        {
-            [self.toAddr appendAttributedString:textView.attributedText];
-        }
-        else if (idx.row ==1)
-        {
-             [self.ccAddr appendAttributedString:textView.attributedText];
-        }
-        else
-        {
-            [self.bccAddr appendAttributedString:textView.attributedText];
-
-        }
-        muStr = textView.attributedText.string;
-    }
-}
-
 #pragma mark -JSImageDelegate
 - (void)imagePicker:(JSImagePickerViewController *)imagePicker didSelectImage:(UIImage *)image andALAssetRepresentation:(id)ALAssetRepresentation{
     
@@ -243,34 +191,12 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
 }
 
 #pragma mark - Private Methods
-//收件人.抄送.密送 cell
--(void)configureEditCellWithCell:(MailAddAddrCell *)cell andIndexPath:(NSIndexPath *)indexPath{
-    NSArray *arr = @[@"收件人:",@"抄    送:",@"密    送:"];
-    cell.titleLabel.text =  arr[indexPath.row];
-    cell.inputView.delegate = self;
+- (MailAddAddrCell *)generateEditCellWithTitle:(NSString *)title{
+    MailAddAddrCell *cell = (MailAddAddrCell*)([[NSBundle mainBundle]loadNibNamed:@"MailAddAddrCell" owner:nil options:nil].lastObject);
+    cell.titleLabel.text = title;
     cell.inputView.textParser = [MailAddAddrTextParser new];
-    cell.inputView.tag = indexPath.row;
     cell.inputView.placeholderText =  @"邮件地址请用逗号隔开!";
-    switch (indexPath.row) {
-        case 0:
-            cell.inputView.attributedText = self.toAddr;
-            break;
-        case 1:
-            cell.inputView.attributedText = self.ccAddr;
-            break;
-        case 2:
-            cell.inputView.attributedText = self.bccAddr;
-            break;
-        default:
-            break;
-    }
-    
-    //选择联系人按钮（隐藏）
-    [cell.addAddrBtn addTarget:self action:@selector(addBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    cell.addAddrBtn.tag = indexPath.row;
-    cell.addAddrBtn.hidden = YES;
-    cell.addAddrBtn.enabled = NO;
-
+    return cell;
 }
 
 //附件 cell
@@ -279,29 +205,6 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
     ((MailAttachmentCell *)cell).attchmentTitle.text = [NSString stringWithFormat:@"附件%ld:",indexPath.row+1];
     ZTEAttachmentModel *attachment = self.attachments[indexPath.row];
     ((MailAttachmentCell *)cell).attchmentLabel.text = attachment.fileName;
-}
-
-
-- (NSMutableAttributedString *)generateAddrWithAddrStr:(NSString *)addrStr{
-    if([NSString isBlankString:addrStr]){
-        return [NSMutableAttributedString new];
-    }
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:addrStr];
-    text.yy_font = [UIFont systemFontOfSize:15];
-    text.yy_lineSpacing = 3;
-    text.yy_color = [UIColor blackColor];
-    return text;
-}
-
-/**
- *  tableview 移动至顶部
- */
-- (void)scrollToTop
-{
-    [UIView animateWithDuration:1.0f delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:25.0f options:UIViewAnimationOptionShowHideTransitionViews animations:^{
-        [self.myTableView setContentOffset: CGPointZero];
-    } completion:^(BOOL finished) {
-    }];
 }
 
 - (NSMutableAttributedString *)generateForwardContent{
@@ -330,9 +233,14 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
 #pragma mark - NetworkMethod
 -(void)sendMail{
     
-    NSMutableArray *toArrs =[NSMutableArray arrayWithArray:[self.toAddr.string componentsSeparatedByString:@","]] ;
-    NSMutableArray *ccArrs =[NSMutableArray arrayWithArray:[self.ccAddr.string componentsSeparatedByString:@","]];
-    NSMutableArray *bccArrs = [NSMutableArray arrayWithArray:[self.bccAddr.string componentsSeparatedByString:@","]];
+    NSString *toAddr = [self.toAddrCell.inputView.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *ccAddr = [self.ccAddrCell.inputView.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *bccAddr = [self.bccAddrCell.inputView.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *subject = self.subjectCell.topicTextView.text;
+    
+    NSMutableArray *toArrs =[NSMutableArray arrayWithArray:[toAddr componentsSeparatedByString:@","]] ;
+    NSMutableArray *ccArrs =[NSMutableArray arrayWithArray:[ccAddr componentsSeparatedByString:@","]];
+    NSMutableArray *bccArrs = [NSMutableArray arrayWithArray:[bccAddr componentsSeparatedByString:@","]];
     [toArrs enumerateObjectsUsingBlock:^(NSString *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([NSString isBlankString:obj]) {
             [toArrs removeObject:obj];
@@ -359,7 +267,7 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
     [self showHudWithMsg:@"正在发送..."];
     __weak typeof(self) weakSelf = self;
     ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
-    [util sendMailWithSubject:self.topicStr content:self.editTextView.text toArray:toArrs ccArray:ccArrs bccArray:bccArrs imageAttachmentArray:self.attachments uid:uid folder:folder success:^{
+    [util sendMailWithSubject:subject content:self.editTextView.text toArray:toArrs ccArray:ccArrs bccArray:bccArrs imageAttachmentArray:self.attachments uid:uid folder:folder success:^{
         
         [self hideHud];
         
@@ -389,17 +297,14 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
 
 }
 
-- (void)addBtnClicked:(UIButton *)sender{
-    
-}
-
 - (void)rightBtnClicked:(UIButton *)sender
 {
-    if([NSString isBlankString: self.toAddr.string] ){
+    [self.view endEditing:YES];
+    if([NSString isBlankString: self.toAddrCell.inputView.text] ){
         [self.view makeToast:@"请您选择收件人!"];
         return;
     }
-    if( [NSString isBlankString:self.topicStr]){
+    if( [NSString isBlankString:self.subjectCell.topicTextView.text]){
         [self.view makeToast:@"请填写邮件主题!"];
         return;
     }
@@ -416,24 +321,36 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
     return _attachments;
 }
 
-- (NSMutableAttributedString *)toAddr{
-    if (!_toAddr) {
-        _toAddr = [NSMutableAttributedString new];
+- (MailAddAddrCell *)toAddrCell{
+    if (!_toAddrCell) {
+        _toAddrCell = [self generateEditCellWithTitle:@"收件人:"];
+        _toAddrCell.inputView.text = self.to;
     }
-    return _toAddr;
+    return _toAddrCell;
 }
 
-- (NSMutableAttributedString *)ccAddr{
-    if (!_ccAddr) {
-        _ccAddr = [NSMutableAttributedString new];
+- (MailAddAddrCell *)ccAddrCell{
+    if (!_ccAddrCell) {
+        _ccAddrCell = [self generateEditCellWithTitle:@"抄    送:"];
+        _ccAddrCell.inputView.text = self.cc;
     }
-    return _ccAddr;
+    return _ccAddrCell;
 }
 
-- (NSMutableAttributedString *)bccAddr{
-    if (!_bccAddr) {
-        _bccAddr = [NSMutableAttributedString new];
+- (MailAddAddrCell *)bccAddrCell{
+    if (!_bccAddrCell) {
+        _bccAddrCell = [self generateEditCellWithTitle:@"密    送:"];
     }
-    return _bccAddr;
+    return _bccAddrCell;
+}
+
+- (MailTopicCell *)subjectCell{
+    
+    if (!_subjectCell) {
+        _subjectCell = (MailTopicCell*) ([[NSBundle mainBundle]loadNibNamed:@"MailTopicCell" owner:nil options:nil].lastObject);
+        _subjectCell.topicTextView.text = self.subject;
+    }
+    return _subjectCell;
+    
 }
 @end

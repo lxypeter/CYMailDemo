@@ -26,7 +26,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </scrollView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3L-4x-nnk" userLabel="添加地址">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3L-4x-nnk" userLabel="添加地址">
                         <rect key="frame" x="273" y="25" width="47" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="W0i-d6-Tnu"/>
