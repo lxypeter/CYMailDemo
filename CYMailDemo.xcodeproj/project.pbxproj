@@ -127,7 +127,6 @@
 		E1CC37A81D3E1589005FEA04 /* ZTEMailAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC372C1D3E1589005FEA04 /* ZTEMailAttachment.m */; };
 		E1CC37A91D3E1589005FEA04 /* ZTEMailModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC372E1D3E1589005FEA04 /* ZTEMailModel+CoreDataProperties.m */; };
 		E1CC37AA1D3E1589005FEA04 /* ZTEMailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37301D3E1589005FEA04 /* ZTEMailModel.m */; };
-		E1CC37AB1D3E1589005FEA04 /* ZTEMailUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37321D3E1589005FEA04 /* ZTEMailUser.m */; };
 		E1CC37AE1D3E1589005FEA04 /* ZTEMailModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37391D3E1589005FEA04 /* ZTEMailModel.xcdatamodeld */; };
 		E1CC37BE1D3E1589005FEA04 /* ZTEMailconfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1CC374C1D3E1589005FEA04 /* ZTEMailconfiguration.plist */; };
 		E1CC37BF1D3E1589005FEA04 /* ZTESupportMail.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1CC374D1D3E1589005FEA04 /* ZTESupportMail.plist */; };
@@ -183,6 +182,8 @@
 		E1CC387E1D3E27EF005FEA04 /* SideSilpViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC387B1D3E27EF005FEA04 /* SideSilpViewHeader.xib */; };
 		E1CC387F1D3E27EF005FEA04 /* SideSlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC387D1D3E27EF005FEA04 /* SideSlipView.m */; };
 		E1CC38831D3E2829005FEA04 /* JSImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38821D3E2829005FEA04 /* JSImagePickerViewController.m */; };
+		E1ED51771D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ED51741D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.m */; };
+		E1ED51781D4B57A300FC1A2E /* ZTEMailUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ED51761D4B57A300FC1A2E /* ZTEMailUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -496,8 +497,6 @@
 		E1CC372E1D3E1589005FEA04 /* ZTEMailModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZTEMailModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		E1CC372F1D3E1589005FEA04 /* ZTEMailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTEMailModel.h; sourceTree = "<group>"; };
 		E1CC37301D3E1589005FEA04 /* ZTEMailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTEMailModel.m; sourceTree = "<group>"; };
-		E1CC37311D3E1589005FEA04 /* ZTEMailUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTEMailUser.h; sourceTree = "<group>"; };
-		E1CC37321D3E1589005FEA04 /* ZTEMailUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTEMailUser.m; sourceTree = "<group>"; };
 		E1CC373A1D3E1589005FEA04 /* ZTEMailModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZTEMailModel.xcdatamodel; sourceTree = "<group>"; };
 		E1CC374C1D3E1589005FEA04 /* ZTEMailconfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ZTEMailconfiguration.plist; sourceTree = "<group>"; };
 		E1CC374D1D3E1589005FEA04 /* ZTESupportMail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ZTESupportMail.plist; sourceTree = "<group>"; };
@@ -596,6 +595,10 @@
 		E1CC387D1D3E27EF005FEA04 /* SideSlipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSlipView.m; sourceTree = "<group>"; };
 		E1CC38811D3E2829005FEA04 /* JSImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSImagePickerViewController.h; sourceTree = "<group>"; };
 		E1CC38821D3E2829005FEA04 /* JSImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSImagePickerViewController.m; sourceTree = "<group>"; };
+		E1ED51731D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZTEMailUser+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E1ED51741D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZTEMailUser+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E1ED51751D4B57A300FC1A2E /* ZTEMailUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTEMailUser.h; sourceTree = "<group>"; };
+		E1ED51761D4B57A300FC1A2E /* ZTEMailUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTEMailUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1205,8 +1208,10 @@
 				E1CC372E1D3E1589005FEA04 /* ZTEMailModel+CoreDataProperties.m */,
 				E1CC372F1D3E1589005FEA04 /* ZTEMailModel.h */,
 				E1CC37301D3E1589005FEA04 /* ZTEMailModel.m */,
-				E1CC37311D3E1589005FEA04 /* ZTEMailUser.h */,
-				E1CC37321D3E1589005FEA04 /* ZTEMailUser.m */,
+				E1ED51731D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.h */,
+				E1ED51741D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.m */,
+				E1ED51751D4B57A300FC1A2E /* ZTEMailUser.h */,
+				E1ED51761D4B57A300FC1A2E /* ZTEMailUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1643,6 +1648,7 @@
 				E1CC36A41D3E1195005FEA04 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				E1CC37A91D3E1589005FEA04 /* ZTEMailModel+CoreDataProperties.m in Sources */,
 				E1CC36DE1D3E1195005FEA04 /* UIScrollView+MJRefresh.m in Sources */,
+				E1ED51781D4B57A300FC1A2E /* ZTEMailUser.m in Sources */,
 				E1CC35B01D3E0C87005FEA04 /* CLIColor.m in Sources */,
 				E1CC386B1D3E2769005FEA04 /* YYTextAttribute.m in Sources */,
 				E1CC37971D3E1589005FEA04 /* MailLoginViewController.m in Sources */,
@@ -1680,7 +1686,6 @@
 				E1CC38181D3E20BD005FEA04 /* UIView+Toast.m in Sources */,
 				E1CC378F1D3E1589005FEA04 /* MailFolderViewController.m in Sources */,
 				E1CC37A71D3E1589005FEA04 /* ZTEMailAttachment+CoreDataProperties.m in Sources */,
-				E1CC37AB1D3E1589005FEA04 /* ZTEMailUser.m in Sources */,
 				E1CC38611D3E2769005FEA04 /* YYTextContainerView.m in Sources */,
 				E1CC36C61D3E1195005FEA04 /* MASViewAttribute.m in Sources */,
 				E1CC36B81D3E1195005FEA04 /* JGProgressHUDAnimation.m in Sources */,
@@ -1748,6 +1753,7 @@
 				E1CC35B61D3E0C87005FEA04 /* DDTTYLogger.m in Sources */,
 				E1CC36EA1D3E1195005FEA04 /* UIButton+WebCache.m in Sources */,
 				E1CC36E01D3E1195005FEA04 /* README.md in Sources */,
+				E1ED51771D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.m in Sources */,
 				E1CC36C81D3E1195005FEA04 /* NSArray+MASAdditions.m in Sources */,
 				E1CC38711D3E2769005FEA04 /* UIPasteboard+YYText.m in Sources */,
 				E1CC38681D3E2769005FEA04 /* YYTextMagnifier.m in Sources */,

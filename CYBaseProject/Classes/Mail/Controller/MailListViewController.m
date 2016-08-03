@@ -230,11 +230,11 @@ static NSString *const demoCellReuseIdentifier = @"MailListCell";
         mailListModel.attachmentCount = @(attachments.count);
         for (MCOIMAPPart *attachment in attachments) {
             ZTEMailAttachment *mailAttachment = [NSEntityDescription insertNewObjectForEntityForName:@"ZTEMailAttachment" inManagedObjectContext:coreDataContext];
-            mailAttachment.ownerAddress = mailListModel.ownerAddress;
             mailAttachment.uid = mailListModel.uid;
             mailAttachment.folderPath = mailListModel.folderPath;
             mailAttachment.partid = attachment.partID;
             mailAttachment.filename = attachment.filename;
+            [mailListModel addAttachmentsObject:mailAttachment];
         }
         
         NSError *error = nil;

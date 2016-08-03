@@ -1,9 +1,9 @@
 //
 //  ZTEMailModel+CoreDataProperties.m
-//  HNPositionAsst
+//  CYMailDemo
 //
-//  Created by Peter Lee on 16/7/13.
-//  Copyright © 2016年 YYang. All rights reserved.
+//  Created by Peter Lee on 16/7/29.
+//  Copyright © 2016年 CY.Lee. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
 //  to delete and recreate this implementation file for your updated model.
@@ -13,19 +13,20 @@
 
 @implementation ZTEMailModel (CoreDataProperties)
 
-@dynamic uid;
-@dynamic subject;
-@dynamic fromName;
-@dynamic fromAddress;
-@dynamic sendDate;
-@dynamic receivedDate;
-@dynamic read;
-@dynamic folderPath;
-@dynamic ownerAddress;
+@dynamic attachmentCount;
 @dynamic bcc;
 @dynamic cc;
-@dynamic to;
 @dynamic content;
-@dynamic attachmentCount;
+@dynamic folderPath;
+@dynamic fromAddress;
+@dynamic fromName;
+@dynamic ownerAddress;
+@dynamic read;
+@dynamic receivedDate;
+@dynamic sendDate;
+@dynamic subject;
+@dynamic to;
+@dynamic uid;
+@dynamic attachments;
 
 @end

@@ -79,7 +79,6 @@ typedef NS_OPTIONS(NSInteger, ZTEMailFolderFlag) {
 @interface ZTEMailSessionUtil : NSObject
 
 @property (nonatomic, copy) NSString *nickname;
-@property (nonatomic, copy) NSString *realname;
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, copy) NSString *imapHostname;

@@ -203,11 +203,7 @@
 
     MCOIMAPMessagesRequestKind requestKind = (MCOIMAPMessagesRequestKind)
 
-    (MCOIMAPMessagesRequestKindHeaders |MCOIMAPMessagesRequestKindStructure |
-
-     MCOIMAPMessagesRequestKindInternalDate |MCOIMAPMessagesRequestKindHeaderSubject |
-
-     MCOIMAPMessagesRequestKindFlags |MCOIMAPMessagesRequestKindFullHeaders);
+    (MCOIMAPMessagesRequestKindStructure | MCOIMAPMessagesRequestKindInternalDate |MCOIMAPMessagesRequestKindHeaderSubject | MCOIMAPMessagesRequestKindFlags |MCOIMAPMessagesRequestKindFullHeaders);
 
     MCOIndexSet *numberRange = [MCOIndexSet indexSetWithRange:MCORangeMake(location,size)];
 
@@ -237,11 +233,7 @@
 - (void)fetchMessagesWithFolder:(NSString *)folderName startUid:(NSUInteger)startUid length:(NSUInteger)length success:(void (^)(NSArray *messages))success failure:(void (^)(NSError *  error))failure{
     MCOIMAPMessagesRequestKind requestKind = (MCOIMAPMessagesRequestKind)
     
-    (MCOIMAPMessagesRequestKindHeaders |MCOIMAPMessagesRequestKindStructure |
-     
-     MCOIMAPMessagesRequestKindInternalDate |MCOIMAPMessagesRequestKindHeaderSubject |
-     
-     MCOIMAPMessagesRequestKindFlags |MCOIMAPMessagesRequestKindFullHeaders);
+    (MCOIMAPMessagesRequestKindStructure |MCOIMAPMessagesRequestKindInternalDate |MCOIMAPMessagesRequestKindHeaderSubject |MCOIMAPMessagesRequestKindFlags |MCOIMAPMessagesRequestKindFullHeaders);
     
     MCOIndexSet *uids = [MCOIndexSet indexSetWithRange:MCORangeMake(startUid,length)];
     

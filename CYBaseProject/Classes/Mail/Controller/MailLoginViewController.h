@@ -8,6 +8,9 @@
 
 #import "ZTEBaseMailViewController.h"
 
+@class ZTEMailUser;
 @interface MailLoginViewController : ZTEBaseMailViewController
+
+@property (nonatomic, strong) NSMutableArray<ZTEMailUser *> *accounts;
 
 @end

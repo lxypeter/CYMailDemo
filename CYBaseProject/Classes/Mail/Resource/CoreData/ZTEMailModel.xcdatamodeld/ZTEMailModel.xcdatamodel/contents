@@ -14,9 +14,9 @@
     <entity name="ZTEMailAttachment" representedClassName="ZTEMailAttachment" syncable="YES">
         <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="folderPath" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="ownerAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="partid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="ownerMail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZTEMailModel" inverseName="attachments" inverseEntity="ZTEMailModel" syncable="YES"/>
     </entity>
     <entity name="ZTEMailModel" representedClassName="ZTEMailModel" syncable="YES">
         <attribute name="attachmentCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -33,10 +33,25 @@
         <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="to" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="attachments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ZTEMailAttachment" inverseName="ownerMail" inverseEntity="ZTEMailAttachment" syncable="YES"/>
+    </entity>
+    <entity name="ZTEMailUser" representedClassName="ZTEMailUser" syncable="YES">
+        <attribute name="fetchMailHost" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fetchMailPort" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="mailStoreProtocol" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sendMailHost" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sendMailPort" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="serverName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="smtpAuthType" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="ssl" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="ZTEFolderModel" positionX="-54" positionY="81" width="128" height="180"/>
         <element name="ZTEMailAttachment" positionX="-54" positionY="81" width="128" height="120"/>
-        <element name="ZTEMailModel" positionX="-380" positionY="-69" width="128" height="255"/>
+        <element name="ZTEMailModel" positionX="-380" positionY="-69" width="128" height="270"/>
+        <element name="ZTEMailUser" positionX="-216" positionY="72" width="128" height="210"/>
     </elements>
 </model>

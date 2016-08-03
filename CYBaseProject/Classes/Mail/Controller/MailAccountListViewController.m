@@ -35,8 +35,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    _accounts = nil;
-    [self.accountTableView reloadData];
+    [self queryMailUser];
 }
 
 #pragma mark - setup views
@@ -109,7 +108,6 @@
     sessionUtil.imapPort = user.fetchMailPort;
     sessionUtil.smtpHostname = user.sendMailHost;
     sessionUtil.smtpPort = user.sendMailPort;
-    sessionUtil.realname = user.realName;
     sessionUtil.nickname = user.nickName;
     sessionUtil.smtpAuthType = user.smtpAuthType;
     if (user.ssl) {
@@ -128,13 +126,26 @@
     ZTEMailUser *user = self.accounts[indexPath.row];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self clearCacheWithUsername:user.username];
-        [ZTEMailUser clearAccountInfo:user];
         [self.accounts removeObjectAtIndex:indexPath.row];
+        [self deleteMailUser:user];
         [self.accountTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
     }
 }
 
 #pragma mark - CoreData Method
+- (void)queryMailUser{
+    NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
+    // 查询
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ZTEMailUser"];
+    //读取信息
+    NSError *error = nil;
+    NSArray *mailUsers = [coreDataContext executeFetchRequest:request error:&error];
+    if(!error&&mailUsers.count>0){
+        self.accounts = [NSMutableArray arrayWithArray:mailUsers];
+        [self.accountTableView reloadData];
+    }
+}
+
 - (void)clearCacheWithUsername:(NSString *)username{
     NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
     //删除邮件缓存
@@ -147,27 +158,26 @@
         for (id mailModel in mails) {
             [coreDataContext deleteObject:mailModel];
         }
+    }
+    
+    if (coreDataContext.hasChanges) {
         [coreDataContext save:nil];
     }
     
-    //删除附件缓存
-    NSFetchRequest *attachRequest = [NSFetchRequest fetchRequestWithEntityName:@"ZTEMailAttachment"];
-    NSPredicate *attachPre = [NSPredicate predicateWithFormat:@"ownerAddress=%@",username];
-    attachRequest.predicate = attachPre;
-    error = nil;
-    NSArray *attachs = [coreDataContext executeFetchRequest:attachRequest error:&error];
-    if (!error&&attachs.count>0) {
-        for (id attachModel in attachs) {
-            [coreDataContext deleteObject:attachModel];
-        }
+}
+
+- (void)deleteMailUser:(ZTEMailUser *)user{
+    NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
+    [coreDataContext deleteObject:user];
+    if (coreDataContext.hasChanges) {
         [coreDataContext save:nil];
     }
 }
 
 #pragma mark - Accessors
-- (NSArray *)accounts{
+- (NSMutableArray *)accounts{
     if (!_accounts) {
-        _accounts = [ZTEMailUser mailAccounts];
+        _accounts = [NSMutableArray array];
     }
     return _accounts;
 }

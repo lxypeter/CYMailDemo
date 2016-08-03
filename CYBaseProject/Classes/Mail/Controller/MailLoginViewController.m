@@ -9,6 +9,7 @@
 #import "MailLoginViewController.h"
 #import "ZTEMailUser.h"
 #import "ZTEMailSessionUtil.h"
+#import "ZTEMailCoreDataUtil.h"
 
 @interface MailLoginViewController ()<UITextFieldDelegate>
 
@@ -90,7 +91,6 @@
     sessionUtil.imapPort = [configDict[@"fetchMailPort"] integerValue];
     sessionUtil.smtpHostname = configDict[@"sendMailHost"];
     sessionUtil.smtpPort = [configDict[@"sendMailPort"] integerValue];
-    sessionUtil.realname = @"";
     sessionUtil.nickname = self.nicknameTextField.text;
     sessionUtil.smtpAuthType = [configDict[@"smtpAuthType"] integerValue];
     if ([configDict[@"ssl"] boolValue]) {
@@ -130,7 +130,7 @@
 - (void)checkMailUser{
     ZTEMailSessionUtil *sessionUtil = [ZTEMailSessionUtil shareUtil];
     
-    if([ZTEMailUser hasAddedAccountInfo:sessionUtil.username]){
+    if(![self checkUniqueness:sessionUtil.username]){
         [self.view makeToast:@"该账号已添加！"];
         return;
     }
@@ -141,19 +141,21 @@
     [sessionUtil checkAccountSuccess:^{
         [weakSelf hideHud];
         
-        ZTEMailUser *user = [[ZTEMailUser alloc]init];
+        NSManagedObjectContext *context = [ZTEMailCoreDataUtil shareContext];
+        ZTEMailUser *user = [NSEntityDescription insertNewObjectForEntityForName:@"ZTEMailUser" inManagedObjectContext:context];
         user.username = weakSession.username;
         user.password = weakSession.password;
         user.fetchMailHost = weakSession.imapHostname;
         user.fetchMailPort = weakSession.imapPort;
         user.sendMailHost = weakSession.smtpHostname;
         user.sendMailPort = weakSession.smtpPort;
-        user.realName = weakSession.realname;
         user.nickName = weakSession.nickname;
         user.smtpAuthType = weakSession.smtpAuthType;
         user.ssl = (weakSession.imapConnectionType == ZTEMailConnectionTypeTLS);
         // 存储登录成功的帐号
-        [ZTEMailUser storeAccountInfo:user];
+        if (context.hasChanges) {
+            [context save:nil];
+        }
         
         // 返回到选择帐户查看邮件的页面
         [weakSelf dismissViewControllerAnimated:YES completion:nil];
@@ -182,6 +184,15 @@
         return NO;
     }
     
+    return YES;
+}
+
+- (BOOL)checkUniqueness:(NSString *)username{
+    for (ZTEMailUser *user in self.accounts) {
+        if ([user.username isEqualToString:username]) {
+            return NO;
+        }
+    }
     return YES;
 }
 

@@ -1,40 +1,22 @@
 //
 //  ZTEMailUser.h
-//  HNPositionAsst
+//  CYMailDemo
 //
-//  Created by Peter Lee on 16/5/20.
-//  Copyright © 2016年 YYang. All rights reserved.
+//  Created by Peter Lee on 16/7/29.
+//  Copyright © 2016年 CY.Lee. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-static NSString * const ZTEMailUsersKey = @"ZTEMailUsers";
+NS_ASSUME_NONNULL_BEGIN
 
-@interface ZTEMailUser : NSObject
+@interface ZTEMailUser : NSManagedObject
 
-@property (nonatomic, copy) NSString *username; // 邮箱用户名
-@property (nonatomic, copy) NSString *password;
-@property (nonatomic, copy) NSString *serverName; // 邮箱服务器名称
-@property (nonatomic, copy) NSString *nickName; // 邮箱别名
-@property (nonatomic, copy) NSString *realName; // 用户真实姓名
-@property (nonatomic, copy) NSString *fetchMailHost;
-@property (nonatomic, assign) NSInteger fetchMailPort;
-@property (nonatomic, copy) NSString *sendMailHost;
-@property (nonatomic, assign) NSInteger sendMailPort;
-@property (nonatomic, copy) NSString *mailStoreProtocol;
-@property (nonatomic, assign) BOOL ssl;
-@property (nonatomic, assign) NSInteger smtpAuthType;
-
-+ (ZTEMailUser *)shareUser;
-
-+ (NSMutableArray *)mailAccounts;
-
-+ (void)storeAccountInfo:(ZTEMailUser *)userInfo;
-+ (void)clearAccountInfo:(ZTEMailUser *)userInfo;
-+ (BOOL)hasAddedAccountInfo:(NSString *)username;
-
-- (void)configureWithDictionary:(NSDictionary *)dict;
-- (NSDictionary *)transferToDictionary;
-- (void)clear;
+// Insert code here to declare functionality of your managed object subclass
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "ZTEMailUser+CoreDataProperties.h"

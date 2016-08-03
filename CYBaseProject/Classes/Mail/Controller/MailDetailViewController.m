@@ -221,7 +221,7 @@ static NSString *kMailDetailCellId = @"MailContactCell";
         [self.myTableView deleteRowsAtIndexPaths:self.modifyIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
     }
     
-    [self.myTableView reloadData];
+    [self.myTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark webView
@@ -458,26 +458,7 @@ static NSString *kMailDetailCellId = @"MailContactCell";
 - (NSArray *)attachments{
     
     if (!_attachments) {
-        NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
-        // 查询
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ZTEMailAttachment"];
-        
-        NSPredicate *pre = [NSPredicate predicateWithFormat:@"ownerAddress=%@ AND folderPath=%@ AND uid=%@",self.mailModel.ownerAddress,self.mailModel.folderPath,self.mailModel.uid];
-        
-        request.predicate = pre;
-        
-        //读取信息
-        NSError *error = nil;
-        NSArray *attachments = [coreDataContext executeFetchRequest:request error:&error];
-        if (!error) {
-            if (attachments) {
-                _attachments = attachments;
-            }else{
-                _attachments = @[];
-            }
-        }else{
-            _attachments = @[];
-        }
+        _attachments = [self.mailModel.attachments allObjects];
     }
     return _attachments;
     

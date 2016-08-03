@@ -16,7 +16,7 @@
     static NSManagedObjectContext *context;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        context = [[NSManagedObjectContext alloc] init];
+        context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         
         // 创建一个模型对象
         NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
@@ -32,7 +32,7 @@
         
         // 数据库保存的路径
         NSString *sqlitePath = [doc stringByAppendingFormat:@"/ZTEMailModel.slqite"];
-        NSLog(@"path =====> %@",sqlitePath);
+        DDLogInfo(@"path =====> %@",sqlitePath);
         
         [store addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:sqlitePath] options:nil error:&error];
         
