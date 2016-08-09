@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-static const NSString *kMailUserKey = @"kMailUserKey";
-
-#define UserDefault [NSUserDefaults standardUserDefaults]
-
-@interface ZTEBaseMailViewController : UIViewController
+@interface CYBaseMailViewController : UIViewController
 
 /**
  *  设置导航栏后退按钮
@@ -34,31 +30,28 @@ static const NSString *kMailUserKey = @"kMailUserKey";
  *  @param title    按钮标题
  *  @param iconName 按钮图片
  */
--(void)setNavRightBtnWithTitle:(NSString *)title andIconName:(NSString *)iconName;
+- (void)setNavRightBtnWithTitle:(NSString *)title andIconName:(NSString *)iconName;
+
 /**
  *  @author YYang, 16-02-01 11:02:23
  *
  *  导航栏右按钮点击事件
  */
--(void)rightBtnClicked:(UIButton *)sender;
+- (void)rightBtnClicked:(UIButton *)sender;
 
-
-
-
-#pragma mark - 菊花转
 /**
  *  @author YYang, 16-01-31 22:01:26
  *
  *  展示普通Hud
  *
  */
-- (void) showHudWithMsg:(NSString *)msg;
+- (void)showHudWithMsg:(NSString *)msg;
 /**
  *  @author YYang, 16-01-31 22:01:38
  *
  *  隐藏所有Hud
  */
-- (void) hideHud;
+- (void)hideHud;
 
 /**
  *  @author CY.Lee, 16-07-18 17:07:23
@@ -76,8 +69,6 @@ static const NSString *kMailUserKey = @"kMailUserKey";
  *  @param scale 比例
  */
 - (void)showRingHUDWithMsg:(NSString *)msg andTotalSize:(long long )totalSize andTotalReaded:(long long)totalReaded;
-
-#pragma mark - 网络
 
 /**
  *  @author YYang, 16-04-11 11:04:26

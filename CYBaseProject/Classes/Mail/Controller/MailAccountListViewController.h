@@ -6,8 +6,8 @@
 //  Copyright © 2016 YYang. All rights reserved.
 //
 
-#import "ZTEBaseMailViewController.h"
+#import "CYBaseMailViewController.h"
 
-@interface MailAccountListViewController : ZTEBaseMailViewController
+@interface MailAccountListViewController : CYBaseMailViewController
 
 @end

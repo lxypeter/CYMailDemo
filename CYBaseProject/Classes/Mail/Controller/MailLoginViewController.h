@@ -6,10 +6,10 @@
 //  Copyright © 2016年 YYang. All rights reserved.
 //
 
-#import "ZTEBaseMailViewController.h"
+#import "CYBaseMailViewController.h"
 
 @class ZTEMailUser;
-@interface MailLoginViewController : ZTEBaseMailViewController
+@interface MailLoginViewController : CYBaseMailViewController
 
 @property (nonatomic, strong) NSMutableArray<ZTEMailUser *> *accounts;
 

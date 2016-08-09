@@ -38,7 +38,7 @@ static NSString * const demoCellReuseIdentifier = @"MyToolsCellReuseIdentifier";
 }
 
 #pragma mark - InitSubview
--(void)configureSubview{
+- (void)configureSubview{
     self.title = @"邮箱";
     
     //写邮件按钮

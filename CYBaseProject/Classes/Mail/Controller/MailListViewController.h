@@ -6,10 +6,10 @@
 //  Copyright © 2016年 YYang. All rights reserved.
 //
 
-#import "ZTEBaseMailViewController.h"
+#import "CYBaseMailViewController.h"
 
 @class ZTEFolderModel;
-@interface MailListViewController : ZTEBaseMailViewController
+@interface MailListViewController : CYBaseMailViewController
 
 @property (nonatomic,strong) ZTEFolderModel *folderModel;
 

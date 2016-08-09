@@ -106,8 +106,8 @@
 		E1CC36EE1D3E1195005FEA04 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36991D3E1195005FEA04 /* UIImageView+HighlightedWebCache.m */; };
 		E1CC36EF1D3E1195005FEA04 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC369B1D3E1195005FEA04 /* UIImageView+WebCache.m */; };
 		E1CC36F01D3E1195005FEA04 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC369D1D3E1195005FEA04 /* UIView+WebCacheOperation.m */; };
-		E1CC37851D3E1589005FEA04 /* AttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36F51D3E1589005FEA04 /* AttachmentViewController.m */; };
-		E1CC37861D3E1589005FEA04 /* AttachmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC36F61D3E1589005FEA04 /* AttachmentViewController.xib */; };
+		E1CC37851D3E1589005FEA04 /* MailAttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36F51D3E1589005FEA04 /* MailAttachmentViewController.m */; };
+		E1CC37861D3E1589005FEA04 /* MailAttachmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC36F61D3E1589005FEA04 /* MailAttachmentViewController.xib */; };
 		E1CC37871D3E1589005FEA04 /* MailAccountListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36F81D3E1589005FEA04 /* MailAccountListViewController.m */; };
 		E1CC378B1D3E1589005FEA04 /* MailDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36FF1D3E1589005FEA04 /* MailDetailViewController.m */; };
 		E1CC378C1D3E1589005FEA04 /* MailDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37001D3E1589005FEA04 /* MailDetailViewController.xib */; };
@@ -120,7 +120,7 @@
 		E1CC37951D3E1589005FEA04 /* MailListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC370F1D3E1589005FEA04 /* MailListViewController.xib */; };
 		E1CC37971D3E1589005FEA04 /* MailLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37131D3E1589005FEA04 /* MailLoginViewController.m */; };
 		E1CC37981D3E1589005FEA04 /* MailLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37141D3E1589005FEA04 /* MailLoginViewController.xib */; };
-		E1CC379A1D3E1589005FEA04 /* ZTEBaseMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37181D3E1589005FEA04 /* ZTEBaseMailViewController.m */; };
+		E1CC379A1D3E1589005FEA04 /* CYBaseMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37181D3E1589005FEA04 /* CYBaseMailViewController.m */; };
 		E1CC37A51D3E1589005FEA04 /* ZTEFolderModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37261D3E1589005FEA04 /* ZTEFolderModel+CoreDataProperties.m */; };
 		E1CC37A61D3E1589005FEA04 /* ZTEFolderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37281D3E1589005FEA04 /* ZTEFolderModel.m */; };
 		E1CC37A71D3E1589005FEA04 /* ZTEMailAttachment+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC372A1D3E1589005FEA04 /* ZTEMailAttachment+CoreDataProperties.m */; };
@@ -461,9 +461,9 @@
 		E1CC369B1D3E1195005FEA04 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		E1CC369C1D3E1195005FEA04 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		E1CC369D1D3E1195005FEA04 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		E1CC36F41D3E1589005FEA04 /* AttachmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentViewController.h; sourceTree = "<group>"; };
-		E1CC36F51D3E1589005FEA04 /* AttachmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttachmentViewController.m; sourceTree = "<group>"; };
-		E1CC36F61D3E1589005FEA04 /* AttachmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttachmentViewController.xib; sourceTree = "<group>"; };
+		E1CC36F41D3E1589005FEA04 /* MailAttachmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAttachmentViewController.h; sourceTree = "<group>"; };
+		E1CC36F51D3E1589005FEA04 /* MailAttachmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAttachmentViewController.m; sourceTree = "<group>"; };
+		E1CC36F61D3E1589005FEA04 /* MailAttachmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailAttachmentViewController.xib; sourceTree = "<group>"; };
 		E1CC36F71D3E1589005FEA04 /* MailAccountListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAccountListViewController.h; sourceTree = "<group>"; };
 		E1CC36F81D3E1589005FEA04 /* MailAccountListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAccountListViewController.m; sourceTree = "<group>"; };
 		E1CC36FE1D3E1589005FEA04 /* MailDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailDetailViewController.h; sourceTree = "<group>"; };
@@ -483,8 +483,8 @@
 		E1CC37121D3E1589005FEA04 /* MailLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailLoginViewController.h; sourceTree = "<group>"; };
 		E1CC37131D3E1589005FEA04 /* MailLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailLoginViewController.m; sourceTree = "<group>"; };
 		E1CC37141D3E1589005FEA04 /* MailLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailLoginViewController.xib; sourceTree = "<group>"; };
-		E1CC37171D3E1589005FEA04 /* ZTEBaseMailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTEBaseMailViewController.h; sourceTree = "<group>"; };
-		E1CC37181D3E1589005FEA04 /* ZTEBaseMailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTEBaseMailViewController.m; sourceTree = "<group>"; };
+		E1CC37171D3E1589005FEA04 /* CYBaseMailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYBaseMailViewController.h; sourceTree = "<group>"; };
+		E1CC37181D3E1589005FEA04 /* CYBaseMailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYBaseMailViewController.m; sourceTree = "<group>"; };
 		E1CC37251D3E1589005FEA04 /* ZTEFolderModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZTEFolderModel+CoreDataProperties.h"; sourceTree = "<group>"; };
 		E1CC37261D3E1589005FEA04 /* ZTEFolderModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZTEFolderModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		E1CC37271D3E1589005FEA04 /* ZTEFolderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTEFolderModel.h; sourceTree = "<group>"; };
@@ -1165,9 +1165,9 @@
 		E1CC36F31D3E1589005FEA04 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E1CC36F41D3E1589005FEA04 /* AttachmentViewController.h */,
-				E1CC36F51D3E1589005FEA04 /* AttachmentViewController.m */,
-				E1CC36F61D3E1589005FEA04 /* AttachmentViewController.xib */,
+				E1CC36F41D3E1589005FEA04 /* MailAttachmentViewController.h */,
+				E1CC36F51D3E1589005FEA04 /* MailAttachmentViewController.m */,
+				E1CC36F61D3E1589005FEA04 /* MailAttachmentViewController.xib */,
 				E1CC36F71D3E1589005FEA04 /* MailAccountListViewController.h */,
 				E1CC36F81D3E1589005FEA04 /* MailAccountListViewController.m */,
 				E1CC36FE1D3E1589005FEA04 /* MailDetailViewController.h */,
@@ -1187,8 +1187,8 @@
 				E1CC37121D3E1589005FEA04 /* MailLoginViewController.h */,
 				E1CC37131D3E1589005FEA04 /* MailLoginViewController.m */,
 				E1CC37141D3E1589005FEA04 /* MailLoginViewController.xib */,
-				E1CC37171D3E1589005FEA04 /* ZTEBaseMailViewController.h */,
-				E1CC37181D3E1589005FEA04 /* ZTEBaseMailViewController.m */,
+				E1CC37171D3E1589005FEA04 /* CYBaseMailViewController.h */,
+				E1CC37181D3E1589005FEA04 /* CYBaseMailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1591,7 +1591,7 @@
 				E1CC387E1D3E27EF005FEA04 /* SideSilpViewHeader.xib in Resources */,
 				E1CC37981D3E1589005FEA04 /* MailLoginViewController.xib in Resources */,
 				E1CC33BA1D3E0C86005FEA04 /* Info.plist in Resources */,
-				E1CC37861D3E1589005FEA04 /* AttachmentViewController.xib in Resources */,
+				E1CC37861D3E1589005FEA04 /* MailAttachmentViewController.xib in Resources */,
 				E1CC36B61D3E1195005FEA04 /* JGProgressHUD Resources.bundle in Resources */,
 				E1CC37CD1D3E1589005FEA04 /* MailContactCell.xib in Resources */,
 				E1CC36CC1D3E1195005FEA04 /* LICENSE in Resources */,
@@ -1641,7 +1641,7 @@
 				E1CC36E21D3E1195005FEA04 /* NSData+ImageContentType.m in Sources */,
 				E1CC36EE1D3E1195005FEA04 /* UIImageView+HighlightedWebCache.m in Sources */,
 				E1CC37D31D3E1589005FEA04 /* MailAttachmentCell.m in Sources */,
-				E1CC37851D3E1589005FEA04 /* AttachmentViewController.m in Sources */,
+				E1CC37851D3E1589005FEA04 /* MailAttachmentViewController.m in Sources */,
 				E1CC37CB1D3E1589005FEA04 /* MailAttachmentTableViewCell.m in Sources */,
 				E1CC36DF1D3E1195005FEA04 /* UIView+MJExtension.m in Sources */,
 				E1CC36C71D3E1195005FEA04 /* MASViewConstraint.m in Sources */,
@@ -1660,7 +1660,7 @@
 				E1CC37D51D3E1589005FEA04 /* MailAttachmentHeader.m in Sources */,
 				E1CC35B81D3E0C87005FEA04 /* DDDispatchQueueLogFormatter.m in Sources */,
 				E1CC36D71D3E1195005FEA04 /* MJRefreshBackStateFooter.m in Sources */,
-				E1CC379A1D3E1589005FEA04 /* ZTEBaseMailViewController.m in Sources */,
+				E1CC379A1D3E1589005FEA04 /* CYBaseMailViewController.m in Sources */,
 				E1CC37871D3E1589005FEA04 /* MailAccountListViewController.m in Sources */,
 				E1CC36D01D3E1195005FEA04 /* MJRefreshFooter.m in Sources */,
 				E1CC37A61D3E1589005FEA04 /* ZTEFolderModel.m in Sources */,

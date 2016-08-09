@@ -6,7 +6,7 @@
 //  Copyright © 2016年 YYang. All rights reserved.
 //
 
-#import "AttachmentViewController.h"
+#import "MailAttachmentViewController.h"
 #import "YYSandBoxUtil.h"
 #import "MailAttachmentTableViewCell.h"
 #import "DocPreviewUtil.h"
@@ -16,7 +16,7 @@
 #import "ZTEMailAttachment.h"
 #import "ZTEMailSessionUtil.h"
 
-@interface AttachmentViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MailAttachmentViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UIDocumentInteractionController *documentController;
 @property (nonatomic, strong) UITableView *myTableVeiw;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation AttachmentViewController
+@implementation MailAttachmentViewController
 
 #pragma mark - init method
 - (instancetype)initWithOwnerAddress:(NSString *)ownerAddress folderPath:(NSString *)folderPath uid:(NSInteger)uid attachments:(NSArray<ZTEMailAttachment *> *)attachments parentController:(UIViewController *)parentController{

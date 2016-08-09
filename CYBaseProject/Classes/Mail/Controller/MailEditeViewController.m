@@ -200,8 +200,7 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
 }
 
 //附件 cell
--(void)configureAttachmentCell:(MailAttachmentCell*)cell andIndexPath:(NSIndexPath *)indexPath
-{
+- (void)configureAttachmentCell:(MailAttachmentCell*)cell andIndexPath:(NSIndexPath *)indexPath{
     ((MailAttachmentCell *)cell).attchmentTitle.text = [NSString stringWithFormat:@"附件%ld:",indexPath.row+1];
     ZTEAttachmentModel *attachment = self.attachments[indexPath.row];
     ((MailAttachmentCell *)cell).attchmentLabel.text = attachment.fileName;
@@ -297,8 +296,7 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
 
 }
 
-- (void)rightBtnClicked:(UIButton *)sender
-{
+- (void)rightBtnClicked:(UIButton *)sender{
     [self.view endEditing:YES];
     if([NSString isBlankString: self.toAddrCell.inputView.text] ){
         [self.view makeToast:@"请您选择收件人!"];

@@ -8,7 +8,7 @@
 
 #import "MailDetailViewController.h"
 #import "MailContactCell.h"
-#import "AttachmentViewController.h"
+#import "MailAttachmentViewController.h"
 #import "MailFolderViewController.h"
 #import "MailEditeViewController.h"
 #import "SideSlipView.h"
@@ -63,7 +63,7 @@ static NSString *kMailDetailCellId = @"MailContactCell";
 @property (nonatomic, assign) CGFloat subjectHeight;
 @property (nonatomic, strong) NSString *folderName;
 @property (nonatomic, strong) SideSlipView *sideSlipView;
-@property (nonatomic, strong) AttachmentViewController *attachmentVC;
+@property (nonatomic, strong) MailAttachmentViewController *attachmentVC;
 @property (nonatomic, strong) UIView *footerView;
 @property (nonatomic, strong) UIWebView *mailDetailWebView;
 @property (nonatomic, strong) UIView *subjectView;
@@ -448,9 +448,9 @@ static NSString *kMailDetailCellId = @"MailContactCell";
     return _sideSlipView;
 }
 
-- (AttachmentViewController *)attachmentVC{
+- (MailAttachmentViewController *)attachmentVC{
     if (!_attachmentVC) {
-        _attachmentVC = [[AttachmentViewController alloc] initWithOwnerAddress:[ZTEMailSessionUtil shareUtil].username folderPath:self.mailModel.folderPath uid:[self.mailModel.uid integerValue] attachments:self.attachments parentController:self];
+        _attachmentVC = [[MailAttachmentViewController alloc] initWithOwnerAddress:[ZTEMailSessionUtil shareUtil].username folderPath:self.mailModel.folderPath uid:[self.mailModel.uid integerValue] attachments:self.attachments parentController:self];
     }
     return _attachmentVC;
 }

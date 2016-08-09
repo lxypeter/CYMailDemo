@@ -57,8 +57,7 @@ static NSString *const demoCellReuseIdentifier = @"MailListCell";
 }
 
 #pragma mark - DelegateMethod
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataArray.count;
 }
 
@@ -68,7 +67,6 @@ static NSString *const demoCellReuseIdentifier = @"MailListCell";
     [cell setMailModel:self.dataArray[indexPath.row]];
     return cell;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -88,7 +86,7 @@ static NSString *const demoCellReuseIdentifier = @"MailListCell";
     [self.myTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     
     //获取邮件正文
-    if ([NSString isBlankString:mailModel.content]) {
+    if ([NSString isBlankString:mailModel.content]){
         [self showHudWithMsg:@"正在获取正文..."];
         ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
         NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
@@ -121,7 +119,7 @@ static NSString *const demoCellReuseIdentifier = @"MailListCell";
     NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
     ZTEMailModel *mailModel = self.dataArray[indexPath.row];
     
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (editingStyle == UITableViewCellEditingStyleDelete){
         [self.dataArray removeObjectAtIndex:indexPath.row];
         [self deleteMailWithFolder:mailModel.folderPath uid:[mailModel.uid integerValue]];
         [coreDataContext deleteObject:mailModel];

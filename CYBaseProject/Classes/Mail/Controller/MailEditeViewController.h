@@ -6,10 +6,10 @@
 //  Copyright © 2016年 YYang. All rights reserved.
 //
 
-#import "ZTEBaseMailViewController.h"
+#import "CYBaseMailViewController.h"
 
 @class ZTEMailModel;
-@interface MailEditeViewController : ZTEBaseMailViewController
+@interface MailEditeViewController : CYBaseMailViewController
 
 @property (nonatomic, strong) ZTEMailModel *mailModel;
 @property (nonatomic, copy) NSString *subject;

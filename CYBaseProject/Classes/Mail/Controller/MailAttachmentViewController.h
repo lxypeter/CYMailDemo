@@ -6,10 +6,10 @@
 //  Copyright © 2016年 YYang. All rights reserved.
 //
 
-#import "ZTEBaseMailViewController.h"
+#import "CYBaseMailViewController.h"
 
 @class ZTEMailAttachment;
-@interface AttachmentViewController : ZTEBaseMailViewController
+@interface MailAttachmentViewController : CYBaseMailViewController
 
 @property (nonatomic, strong) NSString *ownerAddress;
 @property (nonatomic, strong) NSString *folderPath;

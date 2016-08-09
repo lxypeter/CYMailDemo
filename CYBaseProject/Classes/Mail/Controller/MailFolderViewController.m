@@ -34,8 +34,7 @@ static NSString *const reuseableID = @"MailFolderCell";
     [super viewWillAppear:YES];
 }
 
-- (void)configureSubviews
-{
+- (void)configureSubviews{
     self.title = @"选择文件夹";
     self.myTableView.delegate = self;
     self.myTableView.dataSource = self;
@@ -47,7 +46,7 @@ static NSString *const reuseableID = @"MailFolderCell";
 }
 
 #pragma mark - Delegate Methods
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataArray.count;
 }
 
@@ -83,7 +82,7 @@ static NSString *const reuseableID = @"MailFolderCell";
 }
 
 #pragma mark - Event Response
-- (IBAction)confirmBtnClicked:(UIButton *)sender {
+- (IBAction)confirmBtnClicked:(UIButton *)sender{
     if(!self.selectedIndex){
         [self.view makeToast:@"请先选择需要移动邮件至哪个文件夹!"];
         return;
@@ -161,8 +160,7 @@ static NSString *const reuseableID = @"MailFolderCell";
 
 #pragma mark -Getters and Setters
 - (NSMutableArray *)dataArray{
-    if(!_dataArray)
-    {
+    if(!_dataArray){
         _dataArray = [NSMutableArray array];
     }
     return _dataArray;
