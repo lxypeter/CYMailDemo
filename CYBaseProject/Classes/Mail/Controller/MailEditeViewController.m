@@ -17,6 +17,7 @@
 #import "JSImagePickerViewController.h"
 #import "ZTEMailModel.h"
 #import "ZTEMailSessionUtil.h"
+#import "ZTEFolderModel.h"
 
 #define kKeyPath @"contentOffset"
 
@@ -266,7 +267,7 @@ static NSString * const demoCellReuseIdentifier = @"MailEditeViewController";
     [self showHudWithMsg:@"正在发送..."];
     __weak typeof(self) weakSelf = self;
     ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
-    [util sendMailWithSubject:subject content:self.editTextView.text toArray:toArrs ccArray:ccArrs bccArray:bccArrs imageAttachmentArray:self.attachments uid:uid folder:folder success:^{
+    [util sendMailWithSubject:subject content:self.editTextView.text toArray:toArrs ccArray:ccArrs bccArray:bccArrs imageAttachmentArray:self.attachments uid:uid folder:folder sentFolder:[util loadSentFolder].path success:^{
         
         [self hideHud];
         

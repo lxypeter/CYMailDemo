@@ -8,6 +8,8 @@
 
 #import "ZTEMailSessionUtil.h"
 #import <MailCore/MailCore.h>
+#import "ZTEFolderModel.h"
+#import "ZTEMailCoreDataUtil.h"
 
 @implementation ZTESimpleFolderModel
 
@@ -416,6 +418,25 @@
     }];
 }
 
+/**
+ *  @author CY.Lee
+ *
+ *  创建草稿/已发送
+ *
+ *  @param data  邮件内容
+ *  @param folder  目标目录（已发送/草稿箱）
+ */
+- (void)createDraftData:(NSData *)data folder:(NSString *)folder success:(void (^)())success failure:(void (^)(NSError *error))failure{
+    MCOIMAPAppendMessageOperation *op = [self.imapSession appendMessageOperationWithFolder:folder messageData:data flags:MCOMessageFlagDraft];
+    [op start:^(NSError *error, uint32_t createdUID) {
+        if (error) {
+            failure(error);
+        }else{
+            success();
+        }
+    }];
+}
+
 #pragma mark SMTP
 /**
  *  @author CY.Lee, 16-07-18 15:07:06
@@ -431,7 +452,7 @@
  *  @param uid      转发回复uid
  *  @param folder   转发回复目录名
  */
-- (void)sendMailWithSubject:(NSString *)subject content:(NSString *)content toArray:(NSArray *)toArray ccArray:(NSArray *)ccArray bccArray:(NSArray *)bccArray imageAttachmentArray:(NSArray<ZTEAttachmentModel *> *)images uid:(NSInteger)uid folder:(NSString *)folder success:(void (^)())success failure:(void (^)(NSError *  error))failure progress:(void (^)(NSInteger current, NSInteger maximum))progress{
+- (void)sendMailWithSubject:(NSString *)subject content:(NSString *)content toArray:(NSArray *)toArray ccArray:(NSArray *)ccArray bccArray:(NSArray *)bccArray imageAttachmentArray:(NSArray<ZTEAttachmentModel *> *)images uid:(NSInteger)uid folder:(NSString *)folder sentFolder:(NSString *)sentFolder success:(void (^)())success failure:(void (^)(NSError *  error))failure progress:(void (^)(NSInteger current, NSInteger maximum))progress{
     
     MCOMessageBuilder *builder = [[MCOMessageBuilder alloc] init];
     
@@ -508,6 +529,11 @@
                     failure(error);
                 } else {
                     NSLog(@"发送邮件成功!");
+                    if (![NSString isBlankString:sentFolder]) {
+                        [self createDraftData:rfc822Data folder:sentFolder success:^{
+                        } failure:^(NSError *error) {
+                        }];
+                    }
                     success();
                 }
             }];
@@ -528,6 +554,11 @@
                 failure(error);
             } else {
                 NSLog(@"发送邮件成功!");
+                if (![NSString isBlankString:sentFolder]) {
+                    [self createDraftData:rfc822Data folder:sentFolder success:^{
+                    } failure:^(NSError *error) {
+                    }];
+                }
                 success();
             }
         }];
@@ -556,6 +587,90 @@
         return @"草稿箱";
     }
     return folderName;
+}
+
+/**
+ *  @author CY.Lee, 16-07-12 15:07:54
+ *
+ *  判断是否已删除文件夹
+ */
+- (BOOL)isTrashFolder:(ZTEFolderModel *)folderModel{
+    
+    //根据目录标识
+    BOOL flagJudgement =[folderModel.flags integerValue] & ZTEMailFolderFlagTrash;
+    //根据目录名称
+    BOOL nameJudgement = [folderModel.name isEqualToString:@"已删除"]||[[folderModel.name uppercaseString] isEqualToString:@"TRASH"]||[[folderModel.name uppercaseString] isEqualToString:@"JUNK"];
+    
+    return flagJudgement||nameJudgement;
+}
+
+/**
+ *  @author CY.Lee, 16-07-12 15:07:54
+ *
+ *  查询已删除文件夹
+ */
+- (ZTEFolderModel *)loadTrashFolder{
+    NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
+    ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
+    // 查询
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ZTEFolderModel"];
+    
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"ownerAddress=%@",util.username];
+    request.predicate = pre;
+    
+    //读取信息
+    NSError *error = nil;
+    NSArray *mailFolders = [coreDataContext executeFetchRequest:request error:&error];
+    if (!error&&mailFolders.count>0) {
+        for (ZTEFolderModel *folderModel in mailFolders) {
+            if ([self isTrashFolder:folderModel]) {
+                return folderModel;
+            }
+        }
+    }
+    return nil;
+}
+
+/**
+ *  @author CY.Lee, 16-07-12 15:07:54
+ *
+ *  判断是否已发送文件夹
+ */
+- (BOOL)isSentFolder:(ZTEFolderModel *)folderModel{
+    
+    //根据目录标识
+    BOOL flagJudgement =[folderModel.flags integerValue] & ZTEMailFolderFlagSentMail;
+    //根据目录名称
+    BOOL nameJudgement = [folderModel.name isEqualToString:@"已发送"]||[[folderModel.name uppercaseString] isEqualToString:@"SENT"];
+    
+    return flagJudgement||nameJudgement;
+}
+
+/**
+ *  @author CY.Lee, 16-07-12 15:07:54
+ *
+ *  查询已发送文件夹
+ */
+- (ZTEFolderModel *)loadSentFolder{
+    NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
+    ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
+    // 查询
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ZTEFolderModel"];
+    
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"ownerAddress=%@",util.username];
+    request.predicate = pre;
+    
+    //读取信息
+    NSError *error = nil;
+    NSArray *mailFolders = [coreDataContext executeFetchRequest:request error:&error];
+    if (!error&&mailFolders.count>0) {
+        for (ZTEFolderModel *folderModel in mailFolders) {
+            if ([self isSentFolder:folderModel]) {
+                return folderModel;
+            }
+        }
+    }
+    return nil;
 }
 
 @end

@@ -75,7 +75,7 @@ typedef NS_OPTIONS(NSInteger, ZTEMailFolderFlag) {
 
 @end
 
-@class MCOIMAPSession;
+@class MCOIMAPSession,ZTEFolderModel;
 @interface ZTEMailSessionUtil : NSObject
 
 @property (nonatomic, copy) NSString *nickname;
@@ -217,6 +217,16 @@ typedef NS_OPTIONS(NSInteger, ZTEMailFolderFlag) {
 - (void)moveMessagesWithFolder:(NSString *)folder uid:(NSInteger)uid destFolder:(NSString *)destFolder success:(void (^)())success failure:(void (^)(NSError *  error))failure;
 
 /**
+ *  @author CY.Lee
+ *
+ *  创建草稿/已发送
+ *
+ *  @param data  邮件内容
+ *  @param folder  目标目录（已发送/草稿箱）
+ */
+- (void)createDraftData:(NSData *)data folder:(NSString *)folder success:(void (^)())success failure:(void (^)(NSError *error))failure;
+
+/**
  *  @author CY.Lee, 16-07-18 15:07:06
  *
  *  发送邮件
@@ -230,6 +240,34 @@ typedef NS_OPTIONS(NSInteger, ZTEMailFolderFlag) {
  *  @param uid      转发回复uid
  *  @param folder   转发回复目录名
  */
-- (void)sendMailWithSubject:(NSString *)subject content:(NSString *)content toArray:(NSArray *)toArray ccArray:(NSArray *)ccArray bccArray:(NSArray *)bccArray imageAttachmentArray:(NSArray<ZTEAttachmentModel *> *)images uid:(NSInteger)uid folder:(NSString *)folder success:(void (^)())success failure:(void (^)(NSError *  error))failure progress:(void (^)(NSInteger current, NSInteger maximum))progress;
+- (void)sendMailWithSubject:(NSString *)subject content:(NSString *)content toArray:(NSArray *)toArray ccArray:(NSArray *)ccArray bccArray:(NSArray *)bccArray imageAttachmentArray:(NSArray<ZTEAttachmentModel *> *)images uid:(NSInteger)uid folder:(NSString *)folder sentFolder:(NSString *)sentFolder success:(void (^)())success failure:(void (^)(NSError *  error))failure progress:(void (^)(NSInteger current, NSInteger maximum))progress;
+
+/**
+ *  @author CY.Lee, 16-07-12 15:07:54
+ *
+ *  判断是否已发送文件夹
+ */
+- (BOOL)isSentFolder:(ZTEFolderModel *)folderModel;
+
+/**
+ *  @author CY.Lee, 16-07-12 15:07:54
+ *
+ *  查询已发送文件夹
+ */
+- (ZTEFolderModel *)loadSentFolder;
+
+/**
+ *  @author CY.Lee, 16-07-12 15:07:54
+ *
+ *  判断是否已删除文件夹
+ */
+- (BOOL)isTrashFolder:(ZTEFolderModel *)folderModel;
+
+/**
+ *  @author CY.Lee, 16-07-12 15:07:54
+ *
+ *  查询已删除文件夹
+ */
+- (ZTEFolderModel *)loadTrashFolder;
 
 @end

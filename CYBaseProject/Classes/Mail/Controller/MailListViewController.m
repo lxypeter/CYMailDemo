@@ -276,38 +276,6 @@ static NSString *const demoCellReuseIdentifier = @"MailListCell";
     }
 }
 
-- (ZTEFolderModel *)loadTrashFolder{
-    NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
-    ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
-    // 查询
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ZTEFolderModel"];
-    
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"ownerAddress=%@",util.username];
-    request.predicate = pre;
-    
-    //读取信息
-    NSError *error = nil;
-    NSArray *mailFolders = [coreDataContext executeFetchRequest:request error:&error];
-    if (!error&&mailFolders.count>0) {
-        for (ZTEFolderModel *folderModel in mailFolders) {
-            if ([self isTrashFolder:folderModel]) {
-                return folderModel;
-            }
-        }
-    }
-    return nil;
-}
-
-- (BOOL)isTrashFolder:(ZTEFolderModel *)folderModel{
-    
-    //根据目录标识
-    BOOL flagJudgement =[folderModel.flags integerValue] & ZTEMailFolderFlagTrash;
-    //根据目录名称
-    BOOL nameJudgement = [folderModel.name isEqualToString:@"已删除"]||[[folderModel.name uppercaseString] isEqualToString:@"TRASH"]||[[folderModel.name uppercaseString] isEqualToString:@"JUNK"];
-    
-    return flagJudgement||nameJudgement;
-}
-
 #pragma mark - Network Methods
 - (void)queryMailList{
     
@@ -398,14 +366,14 @@ static NSString *const demoCellReuseIdentifier = @"MailListCell";
     
     ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
     
-    if ([self isTrashFolder:self.folderModel]) {//已在垃圾箱
+    if ([util isTrashFolder:self.folderModel]) {//已在垃圾箱
         [util deleteMailWithFolder:folder uid:uid success:^{
             
         } failure:^(NSError *error) {
             
         }];
     }else{//未在垃圾箱
-        ZTEFolderModel *folderModel = [self loadTrashFolder];
+        ZTEFolderModel *folderModel = [util loadTrashFolder];
         if (folderModel) {
             [util moveMessagesWithFolder:folder uid:uid destFolder:folderModel.path success:^{
                 
