@@ -68,7 +68,7 @@ static NSString *kMailDetailCellId = @"MailContactCell";
 @property (nonatomic, strong) UIWebView *mailDetailWebView;
 @property (nonatomic, strong) UIView *subjectView;
 @property (nonatomic, assign) BOOL isUnfold;
-
+@property (nonatomic, assign) BOOL isLoadingFinished;
 
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -229,19 +229,34 @@ static NSString *kMailDetailCellId = @"MailContactCell";
     
     [self hideHud];
     
-    //控制页面宽度
-    NSString *meta = [NSString stringWithFormat:@"document.getElementsByName(\"viewport\")[0].content = \"width=%f, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\"", [UIScreen mainScreen].bounds.size.width - 32];
-    [webView stringByEvaluatingJavaScriptFromString:meta];
-
-    //获取页面高度
-    CGFloat webViewHeight =[[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"]floatValue]+30;
-    CGRect newFrame = webView.frame;
-    newFrame.size.height= webViewHeight;
-    newFrame.size.width = [UIScreen mainScreen].bounds.size.width;
-    self.webViewHeight = webViewHeight;
-    self.footerView.frame= newFrame;
+    if(self.isLoadingFinished){
+        
+        //获取缩放后高度
+        CGFloat webViewHeight =[[webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollWidth"]floatValue]+30;
+        CGRect newFrame = webView.frame;
+        newFrame.size.height= webViewHeight;
+        newFrame.size.width = [UIScreen mainScreen].bounds.size.width;
+        self.webViewHeight = webViewHeight;
+        self.footerView.frame= newFrame;
+        
+        [self.myTableView reloadData];
+        
+        return;
+    }
     
-    [self.myTableView reloadData];
+    //js获取body宽度
+    NSString *bodyWidth= [webView stringByEvaluatingJavaScriptFromString: @"document.body.scrollWidth"];
+    
+    int widthOfBody = [bodyWidth intValue];
+    
+    //获取实际要显示的html，调整缩放大小
+    NSString *html = [self htmlAdjustWithPageWidth:widthOfBody
+                                              html:self.mailModel.content
+                                           webView:webView];
+    
+    self.isLoadingFinished = YES;
+    //加载实际要现实的html
+    [webView loadHTMLString:html baseURL:nil];
 }
 
 - (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -255,6 +270,21 @@ static NSString *kMailDetailCellId = @"MailContactCell";
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
     [self showHudWithMsg:@"正在加载请稍后..."];
+}
+
+- (NSString *)htmlAdjustWithPageWidth:(CGFloat )pageWidth
+                                 html:(NSString *)html
+                              webView:(UIWebView *)webView {
+    NSMutableString *str = [NSMutableString stringWithString:html];
+    //计算要缩放的比例
+    CGFloat initialScale = webView.frame.size.width/pageWidth;
+    //将</head>替换为meta+head
+    NSString *stringForReplace = [NSString stringWithFormat:@"<meta name=\"viewport\" content=\" initial-scale=%f, minimum-scale=0.1, maximum-scale=2.0, user-scalable=yes\"></head>",initialScale];
+    
+    NSRange range =  NSMakeRange(0, str.length);
+    //替换
+    [str replaceOccurrencesOfString:@"</head>" withString:stringForReplace options:NSLiteralSearch range:range];
+    return str;
 }
 
 #pragma mark - Mail method
@@ -436,6 +466,7 @@ static NSString *kMailDetailCellId = @"MailContactCell";
         _mailDetailWebView = [[UIWebView alloc]init];
         _mailDetailWebView.delegate = self;
         _mailDetailWebView.scrollView.bounces = NO;
+        _mailDetailWebView.scalesPageToFit = NO;
         [_mailDetailWebView loadHTMLString:self.mailModel.content baseURL:nil];
     }
     return _mailDetailWebView;
