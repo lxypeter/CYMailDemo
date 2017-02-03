@@ -10,32 +10,29 @@
 #import "YYSandBoxUtil.h"
 #import "MailAttachmentTableViewCell.h"
 #import "DocPreviewUtil.h"
-#import "UIView+Frame.h"
-#import "ZTEMailCoreDataUtil.h"
-#import <CoreData/CoreData.h>
-#import "ZTEMailAttachment.h"
-#import "ZTEMailSessionUtil.h"
+#import "CYMailModelManager.h"
+#import "CYMailSessionManager.h"
+#import <Masonry.h>
+#import "CYMailUtil.h"
 
-@interface MailAttachmentViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MailAttachmentViewController ()<UITableViewDelegate,UITableViewDataSource,CAAnimationDelegate>
 
-@property (nonatomic, strong) UIDocumentInteractionController *documentController;
-@property (nonatomic, strong) UITableView *myTableVeiw;
-@property (nonatomic, copy) NSString *mailAttachmentParentFolder;
-@property (nonatomic, copy) NSString *mailAttachmentFolder;
+@property (nonatomic, strong) UIView *backgroundView;
+@property (nonatomic, strong) UIButton *coverButton;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray<CYAttachment *> *attachments;
+@property (nonatomic, strong, readonly) CYMailSession *session;
+@property (nonatomic, assign, getter=isAnimating) BOOL animating;
 
 @end
 
 @implementation MailAttachmentViewController
 
-#pragma mark - init method
-- (instancetype)initWithOwnerAddress:(NSString *)ownerAddress folderPath:(NSString *)folderPath uid:(NSInteger)uid attachments:(NSArray<ZTEMailAttachment *> *)attachments parentController:(UIViewController *)parentController{
+- (instancetype)init
+{
     self = [super init];
     if (self) {
-        _ownerAddress = [ownerAddress copy];
-        _folderPath = [folderPath copy];
-        _uid = uid;
-        _attachments = attachments;
-        _parentController = parentController;
+        self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     }
     return self;
 }
@@ -43,16 +40,60 @@
 #pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.width = 0.8 * CGRectGetWidth([UIScreen mainScreen].bounds);
-    [self.view addSubview:self.myTableVeiw];
-    
-    // 创建存放附件的文件夹
-    [YYSandBoxUtil createIfNotExistsFolder:self.mailAttachmentParentFolder];
-    [YYSandBoxUtil createIfNotExistsFolder:self.mailAttachmentFolder];
+    [self configureSubviews];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self fadeInAnimate];
+}
+
+- (void)configureSubviews{
+    self.view.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+    [self.view addSubview:self.coverButton];
+    [self.coverButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    [self.view addSubview:self.backgroundView];
+    [self.backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top);
+        make.right.equalTo(self.view.mas_right);
+        make.bottom.equalTo(self.view.mas_bottom);
+        make.width.equalTo(self.view.mas_width).multipliedBy(0.8);
+    }];
+}
+
+#pragma mark - Animate method
+- (void)fadeInAnimate{
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    [animation setDuration:0.25];
+    animation.keyPath = @"position.x";
+    animation.fromValue = @(ScreenWidth*1.4);
+    animation.toValue = @(ScreenWidth*0.6);
+    [self.backgroundView.layer addAnimation:animation forKey:nil];
+}
+
+- (void)fadeOutAnimate{
+    if (self.isAnimating) {
+        return;
+    }
+    self.animating = YES;
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    [animation setDuration:0.25];
+    animation.delegate = self;
+    animation.keyPath = @"position.x";
+    animation.fromValue = @(ScreenWidth*0.6);
+    animation.toValue = @(ScreenWidth*1.4);
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    [self.backgroundView.layer addAnimation:animation forKey:nil];
 }
 
 #pragma mark - Delegate Methods
+#pragma mark Animate Delegate
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
 #pragma mark UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.attachments.count;
@@ -61,69 +102,75 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MailAttachmentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[MailAttachmentTableViewCell reuseIdentifier]];
     
+    CYAttachment *attachment = self.attachments[indexPath.row];
+    
     __weak typeof(self) weakSelf = self;
-    ZTEMailAttachment *attachment = weakSelf.attachments[indexPath.row];
     if (!cell) {
         cell = [[MailAttachmentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[MailAttachmentTableViewCell reuseIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        cell.operation = ^void(MailAttachmentTableViewCell *cell){
-            if (cell.status == MailAttachmentStatusToDownload) {
-                [weakSelf downlLoadAttachment:attachment];
-            } else {
-                [weakSelf openAttachment:attachment];
-            }
+        cell.openBlock = ^(){
+            [weakSelf openAttachment:attachment];
+        };
+        cell.downloadBlock = ^(){
+            [weakSelf downlLoadAttachment:attachment];
         };
     }
-    cell.lbPrefix.text = [NSString stringWithFormat:@"附件%ld", indexPath.row + 1];
-    cell.lbName.text = attachment.filename;
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *filePath = [self.mailAttachmentFolder stringByAppendingPathComponent:attachment.filename];
-    if(![fileManager fileExistsAtPath:filePath]){
-        cell.status = MailAttachmentStatusToDownload;
-    }else{
-        cell.status = MailAttachmentStatusDownloaded;
-    }
+    cell.attachment = attachment;
     
     return cell;
 }
 
 #pragma mark - Network Methods
-/**
- *  @author Mon
- *
- *  下载一个附件
- */
-- (void)downlLoadAttachment:(ZTEMailAttachment *)attachment{
+- (void)downlLoadAttachment:(CYAttachment *)attachment{
     
-    NSString *filePath = [self.mailAttachmentFolder stringByAppendingPathComponent:attachment.filename];
-    [self showHudWithMsg:@"正在下载..."];
-    ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
-    [util fetchMessageAttachmentWithFolder:attachment.folderPath uid:[attachment.uid integerValue] partID:attachment.partid downloadPath:filePath success:^{
-        [self hideHud];
-        [self.myTableVeiw reloadData];
+    NSString *filePath = [[CYMailUtil attachmentFolderOfMail:attachment.ownerMail] stringByAppendingPathComponent:attachment.filename];
+    [self showHudWithMsg:[NSString stringWithFormat:@"%@",MsgLoading]];
+    [self.session downloadAttachment:attachment downloadPath:filePath success:^{
+        [self hideHuds];
+        [self.tableView reloadData];
     } failure:^(NSError *error) {
-        [self hideHud];
-        [self.myTableVeiw reloadData];
+        [self hideHuds];
+        [self.tableView reloadData];
     } progress:^(NSInteger current, NSInteger maximum) {
-        [self hideNormalHud];
-        [self showRingHUDWithMsg:@"下载中..." andTotalSize:maximum andTotalReaded:current];
+        [self hideMsgHud];
+        [self showProgressHudWithMsg:MsgDownloading precentage:current*1.0/maximum];
     }];
     
 }
 
 #pragma mark - Event Response
-- (void)openAttachment:(ZTEMailAttachment *)attachment{
-    [[DocPreviewUtil shareUtil]previewDocOfPath:[self.mailAttachmentFolder stringByAppendingPathComponent:attachment.filename] controller:self.parentController];
+- (void)openAttachment:(CYAttachment *)attachment{
+
+    NSString *filePath = [[CYMailUtil attachmentFolderOfMail:attachment.ownerMail] stringByAppendingPathComponent:attachment.filename];
+    
+    BOOL result = [[DocPreviewUtil shareUtil] previewDocOfPath:filePath controller:self completion:^{
+    }];
+    
+    if (result) return;
+    
+    UIAlertController *alerController = [UIAlertController alertControllerWithTitle:nil message:MsgPreviewInOtherApp preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:MsgYes style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [[DocPreviewUtil shareUtil] previewInOtherAppOfPath:filePath controller:self completion:^{
+        }];
+        
+    }];
+    [alerController addAction:confirmAction];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:MsgCancel style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alerController addAction:cancelAction];
+    
+    [self presentViewController:alerController animated:YES completion:nil];
 }
 
 #pragma mark -Getters and Setters
-- (UITableView *)myTableVeiw{
-    if(!_myTableVeiw){
-        _myTableVeiw  =({
-            CGRect frame = CGRectMake(0, 0, 0.8 * CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds));
-            UITableView *var =[[UITableView alloc]initWithFrame:frame style:UITableViewStylePlain];
+- (UITableView *)tableView{
+    if(!_tableView){
+        _tableView  =({
+            UITableView *var =[[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
             var.showsVerticalScrollIndicator = NO;
             var.backgroundView = nil;
             var.delegate =self;
@@ -135,21 +182,68 @@
             var;
         });
     }
-    return _myTableVeiw;
+    return _tableView;
 }
 
-- (NSString *)mailAttachmentParentFolder{
-    if (!_mailAttachmentParentFolder) {
-        _mailAttachmentParentFolder = [[YYSandBoxUtil getDocumentDirectory] stringByAppendingPathComponent:@"MailAttachment"];
+- (UIButton *)coverButton{
+    if (!_coverButton) {
+        _coverButton = [[UIButton alloc]init];
+        [_coverButton addTarget:self action:@selector(fadeOutAnimate) forControlEvents:UIControlEventTouchUpInside];
     }
-    return _mailAttachmentParentFolder;
+    return _coverButton;
 }
 
-- (NSString *)mailAttachmentFolder{
-    if (!_mailAttachmentFolder) {
-        _mailAttachmentFolder = [self.mailAttachmentParentFolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@_%@",self.ownerAddress,self.folderPath,@(self.uid)]];
+- (UIView *)backgroundView{
+    if (!_backgroundView) {
+        _backgroundView = [[UIView alloc]init];
+        _backgroundView.backgroundColor = [UIColor whiteColor];
+        
+        UIView *headerView = [[UIView alloc]init];
+        headerView.backgroundColor = UICOLOR(@"#F5F5F5");
+        [_backgroundView addSubview:headerView];
+        [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_backgroundView.mas_top);
+            make.left.equalTo(_backgroundView.mas_left);
+            make.right.equalTo(_backgroundView.mas_right);
+            make.height.mas_equalTo(64);
+        }];
+        
+        UILabel *titleLabel = [[UILabel alloc]init];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.font = [UIFont systemFontOfSize:17];
+        titleLabel.text = MsgAttachment;
+        titleLabel.textColor = UICOLOR(@"#2D4664");
+        [headerView addSubview:titleLabel];
+        [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(headerView.mas_top).offset(20);
+            make.left.equalTo(headerView.mas_left);
+            make.right.equalTo(headerView.mas_right);
+            make.bottom.equalTo(headerView.mas_bottom);
+        }];
+        
+        [_backgroundView addSubview:self.tableView];
+        [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(headerView.mas_bottom);
+            make.right.equalTo(_backgroundView.mas_right);
+            make.left.equalTo(_backgroundView.mas_left);
+            make.bottom.equalTo(_backgroundView.mas_bottom);
+        }];
     }
-    return _mailAttachmentFolder;
+    return _backgroundView;
+}
+
+- (NSArray *)attachments{
+    if (!_attachments) {
+        _attachments = [self.mail.attachments allObjects];
+        if (!_attachments) {
+            _attachments = @[];
+        }
+    }
+    return _attachments;
+}
+
+- (CYMailSession *)session{
+    return [[CYMailSessionManager sharedCYMailSessionManager]getSessionWithUsername:self.mail.account];
 }
 
 @end

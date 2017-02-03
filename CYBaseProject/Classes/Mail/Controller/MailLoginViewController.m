@@ -7,9 +7,8 @@
 //
 
 #import "MailLoginViewController.h"
-#import "ZTEMailUser.h"
-#import "ZTEMailSessionUtil.h"
-#import "ZTEMailCoreDataUtil.h"
+#import "CYMailSessionManager.h"
+#import "CYMailModelManager.h"
 
 @interface MailLoginViewController ()<UITextFieldDelegate>
 
@@ -26,7 +25,7 @@
 
 @implementation MailLoginViewController
 
-#pragma mark - 懒加载
+#pragma mark - Lazy load
 - (NSArray *)supportMailArray{
     if(!_supportMailArray){
         NSString *path = [[NSBundle mainBundle]pathForResource:@"ZTESupportMail" ofType:@"plist"];
@@ -43,19 +42,19 @@
     return _confDict;
 }
 
-#pragma mark - 生命周期
+#pragma mark - Life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
 
-#pragma mark - 点击事件
+#pragma mark - event method
 - (IBAction)clickLoginButton:(id)sender {
     
     [self.view endEditing:YES];
     
     NSString *errorMsg = nil;
-    if (![self checkValidLoginErrroMessage:&errorMsg]) {
-        [self.view makeToast:errorMsg];
+    if (![self validInfos:&errorMsg]) {
+        [self showToast:errorMsg];
         return;
     }
     
@@ -73,40 +72,33 @@
     }
     
     if ([NSString isBlankString:configKey]) {
-        [self.view makeToast:[NSString stringWithFormat:@"暂不支持%@邮箱",address]];
+        [self showToast:[NSString stringWithFormat:@"暂不支持%@邮箱",address]];
         return;
     }
     
     NSDictionary *configDict = self.confDict[configKey];
     if (!configDict||configDict.count<=0) {
-        [self.view makeToast:[NSString stringWithFormat:@"暂不支持%@邮箱",address]];
+        [self showToast:[NSString stringWithFormat:@"暂不支持%@邮箱",address]];
         return;
     }
     
-    ZTEMailSessionUtil *sessionUtil = [ZTEMailSessionUtil shareUtil];
-    [sessionUtil clear];
-    sessionUtil.username = username;
-    sessionUtil.password = password;
-    sessionUtil.imapHostname = configDict[@"fetchMailHost"];
-    sessionUtil.imapPort = [configDict[@"fetchMailPort"] integerValue];
-    sessionUtil.smtpHostname = configDict[@"sendMailHost"];
-    sessionUtil.smtpPort = [configDict[@"sendMailPort"] integerValue];
-    sessionUtil.nickname = self.nicknameTextField.text;
-    sessionUtil.smtpAuthType = [configDict[@"smtpAuthType"] integerValue];
-    if ([configDict[@"ssl"] boolValue]) {
-        sessionUtil.imapConnectionType = ZTEMailConnectionTypeTLS;
-    }else{
-        sessionUtil.imapConnectionType = ZTEMailConnectionTypeClear;
-    }
+    CYMailAccount *account = (CYMailAccount *)[[CYMailModelManager sharedCYMailModelManager]createManagedObjectOfClass:CYMailAccount.self];
+    account.username = username;
+    account.password = password;
+    account.fetchHost = configDict[@"fetchMailHost"];
+    account.fetchPort = configDict[@"fetchMailPort"];
+    account.sendHost = configDict[@"sendMailHost"];
+    account.sendPort = configDict[@"sendMailPort"];
+    account.nickName = self.nicknameTextField.text;
+    account.smtpAuthType = configDict[@"smtpAuthType"];
+    account.ssl = configDict[@"ssl"];
     
-    [self checkMailUser];
+    [self checkMailAccount:account];
     
 }
 
 - (IBAction)clickCancelButton:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - textField代理
@@ -127,48 +119,30 @@
 }
 
 #pragma mark - 调用接口
-- (void)checkMailUser{
-    ZTEMailSessionUtil *sessionUtil = [ZTEMailSessionUtil shareUtil];
+- (void)checkMailAccount:(CYMailAccount *)account{
     
-    if(![self checkUniqueness:sessionUtil.username]){
-        [self.view makeToast:@"该账号已添加！"];
-        return;
-    }
+    CYMailSession *session = [[CYMailSessionManager sharedCYMailSessionManager]registerSessionWithAccount:account];
     
-    __weak ZTEMailSessionUtil *weakSession = sessionUtil;
-    [self showHudWithMsg:@"请稍后..."];
     __weak typeof(self) weakSelf = self;
-    [sessionUtil checkAccountSuccess:^{
-        [weakSelf hideHud];
-        
-        NSManagedObjectContext *context = [ZTEMailCoreDataUtil shareContext];
-        ZTEMailUser *user = [NSEntityDescription insertNewObjectForEntityForName:@"ZTEMailUser" inManagedObjectContext:context];
-        user.username = weakSession.username;
-        user.password = weakSession.password;
-        user.fetchMailHost = weakSession.imapHostname;
-        user.fetchMailPort = weakSession.imapPort;
-        user.sendMailHost = weakSession.smtpHostname;
-        user.sendMailPort = weakSession.smtpPort;
-        user.nickName = weakSession.nickname;
-        user.smtpAuthType = weakSession.smtpAuthType;
-        user.ssl = (weakSession.imapConnectionType == ZTEMailConnectionTypeTLS);
-        // 存储登录成功的帐号
-        if (context.hasChanges) {
-            [context save:nil];
+    [self showHudWithMsg:@"请稍后..."];
+    [session checkAccountSuccess:^{
+        [weakSelf hideHuds];
+        if (![[CYMailModelManager sharedCYMailModelManager]save:nil]) {
+            [[CYMailSessionManager sharedCYMailSessionManager]deregisterSessionWithUsername:account.username];
+            [self showToast:ErrorMsgCoreData];
+            return;
         }
-        
-        // 返回到选择帐户查看邮件的页面
         [weakSelf dismissViewControllerAnimated:YES completion:nil];
-        [weakSession clear];
-        
     } failure:^(NSError *error) {
-        [weakSelf hideHud];
-        [weakSelf.view makeToast:[NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]]];
-        [weakSession clear];
+        [weakSelf hideHuds];
+        [weakSelf showToast:[NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]]];
+        [[CYMailModelManager sharedCYMailModelManager]rollback];
+        [[CYMailSessionManager sharedCYMailSessionManager]deregisterSessionWithUsername:account.username];
     }];
+    
 }
 
-- (BOOL)checkValidLoginErrroMessage:(NSString **)errorMsg{
+- (BOOL)validInfos:(NSString **)errorMsg{
     if (self.usernameTextField.text.length <= 0) {
         *errorMsg = @"请填写邮箱帐号";
         return NO;
@@ -184,15 +158,13 @@
         return NO;
     }
     
-    return YES;
-}
-
-- (BOOL)checkUniqueness:(NSString *)username{
-    for (ZTEMailUser *user in self.accounts) {
-        if ([user.username isEqualToString:username]) {
+    for (CYMailAccount *user in self.accounts) {
+        if ([user.username isEqualToString:self.usernameTextField.text]) {
+            *errorMsg = @"该账号已添加";
             return NO;
         }
     }
+    
     return YES;
 }
 

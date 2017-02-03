@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YYText.h"
+#import <YYText/YYText.h>
 
 @interface MailAddAddrTextParser : NSObject<YYTextParser>
 

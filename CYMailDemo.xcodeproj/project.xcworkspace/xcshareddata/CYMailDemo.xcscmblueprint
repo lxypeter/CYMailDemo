@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0E9690B6049E287A0A7FFFA8463DDB4660CBA74B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "7ACF23A507BCFA5964C32B48177971421D05CCCE" : 9223372036854775807,
+    "0E9690B6049E287A0A7FFFA8463DDB4660CBA74B" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0B7550D3-EE02-4AEF-A639-C08B6D64F17E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "7ACF23A507BCFA5964C32B48177971421D05CCCE" : "CYMailDemo\/CYBaseProject\/Vender\/SDKFile\/mailcore2\/",
+    "0E9690B6049E287A0A7FFFA8463DDB4660CBA74B" : "CYMailDemo\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CYMailDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CYMailDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lxypeter\/CYMailDemo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0E9690B6049E287A0A7FFFA8463DDB4660CBA74B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MailCore\/mailcore2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7ACF23A507BCFA5964C32B48177971421D05CCCE"
+    }
+  ]
+}

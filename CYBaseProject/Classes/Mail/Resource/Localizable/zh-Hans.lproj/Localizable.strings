@@ -1,0 +1,49 @@
+/* 
+  MessageConstants.strings
+  CYMailDemo
+
+  Created by Peter Lee on 2017/1/21.
+  Copyright © 2017年 CY.Lee. All rights reserved.
+*/
+
+"INBOX" = "收件箱";
+"SENT" = "已发送";
+"JUNK" = "垃圾箱";
+"DRAFT" = "草稿箱";
+
+"Mail Box" = "邮箱";
+"Completed" = "已完成";
+"Success" = "成功";
+"Reply/Forward" = "回复/转发";
+"Reply" = "回复";
+"Forward" = "转发";
+"Delete" = "删除";
+"Move" = "移动";
+"Attachment" = "附件";
+"Cancel" = "取消";
+"Confirm to delete the mail?" = "确定删除邮件？";
+"Yes" = "是";
+"No" = "否";
+"From" = "发件人";
+"To" = "收件人";
+"Cc" = "抄送";
+"Bcc" = "密送";
+"Date" = "时间";
+"Loading" = "正在加载";
+"Content" = "邮件详情";
+"Downloading" = "下载中";
+"Not support to preview this kind of file, try to open in other app?" = "暂不支持该文件浏览,是否试用其他App打开?";
+"Choose folder" = "选择文件夹";
+"Confirm" = "确定";
+"Please choose folder you want to move to!" = "请先选择需要移动邮件至哪个文件夹!";
+"Send" = "发送";
+"Origin" = "原邮件";
+"Subject" = "主题";
+"Sending" = "发送中";
+"Please seperate the address with \",\"" = "邮件地址请用逗号隔开";
+"Contain attachments?" = "是否包含附件？";
+
+//Error
+"Local cache error, please refresh and try again" = "本地数据异常,请刷新再试";
+
+

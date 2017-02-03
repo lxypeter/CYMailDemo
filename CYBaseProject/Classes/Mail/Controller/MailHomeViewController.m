@@ -8,25 +8,23 @@
 
 #import "MailHomeViewController.h"
 #import "MailListViewController.h"
-#import "MailEditeViewController.h"
-#import "ZTEMailUser.h"
+#import "MailEditViewController.h"
 #import "Masonry.h"
-#import "ZTEMailSessionUtil.h"
-#import "ZTEFolderModel.h"
-#import "ZTEMailCoreDataUtil.h"
+#import "CYMailModelManager.h"
+#import "CYMailSessionManager.h"
+#import "CYMailUtil.h"
 
 static NSString * const demoCellReuseIdentifier = @"MyToolsCellReuseIdentifier";
 
 @interface MailHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong)UITableView *myTableView;
-@property (nonatomic,strong)NSMutableArray *mailFolderArray;
+@property (nonatomic, strong)UITableView *tableView;
+@property (nonatomic, strong)NSArray<CYFolder *> *mailFolderArray;
 @end
 
 @implementation MailHomeViewController
 
 #pragma mark - Life Cycle
 - (void)viewDidLoad {
-    self.title = @"邮箱";
     [super viewDidLoad];
     [self configureSubview];
     [self loadMailFolder];
@@ -39,11 +37,15 @@ static NSString * const demoCellReuseIdentifier = @"MyToolsCellReuseIdentifier";
 
 #pragma mark - InitSubview
 - (void)configureSubview{
-    self.title = @"邮箱";
+    self.title = MsgMailBox;
     
     //写邮件按钮
-    UIBarButtonItem *writeMailItem = [[UIBarButtonItem alloc]initWithTitle:@"写邮件" style:UIBarButtonItemStylePlain target:self action:@selector(clickWriteMailButton)];
-    writeMailItem.tintColor = [UIColor whiteColor];
+//    UIBarButtonItem *writeMailItem = [[UIBarButtonItem alloc]initWithTitle:@"写邮件" style:UIBarButtonItemStylePlain target:self action:@selector(clickWriteMailButton)];
+//    writeMailItem.tintColor = UICOLOR(@"#2D4664");
+    UIButton *writeMailButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [writeMailButton setBackgroundImage:[UIImage imageNamed:ImageWriteMail] forState:UIControlStateNormal];
+    [writeMailButton addTarget:self action:@selector(clickWriteMailButton) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *writeMailItem = [[UIBarButtonItem alloc]initWithCustomView:writeMailButton];
     self.navigationItem.rightBarButtonItem = writeMailItem;
     
     //tableView
@@ -57,10 +59,10 @@ static NSString * const demoCellReuseIdentifier = @"MyToolsCellReuseIdentifier";
         make.right.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
     }];
-    self.myTableView = tableView;
-    self.myTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-    self.myTableView.backgroundColor = UICOLOR(@"F7F8F9");
-    self.myTableView.rowHeight = 60;
+    self.tableView = tableView;
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    self.tableView.backgroundColor = UICOLOR(@"F7F8F9");
+    self.tableView.rowHeight = 60;
     
 }
 
@@ -78,12 +80,11 @@ static NSString * const demoCellReuseIdentifier = @"MyToolsCellReuseIdentifier";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    ZTEFolderModel *folderModel = self.mailFolderArray[indexPath.row];
-    NSString *name = folderModel.name;
-    cell.textLabel.text = [ZTEMailSessionUtil chnNameOfFolder:name];
+    CYFolder *folder = self.mailFolderArray[indexPath.row];
+    cell.textLabel.text = NSLocalizedString([folder.name uppercaseString], nil);
     
-    if ([folderModel.unseenCount integerValue]!=0) {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",folderModel.unseenCount];
+    if ([folder.unseenCount integerValue]!=0) {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",folder.unseenCount];
     }
     
     return cell;
@@ -93,154 +94,107 @@ static NSString * const demoCellReuseIdentifier = @"MyToolsCellReuseIdentifier";
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    ZTEFolderModel *folderModel = self.mailFolderArray[indexPath.row];
+    CYFolder *folder = self.mailFolderArray[indexPath.row];
     
-    if ([folderModel.messageCount integerValue]<=0) {
-        __weak typeof(self) weakSelf = self;
-        [self queryMailFolderCount:folderModel success:^{
-            if ([folderModel.messageCount integerValue]>0) {
-                MailListViewController *ctrl = [[MailListViewController alloc]init];
-                ctrl.folderModel = folderModel;
-                ctrl.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:ctrl animated:YES];
-            }else{
-                [weakSelf.view makeToast:[NSString stringWithFormat:@"【%@】为空",folderModel.name]];
-            }
-        } failure:^(NSError *error) {
-            [weakSelf.view makeToast:[NSString stringWithFormat:@"【%@】为空",folderModel.name]];
-        }];
-    }else{
+    __weak typeof(self) weakSelf = self;
+    void (^pushBlock)(CYFolder *) = ^(CYFolder *folder){
         MailListViewController *ctrl = [[MailListViewController alloc]init];
-        ctrl.folderModel = folderModel;
+        ctrl.folder = folder;
         ctrl.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:ctrl animated:YES];
+    };
+    
+    if ([folder.messageCount integerValue]<=0) {
+        [self queryMailFolderCount:folder hasMessage:^{
+            pushBlock(folder);
+        } noMessage:^{
+            [weakSelf showToast:[NSString stringWithFormat:@"【%@】为空",folder.name]];
+        }];
+    }else{
+        pushBlock(folder);
     }
 }
 
-#pragma mark - CoreData Method
+#pragma mark - init datas Method
 - (void)loadMailFolder{
-    NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
-    ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
-    // 查询
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ZTEFolderModel"];
     
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"ownerAddress=%@",util.username];
-    
-    request.predicate = pre;
-    
-    //读取信息
-    NSError *error = nil;
-    NSArray *mailFolders = [coreDataContext executeFetchRequest:request error:&error];
-    if (!error) {
-        if(!mailFolders||mailFolders.count<=0){
-            [self queryMailFolder];
-        }else{
-            for (ZTEFolderModel *mailFolder in mailFolders) {
-                [self.mailFolderArray addObject:mailFolder];
-            }
-            [self sortFolderArray];
-            [self.myTableView reloadData];
-        }
-        
+    if (!self.account.folders||self.account.folders.count<=0) {
+        [self queryMailFolder];
     }else{
-        NSLog(@"%@",error);
+        self.mailFolderArray = [CYMailUtil sortFolders:[self.account.folders allObjects]];
+        [self.tableView reloadData];
     }
 }
 
 #pragma mark - Network Method
 - (void)queryMailFolder{
     
+    CYMailSession *session = [[CYMailSessionManager sharedCYMailSessionManager]getSessionWithUsername:self.account.username];
+    
     __weak typeof(self) weakSelf = self;
     [self showHudWithMsg:@"邮件信箱查询中...."];
-    ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
-    __weak ZTEMailSessionUtil *weakUtil = util;
-    [util fetchAllFoldersSuccess:^(NSArray *folders) {
-        [self hideHud];
-        [weakSelf.mailFolderArray removeAllObjects];
-        NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
-        for (ZTESimpleFolderModel *simplefolder in folders) {
-            
-            ZTEFolderModel *folderModel = [NSEntityDescription insertNewObjectForEntityForName:@"ZTEFolderModel" inManagedObjectContext:coreDataContext];
-            folderModel.ownerAddress = weakUtil.username;
-            folderModel.name = simplefolder.name;
-            folderModel.path = simplefolder.path;
-            folderModel.flags = @(simplefolder.flags);
-            [weakSelf.mailFolderArray addObject:folderModel];
-        }
-        [coreDataContext save:nil];
-        [weakSelf sortFolderArray];
-        [weakSelf.myTableView reloadData];
-        [self queryAllMailFolderCount];
+    [session fetchAllFoldersSuccess:^(NSArray<CYFolder *> *folders) {
+        [self hideHuds];
+        self.account.folders = [NSSet setWithArray:folders];
+        [[CYMailModelManager sharedCYMailModelManager]save:nil];
+        weakSelf.mailFolderArray = [CYMailUtil sortFolders:folders];
+        [weakSelf.tableView reloadData];
+        [weakSelf queryAllMailFolderCount];
     } failure:^(NSError *error) {
-        [self hideHud];
-        [weakSelf.view makeToast:[NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]]];
+        [self hideHuds];
+        [weakSelf showToast:[NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]]];
     }];
+    
 }
 
-- (void)queryMailFolderCount:(ZTEFolderModel *)folderModel success:(void (^)())success failure:(void (^)(NSError *  error))failure{
-    [self showHudWithMsg:@"请稍后..."];
-    ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
-    NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
+- (void)queryMailFolderCount:(CYFolder *)folder hasMessage:(void (^)())hasMessage noMessage:(void (^)())noMessage{
+    CYMailSession *session = [[CYMailSessionManager sharedCYMailSessionManager]getSessionWithUsername:self.account.username];
+    __weak CYFolder *weakFolder = folder;
     __weak typeof(self) weakSelf = self;
-    __weak ZTEFolderModel *weakModel = folderModel;
-    [util folderStatusOfFolder:folderModel.path success:^(MCOIMAPFolderStatus *status) {
-        [weakSelf hideHud];
-        weakModel.unseenCount = @(status.unseenCount);
-        weakModel.messageCount = @(status.messageCount);
-        weakModel.recentCount = @(status.recentCount);
-        [coreDataContext save:nil];
-        success();
+    [session folderStatusOfFolder:folder.path success:^(MCOIMAPFolderStatus *status) {
+        weakFolder.unseenCount = @(status.unseenCount);
+        weakFolder.messageCount = @(status.messageCount);
+        weakFolder.recentCount = @(status.recentCount);
+        if ([weakFolder.nextUid integerValue] == 0) {
+            weakFolder.nextUid = @(status.uidNext);
+        }
+        if ([weakFolder.firstUid integerValue] == 0) {
+            weakFolder.firstUid = @(status.uidNext);
+        }
+        [[CYMailModelManager sharedCYMailModelManager]save:nil];
+        [weakSelf.tableView reloadData];
+        
+        if(status.messageCount>0 && hasMessage){
+            hasMessage();
+        }else{
+            if(noMessage){
+                noMessage();
+            }
+        }
     } failure:^(NSError *error) {
-        [weakSelf hideHud];
-        failure(error);
+        if(noMessage){
+            noMessage();
+        }
     }];
 }
 
 - (void)queryAllMailFolderCount{
-    ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
-    NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
     __weak typeof(self) weakSelf = self;
-    [self.mailFolderArray enumerateObjectsUsingBlock:^(ZTEFolderModel  *_Nonnull folderModel, NSUInteger idx, BOOL * _Nonnull stop) {
-        __weak ZTEFolderModel *weakModel = folderModel;
-        [util folderStatusOfFolder:folderModel.path success:^(MCOIMAPFolderStatus *status) {
-            weakModel.unseenCount = @(status.unseenCount);
-            weakModel.messageCount = @(status.messageCount);
-            weakModel.recentCount = @(status.recentCount);
-            [coreDataContext save:nil];
-            [weakSelf.myTableView reloadData];
-        } failure:^(NSError *error) {
-        }];
+    [self.mailFolderArray enumerateObjectsUsingBlock:^(CYFolder  *_Nonnull folder, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf queryMailFolderCount:folder hasMessage:nil noMessage:nil];
     }];
 }
 
 #pragma mark - Click Event
 - (void)clickWriteMailButton{
-    MailEditeViewController *ctrl = [[MailEditeViewController alloc]init];
-    ctrl.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:ctrl animated:YES];
-}
-
-#pragma mark - Tool Method
-- (void)sortFolderArray{
-    [self.mailFolderArray sortUsingComparator:^NSComparisonResult(ZTEFolderModel *_Nonnull obj1, ZTEFolderModel *_Nonnull obj2) {
-        
-        NSComparisonResult result;
-        if ([[obj1.path uppercaseString]isEqualToString:@"INBOX"]) {
-            return NSOrderedAscending;
-        }
-        if ([[obj2.path uppercaseString]isEqualToString:@"INBOX"]) {
-            return NSOrderedDescending;
-        }
-        result = [obj1.name compare:obj2.name];
-
-        return result;
-    }];
+    MailEditViewController *ctrl = [MailEditViewController controllerWithAccount:self.account editType:CYMailEditTypeNew originMail:nil];
+    [self presentViewController:ctrl animated:YES completion:nil];
 }
 
 #pragma mark - Lazy Initialization
-- (NSMutableArray *)mailFolderArray{
+- (NSArray<CYFolder *> *)mailFolderArray{
     if(!_mailFolderArray){
-        _mailFolderArray = [NSMutableArray array];
+        _mailFolderArray = [NSArray<CYFolder *> array];
     }
     return _mailFolderArray;
 }

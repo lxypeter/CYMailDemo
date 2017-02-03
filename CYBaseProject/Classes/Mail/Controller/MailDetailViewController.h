@@ -8,14 +8,12 @@
 
 #import "CYBaseMailViewController.h"
 
-@interface MailBottomButton : UIButton
 
-@end
 
-@class ZTEMailModel,ZTEFolderModel;
+@class CYMail,CYFolder;
 @interface MailDetailViewController : CYBaseMailViewController
 
-@property (nonatomic, strong) ZTEMailModel *mailModel;
-@property (nonatomic, strong) ZTEFolderModel *folderModel;
+@property (nonatomic, strong) CYFolder *folder;
+@property (nonatomic, strong) CYMail *mail;
 
 @end

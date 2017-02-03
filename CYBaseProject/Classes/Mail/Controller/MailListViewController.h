@@ -8,9 +8,9 @@
 
 #import "CYBaseMailViewController.h"
 
-@class ZTEFolderModel;
+@class ZTEFolderModel,CYFolder;
 @interface MailListViewController : CYBaseMailViewController
 
-@property (nonatomic,strong) ZTEFolderModel *folderModel;
+@property (nonatomic, strong) CYFolder *folder;
 
 @end

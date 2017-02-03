@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="CYAttachment" representedClassName="CYAttachment" syncable="YES">
+        <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="folderPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="ownerMail" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="CYMail" inverseName="attachments" inverseEntity="CYMail" syncable="YES"/>
+    </entity>
+    <entity name="CYFolder" representedClassName="CYFolder" syncable="YES">
+        <attribute name="firstUid" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="flags" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="messageCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nextUid" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recentCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="unseenCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CYMailAccount" inverseName="folders" inverseEntity="CYMailAccount" syncable="YES"/>
+    </entity>
+    <entity name="CYMail" representedClassName="CYMail" syncable="YES">
+        <attribute name="account" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attachmentCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="bcc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flags" optional="YES" attributeType="Integer 32" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="folderPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fromAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fromName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="receivedDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="sendDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="to" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="attachments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CYAttachment" inverseName="ownerMail" inverseEntity="CYAttachment" syncable="YES"/>
+    </entity>
+    <entity name="CYMailAccount" representedClassName="CYMailAccount" syncable="YES">
+        <attribute name="fetchHost" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fetchPort" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sendHost" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sendPort" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="smtpAuthType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="ssl" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="folders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CYFolder" inverseName="account" inverseEntity="CYFolder" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CYAttachment" positionX="-36" positionY="72" width="128" height="120"/>
+        <element name="CYFolder" positionX="-54" positionY="63" width="128" height="180"/>
+        <element name="CYMail" positionX="-18" positionY="81" width="128" height="270"/>
+        <element name="CYMailAccount" positionX="-63" positionY="-18" width="128" height="195"/>
+    </elements>
+</model>

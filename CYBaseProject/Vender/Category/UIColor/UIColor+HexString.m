@@ -10,7 +10,7 @@
 
 @implementation UIColor (HexString)
 
-- (id) initColorWithHexString:(NSString *) stringToConvert {
+- (id)initColorWithHexString:(NSString *)stringToConvert {
     
     NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
@@ -41,7 +41,7 @@
 }
 
 
-+ (id) colorWithHexString:(NSString *) stringToConvert {
++ (id)colorWithHexString:(NSString *)stringToConvert {
     return [[UIColor alloc] initColorWithHexString: stringToConvert];
 }
 

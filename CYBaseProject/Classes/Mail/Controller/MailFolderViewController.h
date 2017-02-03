@@ -8,9 +8,13 @@
 
 #import "CYBaseMailViewController.h"
 
-@class ZTEMailModel;
+typedef void (^CYMoveSuccessBlock)();
+
+@class CYMail,CYFolder;
 @interface MailFolderViewController : CYBaseMailViewController
 
-@property (nonatomic, strong) ZTEMailModel *mailModel;
+@property (nonatomic, strong) CYMail *mail;
+@property (nonatomic, strong) CYFolder *folder;
+@property (nonatomic, copy) CYMoveSuccessBlock moveSuccessBlock;
 
 @end

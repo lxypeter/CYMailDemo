@@ -7,252 +7,118 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A9887CAFBF918B6FA48B474 /* libPods-CYMailDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDAEEF9CD3CEC3A7B36AD11 /* libPods-CYMailDemo.a */; };
+		E10337C61E3785D3006C6BAD /* MailAttachmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E10337BF1E3785D3006C6BAD /* MailAttachmentCell.m */; };
+		E10337C71E3785D3006C6BAD /* MailAttachmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10337C01E3785D3006C6BAD /* MailAttachmentCell.xib */; };
+		E10337C81E3785D3006C6BAD /* MailTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E10337C21E3785D3006C6BAD /* MailTopicCell.m */; };
+		E10337C91E3785D3006C6BAD /* MailTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10337C31E3785D3006C6BAD /* MailTopicCell.xib */; };
+		E10A9A5E1E338AEF003F45C0 /* MailListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A9A5C1E338AEF003F45C0 /* MailListCell.m */; };
+		E10A9A5F1E338AEF003F45C0 /* MailListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10A9A5D1E338AEF003F45C0 /* MailListCell.xib */; };
+		E10A9A651E338E0F003F45C0 /* MailAttachmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A9A611E338E0F003F45C0 /* MailAttachmentTableViewCell.m */; };
+		E10A9A661E338E0F003F45C0 /* MailContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A9A631E338E0F003F45C0 /* MailContactCell.m */; };
+		E10A9A671E338E0F003F45C0 /* MailContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10A9A641E338E0F003F45C0 /* MailContactCell.xib */; };
+		E10A9A6A1E338E98003F45C0 /* MailDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A9A691E338E98003F45C0 /* MailDetailBottomView.m */; };
+		E10A9A781E33957B003F45C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E10A9A751E33957B003F45C0 /* Localizable.strings */; };
+		E10ED1381E28D4B900445B74 /* CYMailUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E10ED1371E28D4B900445B74 /* CYMailUtil.m */; };
+		E11384771E26259D00510106 /* CYBaseMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11384761E26259D00510106 /* CYBaseMailViewController.m */; };
+		E1485D401E2F6C53005CA706 /* File in Resources */ = {isa = PBXBuildFile; fileRef = E1485D3F1E2F6C53005CA706 /* File */; };
+		E14FA71F1E3F4DB4000B4791 /* CYMailModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E14FA71E1E3F4DB4000B4791 /* CYMailModelManager.m */; };
+		E14FA7221E3F6424000B4791 /* CYTempAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = E14FA7211E3F6424000B4791 /* CYTempAttachment.m */; };
+		E1913DA41E272C3900432EEF /* CYMailModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1913DA21E272C3900432EEF /* CYMailModel.xcdatamodeld */; };
+		E1913DC21E277D0500432EEF /* CYMailSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1913DC11E277D0500432EEF /* CYMailSessionManager.m */; };
+		E1913DC51E277FBB00432EEF /* CYMailSession.m in Sources */ = {isa = PBXBuildFile; fileRef = E1913DC41E277FBB00432EEF /* CYMailSession.m */; };
+		E1A16E2F1E27BA4A00C86832 /* CYMail.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A16E201E27BA4A00C86832 /* CYMail.m */; };
+		E1A16E301E27BA4A00C86832 /* CYMail+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A16E221E27BA4A00C86832 /* CYMail+CoreDataProperties.m */; };
+		E1A16E311E27BA4A00C86832 /* CYFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A16E241E27BA4A00C86832 /* CYFolder.m */; };
+		E1A16E321E27BA4A00C86832 /* CYFolder+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A16E261E27BA4A00C86832 /* CYFolder+CoreDataProperties.m */; };
+		E1A16E331E27BA4A00C86832 /* CYMailAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A16E281E27BA4A00C86832 /* CYMailAccount.m */; };
+		E1A16E341E27BA4A00C86832 /* CYMailAccount+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A16E2A1E27BA4A00C86832 /* CYMailAccount+CoreDataProperties.m */; };
+		E1A16E351E27BA4A00C86832 /* CYAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A16E2C1E27BA4A00C86832 /* CYAttachment.m */; };
+		E1A16E361E27BA4A00C86832 /* CYAttachment+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A16E2E1E27BA4A00C86832 /* CYAttachment+CoreDataProperties.m */; };
+		E1B20CF81E40810E000032B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B20CF71E40810E000032B3 /* Assets.xcassets */; };
 		E1CC33B51D3E0C86005FEA04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC2EEF1D3E0C85005FEA04 /* AppDelegate.m */; };
 		E1CC33B61D3E0C86005FEA04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CC2EF01D3E0C85005FEA04 /* LaunchScreen.storyboard */; };
 		E1CC33B71D3E0C86005FEA04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CC2EF21D3E0C85005FEA04 /* Main.storyboard */; };
 		E1CC33B81D3E0C86005FEA04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC2EF41D3E0C85005FEA04 /* main.m */; };
-		E1CC33B91D3E0C86005FEA04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CC2EF71D3E0C85005FEA04 /* Assets.xcassets */; };
 		E1CC33BA1D3E0C86005FEA04 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1CC2EFB1D3E0C85005FEA04 /* Info.plist */; };
-		E1CC35B01D3E0C87005FEA04 /* CLIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC339C1D3E0C86005FEA04 /* CLIColor.m */; };
-		E1CC35B11D3E0C87005FEA04 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC339F1D3E0C86005FEA04 /* DDAbstractDatabaseLogger.m */; };
-		E1CC35B21D3E0C87005FEA04 /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC33A11D3E0C86005FEA04 /* DDASLLogCapture.m */; };
-		E1CC35B31D3E0C87005FEA04 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC33A31D3E0C86005FEA04 /* DDASLLogger.m */; };
-		E1CC35B41D3E0C87005FEA04 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC33A61D3E0C86005FEA04 /* DDFileLogger.m */; };
-		E1CC35B51D3E0C87005FEA04 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC33AA1D3E0C86005FEA04 /* DDLog.m */; };
-		E1CC35B61D3E0C87005FEA04 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC33AD1D3E0C86005FEA04 /* DDTTYLogger.m */; };
-		E1CC35B71D3E0C87005FEA04 /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC33B01D3E0C86005FEA04 /* DDContextFilterLogFormatter.m */; };
-		E1CC35B81D3E0C87005FEA04 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC33B21D3E0C86005FEA04 /* DDDispatchQueueLogFormatter.m */; };
-		E1CC35B91D3E0C87005FEA04 /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC33B41D3E0C86005FEA04 /* DDMultiFormatter.m */; };
-		E1CC369E1D3E1195005FEA04 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35DD1D3E1195005FEA04 /* AFHTTPSessionManager.m */; };
-		E1CC369F1D3E1195005FEA04 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35E01D3E1195005FEA04 /* AFNetworkReachabilityManager.m */; };
-		E1CC36A01D3E1195005FEA04 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35E21D3E1195005FEA04 /* AFSecurityPolicy.m */; };
-		E1CC36A11D3E1195005FEA04 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35E41D3E1195005FEA04 /* AFURLRequestSerialization.m */; };
-		E1CC36A21D3E1195005FEA04 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35E61D3E1195005FEA04 /* AFURLResponseSerialization.m */; };
-		E1CC36A31D3E1195005FEA04 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35E81D3E1195005FEA04 /* AFURLSessionManager.m */; };
-		E1CC36A41D3E1195005FEA04 /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35EC1D3E1195005FEA04 /* UITableView+FDIndexPathHeightCache.m */; };
-		E1CC36A51D3E1195005FEA04 /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35EE1D3E1195005FEA04 /* UITableView+FDKeyedHeightCache.m */; };
-		E1CC36A61D3E1195005FEA04 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35F01D3E1195005FEA04 /* UITableView+FDTemplateLayoutCell.m */; };
-		E1CC36A71D3E1195005FEA04 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35F21D3E1195005FEA04 /* UITableView+FDTemplateLayoutCellDebug.m */; };
-		E1CC36A81D3E1195005FEA04 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35F61D3E1195005FEA04 /* IQNSArray+Sort.m */; };
-		E1CC36A91D3E1195005FEA04 /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35F81D3E1195005FEA04 /* IQUIScrollView+Additions.m */; };
-		E1CC36AA1D3E1195005FEA04 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35FA1D3E1195005FEA04 /* IQUITextFieldView+Additions.m */; };
-		E1CC36AB1D3E1195005FEA04 /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35FC1D3E1195005FEA04 /* IQUIView+Hierarchy.m */; };
-		E1CC36AC1D3E1195005FEA04 /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC35FE1D3E1195005FEA04 /* IQUIViewController+Additions.m */; };
-		E1CC36AD1D3E1195005FEA04 /* IQUIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36001D3E1195005FEA04 /* IQUIWindow+Hierarchy.m */; };
-		E1CC36AE1D3E1195005FEA04 /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36051D3E1195005FEA04 /* IQKeyboardManager.m */; };
-		E1CC36AF1D3E1195005FEA04 /* IQKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36071D3E1195005FEA04 /* IQKeyboardReturnKeyHandler.m */; };
-		E1CC36B01D3E1195005FEA04 /* IQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC360A1D3E1195005FEA04 /* IQTextView.m */; };
-		E1CC36B11D3E1195005FEA04 /* IQBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC360D1D3E1195005FEA04 /* IQBarButtonItem.m */; };
-		E1CC36B21D3E1195005FEA04 /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC360F1D3E1195005FEA04 /* IQTitleBarButtonItem.m */; };
-		E1CC36B31D3E1195005FEA04 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36111D3E1195005FEA04 /* IQToolbar.m */; };
-		E1CC36B41D3E1195005FEA04 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36131D3E1195005FEA04 /* IQUIView+IQKeyboardToolbar.m */; };
-		E1CC36B51D3E1195005FEA04 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1CC36161D3E1195005FEA04 /* IQKeyboardManager.bundle */; };
-		E1CC36B61D3E1195005FEA04 /* JGProgressHUD Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1CC36191D3E1195005FEA04 /* JGProgressHUD Resources.bundle */; };
-		E1CC36B71D3E1195005FEA04 /* JGProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC361C1D3E1195005FEA04 /* JGProgressHUD.m */; };
-		E1CC36B81D3E1195005FEA04 /* JGProgressHUDAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC361E1D3E1195005FEA04 /* JGProgressHUDAnimation.m */; };
-		E1CC36B91D3E1195005FEA04 /* JGProgressHUDErrorIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36201D3E1195005FEA04 /* JGProgressHUDErrorIndicatorView.m */; };
-		E1CC36BA1D3E1195005FEA04 /* JGProgressHUDFadeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36221D3E1195005FEA04 /* JGProgressHUDFadeAnimation.m */; };
-		E1CC36BB1D3E1195005FEA04 /* JGProgressHUDFadeZoomAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36241D3E1195005FEA04 /* JGProgressHUDFadeZoomAnimation.m */; };
-		E1CC36BC1D3E1195005FEA04 /* JGProgressHUDImageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36261D3E1195005FEA04 /* JGProgressHUDImageIndicatorView.m */; };
-		E1CC36BD1D3E1195005FEA04 /* JGProgressHUDIndeterminateIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36281D3E1195005FEA04 /* JGProgressHUDIndeterminateIndicatorView.m */; };
-		E1CC36BE1D3E1195005FEA04 /* JGProgressHUDIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC362A1D3E1195005FEA04 /* JGProgressHUDIndicatorView.m */; };
-		E1CC36BF1D3E1195005FEA04 /* JGProgressHUDPieIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC362C1D3E1195005FEA04 /* JGProgressHUDPieIndicatorView.m */; };
-		E1CC36C01D3E1195005FEA04 /* JGProgressHUDRingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC362E1D3E1195005FEA04 /* JGProgressHUDRingIndicatorView.m */; };
-		E1CC36C11D3E1195005FEA04 /* JGProgressHUDSuccessIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36301D3E1195005FEA04 /* JGProgressHUDSuccessIndicatorView.m */; };
-		E1CC36C21D3E1195005FEA04 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36341D3E1195005FEA04 /* MASCompositeConstraint.m */; };
-		E1CC36C31D3E1195005FEA04 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36371D3E1195005FEA04 /* MASConstraint.m */; };
-		E1CC36C41D3E1195005FEA04 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36391D3E1195005FEA04 /* MASConstraintMaker.m */; };
-		E1CC36C51D3E1195005FEA04 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC363B1D3E1195005FEA04 /* MASLayoutConstraint.m */; };
-		E1CC36C61D3E1195005FEA04 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC363F1D3E1195005FEA04 /* MASViewAttribute.m */; };
-		E1CC36C71D3E1195005FEA04 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36411D3E1195005FEA04 /* MASViewConstraint.m */; };
-		E1CC36C81D3E1195005FEA04 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36431D3E1195005FEA04 /* NSArray+MASAdditions.m */; };
-		E1CC36C91D3E1195005FEA04 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36461D3E1195005FEA04 /* NSLayoutConstraint+MASDebugAdditions.m */; };
-		E1CC36CA1D3E1195005FEA04 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36481D3E1195005FEA04 /* View+MASAdditions.m */; };
-		E1CC36CB1D3E1195005FEA04 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC364B1D3E1195005FEA04 /* ViewController+MASAdditions.m */; };
-		E1CC36CC1D3E1195005FEA04 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E1CC364D1D3E1195005FEA04 /* LICENSE */; };
-		E1CC36CD1D3E1195005FEA04 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36511D3E1195005FEA04 /* MJRefreshAutoFooter.m */; };
-		E1CC36CE1D3E1195005FEA04 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36531D3E1195005FEA04 /* MJRefreshBackFooter.m */; };
-		E1CC36CF1D3E1195005FEA04 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36551D3E1195005FEA04 /* MJRefreshComponent.m */; };
-		E1CC36D01D3E1195005FEA04 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36571D3E1195005FEA04 /* MJRefreshFooter.m */; };
-		E1CC36D11D3E1195005FEA04 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36591D3E1195005FEA04 /* MJRefreshHeader.m */; };
-		E1CC36D21D3E1195005FEA04 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC365E1D3E1195005FEA04 /* MJRefreshAutoGifFooter.m */; };
-		E1CC36D31D3E1195005FEA04 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36601D3E1195005FEA04 /* MJRefreshAutoNormalFooter.m */; };
-		E1CC36D41D3E1195005FEA04 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36621D3E1195005FEA04 /* MJRefreshAutoStateFooter.m */; };
-		E1CC36D51D3E1195005FEA04 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36651D3E1195005FEA04 /* MJRefreshBackGifFooter.m */; };
-		E1CC36D61D3E1195005FEA04 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36671D3E1195005FEA04 /* MJRefreshBackNormalFooter.m */; };
-		E1CC36D71D3E1195005FEA04 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36691D3E1195005FEA04 /* MJRefreshBackStateFooter.m */; };
-		E1CC36D81D3E1195005FEA04 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC366C1D3E1195005FEA04 /* MJRefreshGifHeader.m */; };
-		E1CC36D91D3E1195005FEA04 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC366E1D3E1195005FEA04 /* MJRefreshNormalHeader.m */; };
-		E1CC36DA1D3E1195005FEA04 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36701D3E1195005FEA04 /* MJRefreshStateHeader.m */; };
-		E1CC36DB1D3E1195005FEA04 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1CC36711D3E1195005FEA04 /* MJRefresh.bundle */; };
-		E1CC36DC1D3E1195005FEA04 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36741D3E1195005FEA04 /* MJRefreshConst.m */; };
-		E1CC36DD1D3E1195005FEA04 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36761D3E1195005FEA04 /* UIScrollView+MJExtension.m */; };
-		E1CC36DE1D3E1195005FEA04 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36781D3E1195005FEA04 /* UIScrollView+MJRefresh.m */; };
-		E1CC36DF1D3E1195005FEA04 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC367A1D3E1195005FEA04 /* UIView+MJExtension.m */; };
-		E1CC36E01D3E1195005FEA04 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E1CC367B1D3E1195005FEA04 /* README.md */; };
-		E1CC36E11D3E1195005FEA04 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC367E1D3E1195005FEA04 /* MKAnnotationView+WebCache.m */; };
-		E1CC36E21D3E1195005FEA04 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36801D3E1195005FEA04 /* NSData+ImageContentType.m */; };
-		E1CC36E31D3E1195005FEA04 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36821D3E1195005FEA04 /* SDImageCache.m */; };
-		E1CC36E41D3E1195005FEA04 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36841D3E1195005FEA04 /* SDWebImageCompat.m */; };
-		E1CC36E51D3E1195005FEA04 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36861D3E1195005FEA04 /* SDWebImageDecoder.m */; };
-		E1CC36E61D3E1195005FEA04 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36881D3E1195005FEA04 /* SDWebImageDownloader.m */; };
-		E1CC36E71D3E1195005FEA04 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC368A1D3E1195005FEA04 /* SDWebImageDownloaderOperation.m */; };
-		E1CC36E81D3E1195005FEA04 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC368C1D3E1195005FEA04 /* SDWebImageManager.m */; };
-		E1CC36E91D3E1195005FEA04 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC368F1D3E1195005FEA04 /* SDWebImagePrefetcher.m */; };
-		E1CC36EA1D3E1195005FEA04 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36911D3E1195005FEA04 /* UIButton+WebCache.m */; };
-		E1CC36EB1D3E1195005FEA04 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36931D3E1195005FEA04 /* UIImage+GIF.m */; };
-		E1CC36EC1D3E1195005FEA04 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36951D3E1195005FEA04 /* UIImage+MultiFormat.m */; };
-		E1CC36ED1D3E1195005FEA04 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36971D3E1195005FEA04 /* UIImage+WebP.m */; };
-		E1CC36EE1D3E1195005FEA04 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36991D3E1195005FEA04 /* UIImageView+HighlightedWebCache.m */; };
-		E1CC36EF1D3E1195005FEA04 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC369B1D3E1195005FEA04 /* UIImageView+WebCache.m */; };
-		E1CC36F01D3E1195005FEA04 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC369D1D3E1195005FEA04 /* UIView+WebCacheOperation.m */; };
 		E1CC37851D3E1589005FEA04 /* MailAttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36F51D3E1589005FEA04 /* MailAttachmentViewController.m */; };
-		E1CC37861D3E1589005FEA04 /* MailAttachmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC36F61D3E1589005FEA04 /* MailAttachmentViewController.xib */; };
 		E1CC37871D3E1589005FEA04 /* MailAccountListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36F81D3E1589005FEA04 /* MailAccountListViewController.m */; };
 		E1CC378B1D3E1589005FEA04 /* MailDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC36FF1D3E1589005FEA04 /* MailDetailViewController.m */; };
-		E1CC378C1D3E1589005FEA04 /* MailDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37001D3E1589005FEA04 /* MailDetailViewController.xib */; };
-		E1CC378D1D3E1589005FEA04 /* MailEditeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37021D3E1589005FEA04 /* MailEditeViewController.m */; };
-		E1CC378E1D3E1589005FEA04 /* MailEditeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37031D3E1589005FEA04 /* MailEditeViewController.xib */; };
+		E1CC378D1D3E1589005FEA04 /* MailEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37021D3E1589005FEA04 /* MailEditViewController.m */; };
 		E1CC378F1D3E1589005FEA04 /* MailFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37051D3E1589005FEA04 /* MailFolderViewController.m */; };
-		E1CC37901D3E1589005FEA04 /* MailFolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37061D3E1589005FEA04 /* MailFolderViewController.xib */; };
 		E1CC37931D3E1589005FEA04 /* MailHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC370C1D3E1589005FEA04 /* MailHomeViewController.m */; };
 		E1CC37941D3E1589005FEA04 /* MailListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC370E1D3E1589005FEA04 /* MailListViewController.m */; };
-		E1CC37951D3E1589005FEA04 /* MailListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC370F1D3E1589005FEA04 /* MailListViewController.xib */; };
 		E1CC37971D3E1589005FEA04 /* MailLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37131D3E1589005FEA04 /* MailLoginViewController.m */; };
 		E1CC37981D3E1589005FEA04 /* MailLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37141D3E1589005FEA04 /* MailLoginViewController.xib */; };
-		E1CC379A1D3E1589005FEA04 /* CYBaseMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37181D3E1589005FEA04 /* CYBaseMailViewController.m */; };
-		E1CC37A51D3E1589005FEA04 /* ZTEFolderModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37261D3E1589005FEA04 /* ZTEFolderModel+CoreDataProperties.m */; };
-		E1CC37A61D3E1589005FEA04 /* ZTEFolderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37281D3E1589005FEA04 /* ZTEFolderModel.m */; };
-		E1CC37A71D3E1589005FEA04 /* ZTEMailAttachment+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC372A1D3E1589005FEA04 /* ZTEMailAttachment+CoreDataProperties.m */; };
-		E1CC37A81D3E1589005FEA04 /* ZTEMailAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC372C1D3E1589005FEA04 /* ZTEMailAttachment.m */; };
-		E1CC37A91D3E1589005FEA04 /* ZTEMailModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC372E1D3E1589005FEA04 /* ZTEMailModel+CoreDataProperties.m */; };
-		E1CC37AA1D3E1589005FEA04 /* ZTEMailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37301D3E1589005FEA04 /* ZTEMailModel.m */; };
-		E1CC37AE1D3E1589005FEA04 /* ZTEMailModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37391D3E1589005FEA04 /* ZTEMailModel.xcdatamodeld */; };
 		E1CC37BE1D3E1589005FEA04 /* ZTEMailconfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1CC374C1D3E1589005FEA04 /* ZTEMailconfiguration.plist */; };
 		E1CC37BF1D3E1589005FEA04 /* ZTESupportMail.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1CC374D1D3E1589005FEA04 /* ZTESupportMail.plist */; };
-		E1CC37CB1D3E1589005FEA04 /* MailAttachmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC376A1D3E1589005FEA04 /* MailAttachmentTableViewCell.m */; };
-		E1CC37CC1D3E1589005FEA04 /* MailContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC376C1D3E1589005FEA04 /* MailContactCell.m */; };
-		E1CC37CD1D3E1589005FEA04 /* MailContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC376D1D3E1589005FEA04 /* MailContactCell.xib */; };
-		E1CC37D11D3E1589005FEA04 /* MailAddAddrCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37751D3E1589005FEA04 /* MailAddAddrCell.m */; };
-		E1CC37D21D3E1589005FEA04 /* MailAddAddrCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37761D3E1589005FEA04 /* MailAddAddrCell.xib */; };
-		E1CC37D31D3E1589005FEA04 /* MailAttachmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37781D3E1589005FEA04 /* MailAttachmentCell.m */; };
-		E1CC37D41D3E1589005FEA04 /* MailAttachmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37791D3E1589005FEA04 /* MailAttachmentCell.xib */; };
-		E1CC37D51D3E1589005FEA04 /* MailAttachmentHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC377B1D3E1589005FEA04 /* MailAttachmentHeader.m */; };
-		E1CC37D61D3E1589005FEA04 /* MailAttachmentHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC377C1D3E1589005FEA04 /* MailAttachmentHeader.xib */; };
-		E1CC37D71D3E1589005FEA04 /* MailTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC377E1D3E1589005FEA04 /* MailTopicCell.m */; };
-		E1CC37D81D3E1589005FEA04 /* MailTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC377F1D3E1589005FEA04 /* MailTopicCell.xib */; };
-		E1CC37D91D3E1589005FEA04 /* MailListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37811D3E1589005FEA04 /* MailListCell.m */; };
-		E1CC37DA1D3E1589005FEA04 /* MailListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC37821D3E1589005FEA04 /* MailListCell.xib */; };
 		E1CC37E71D3E16C0005FEA04 /* DocPreviewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37DE1D3E16C0005FEA04 /* DocPreviewUtil.m */; };
 		E1CC37E81D3E16C0005FEA04 /* MailAddAddrTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37E01D3E16C0005FEA04 /* MailAddAddrTextParser.m */; };
 		E1CC37E91D3E16C0005FEA04 /* YYSandBoxUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37E21D3E16C0005FEA04 /* YYSandBoxUtil.m */; };
-		E1CC37EA1D3E16C0005FEA04 /* ZTEMailCoreDataUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37E41D3E16C0005FEA04 /* ZTEMailCoreDataUtil.m */; };
-		E1CC37EB1D3E16C0005FEA04 /* ZTEMailSessionUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC37E61D3E16C0005FEA04 /* ZTEMailSessionUtil.m */; };
-		E1CC38071D3E19D2005FEA04 /* libMailCore-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CC37FA1D3E1951005FEA04 /* libMailCore-ios.a */; };
 		E1CC38091D3E19DD005FEA04 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CC38081D3E19DD005FEA04 /* CFNetwork.framework */; };
 		E1CC380B1D3E19E8005FEA04 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CC380A1D3E19E8005FEA04 /* Security.framework */; };
 		E1CC38171D3E20BD005FEA04 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38141D3E20BD005FEA04 /* UIView+Frame.m */; };
 		E1CC38181D3E20BD005FEA04 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38161D3E20BD005FEA04 /* UIView+Toast.m */; };
 		E1CC381C1D3E2178005FEA04 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC381B1D3E2178005FEA04 /* UIColor+HexString.m */; };
 		E1CC38211D3E2300005FEA04 /* NSString+CYVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38201D3E2300005FEA04 /* NSString+CYVerification.m */; };
-		E1CC38611D3E2769005FEA04 /* YYTextContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC382C1D3E2769005FEA04 /* YYTextContainerView.m */; };
-		E1CC38621D3E2769005FEA04 /* YYTextDebugOption.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC382E1D3E2769005FEA04 /* YYTextDebugOption.m */; };
-		E1CC38631D3E2769005FEA04 /* YYTextEffectWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38301D3E2769005FEA04 /* YYTextEffectWindow.m */; };
-		E1CC38641D3E2769005FEA04 /* YYTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38321D3E2769005FEA04 /* YYTextInput.m */; };
-		E1CC38651D3E2769005FEA04 /* YYTextKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38341D3E2769005FEA04 /* YYTextKeyboardManager.m */; };
-		E1CC38661D3E2769005FEA04 /* YYTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38361D3E2769005FEA04 /* YYTextLayout.m */; };
-		E1CC38671D3E2769005FEA04 /* YYTextLine.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38381D3E2769005FEA04 /* YYTextLine.m */; };
-		E1CC38681D3E2769005FEA04 /* YYTextMagnifier.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC383A1D3E2769005FEA04 /* YYTextMagnifier.m */; };
-		E1CC38691D3E2769005FEA04 /* YYTextSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC383C1D3E2769005FEA04 /* YYTextSelectionView.m */; };
-		E1CC386A1D3E2769005FEA04 /* YYTextArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC383F1D3E2769005FEA04 /* YYTextArchiver.m */; };
-		E1CC386B1D3E2769005FEA04 /* YYTextAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38411D3E2769005FEA04 /* YYTextAttribute.m */; };
-		E1CC386C1D3E2769005FEA04 /* YYTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38431D3E2769005FEA04 /* YYTextParser.m */; };
-		E1CC386D1D3E2769005FEA04 /* YYTextRubyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38451D3E2769005FEA04 /* YYTextRubyAnnotation.m */; };
-		E1CC386E1D3E2769005FEA04 /* YYTextRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38471D3E2769005FEA04 /* YYTextRunDelegate.m */; };
-		E1CC386F1D3E2769005FEA04 /* NSAttributedString+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC384A1D3E2769005FEA04 /* NSAttributedString+YYText.m */; };
-		E1CC38701D3E2769005FEA04 /* NSParagraphStyle+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC384C1D3E2769005FEA04 /* NSParagraphStyle+YYText.m */; };
-		E1CC38711D3E2769005FEA04 /* UIPasteboard+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC384E1D3E2769005FEA04 /* UIPasteboard+YYText.m */; };
-		E1CC38721D3E2769005FEA04 /* UIView+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38501D3E2769005FEA04 /* UIView+YYText.m */; };
-		E1CC38731D3E2769005FEA04 /* YYTextAsyncLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38521D3E2769005FEA04 /* YYTextAsyncLayer.m */; };
-		E1CC38741D3E2769005FEA04 /* YYTextTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38541D3E2769005FEA04 /* YYTextTransaction.m */; };
-		E1CC38751D3E2769005FEA04 /* YYTextUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38561D3E2769005FEA04 /* YYTextUtilities.m */; };
-		E1CC38761D3E2769005FEA04 /* YYTextWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38581D3E2769005FEA04 /* YYTextWeakProxy.m */; };
-		E1CC38771D3E2769005FEA04 /* YYLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC385A1D3E2769005FEA04 /* YYLabel.m */; };
-		E1CC38781D3E2769005FEA04 /* YYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC385D1D3E2769005FEA04 /* YYTextView.m */; };
-		E1CC387E1D3E27EF005FEA04 /* SideSilpViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CC387B1D3E27EF005FEA04 /* SideSilpViewHeader.xib */; };
-		E1CC387F1D3E27EF005FEA04 /* SideSlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC387D1D3E27EF005FEA04 /* SideSlipView.m */; };
 		E1CC38831D3E2829005FEA04 /* JSImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38821D3E2829005FEA04 /* JSImagePickerViewController.m */; };
-		E1ED51771D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ED51741D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.m */; };
-		E1ED51781D4B57A300FC1A2E /* ZTEMailUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ED51761D4B57A300FC1A2E /* ZTEMailUser.m */; };
+		E1FF4C421E407D4B0067DFEC /* MailAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FF4C401E407D4B0067DFEC /* MailAddressCell.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E1CC37F71D3E1951005FEA04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CC37EC1D3E1950005FEA04 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C64EA537169E772200778456;
-			remoteInfo = "static mailcore2 osx";
-		};
-		E1CC37F91D3E1951005FEA04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CC37EC1D3E1950005FEA04 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C6BA2C191705F4E6003F0E9E;
-			remoteInfo = "static mailcore2 ios";
-		};
-		E1CC37FB1D3E1951005FEA04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CC37EC1D3E1950005FEA04 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C64EA78C169F259200778456;
-			remoteInfo = tests;
-		};
-		E1CC37FD1D3E1951005FEA04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CC37EC1D3E1950005FEA04 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C6A81B911706840C00882C15;
-			remoteInfo = "test-ios";
-		};
-		E1CC37FF1D3E1951005FEA04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CC37EC1D3E1950005FEA04 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C6BD288D170BD71100A91AC1;
-			remoteInfo = "mailcore osx";
-		};
-		E1CC38011D3E1951005FEA04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CC37EC1D3E1950005FEA04 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 27780C3A19CF9CD100C77E44;
-			remoteInfo = "mailcore ios";
-		};
-		E1CC38031D3E1951005FEA04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CC37EC1D3E1950005FEA04 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C6B5AE0219F630B3001352A6;
-			remoteInfo = unittest;
-		};
-		E1CC38051D3E1951005FEA04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CC37EC1D3E1950005FEA04 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C600B6141A242C3F000728F1;
-			remoteInfo = unittestcpp;
-		};
-		E1CC380C1D3E1A2A005FEA04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CC37EC1D3E1950005FEA04 /* mailcore2.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C6BA2B091705F4E6003F0E9E;
-			remoteInfo = "static mailcore2 ios";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		0DDAEEF9CD3CEC3A7B36AD11 /* libPods-CYMailDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CYMailDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C0D81A1BC09E39E096D366 /* Pods-CYMailDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CYMailDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CYMailDemo/Pods-CYMailDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		E10337BE1E3785D3006C6BAD /* MailAttachmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAttachmentCell.h; sourceTree = "<group>"; };
+		E10337BF1E3785D3006C6BAD /* MailAttachmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAttachmentCell.m; sourceTree = "<group>"; };
+		E10337C01E3785D3006C6BAD /* MailAttachmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailAttachmentCell.xib; sourceTree = "<group>"; };
+		E10337C11E3785D3006C6BAD /* MailTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailTopicCell.h; sourceTree = "<group>"; };
+		E10337C21E3785D3006C6BAD /* MailTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailTopicCell.m; sourceTree = "<group>"; };
+		E10337C31E3785D3006C6BAD /* MailTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailTopicCell.xib; sourceTree = "<group>"; };
+		E10A9A5B1E338AEF003F45C0 /* MailListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailListCell.h; sourceTree = "<group>"; };
+		E10A9A5C1E338AEF003F45C0 /* MailListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailListCell.m; sourceTree = "<group>"; };
+		E10A9A5D1E338AEF003F45C0 /* MailListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailListCell.xib; sourceTree = "<group>"; };
+		E10A9A601E338E0F003F45C0 /* MailAttachmentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAttachmentTableViewCell.h; sourceTree = "<group>"; };
+		E10A9A611E338E0F003F45C0 /* MailAttachmentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAttachmentTableViewCell.m; sourceTree = "<group>"; };
+		E10A9A621E338E0F003F45C0 /* MailContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailContactCell.h; sourceTree = "<group>"; };
+		E10A9A631E338E0F003F45C0 /* MailContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailContactCell.m; sourceTree = "<group>"; };
+		E10A9A641E338E0F003F45C0 /* MailContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailContactCell.xib; sourceTree = "<group>"; };
+		E10A9A681E338E98003F45C0 /* MailDetailBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailDetailBottomView.h; sourceTree = "<group>"; };
+		E10A9A691E338E98003F45C0 /* MailDetailBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailDetailBottomView.m; sourceTree = "<group>"; };
+		E10A9A6E1E339438003F45C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		E10A9A6F1E339438003F45C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		E10A9A771E33957B003F45C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E10ED1361E28D4B900445B74 /* CYMailUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMailUtil.h; sourceTree = "<group>"; };
+		E10ED1371E28D4B900445B74 /* CYMailUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMailUtil.m; sourceTree = "<group>"; };
+		E11384751E26259D00510106 /* CYBaseMailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYBaseMailViewController.h; sourceTree = "<group>"; };
+		E11384761E26259D00510106 /* CYBaseMailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYBaseMailViewController.m; sourceTree = "<group>"; };
+		E1485D3F1E2F6C53005CA706 /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
+		E14FA71D1E3F4DB4000B4791 /* CYMailModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMailModelManager.h; sourceTree = "<group>"; };
+		E14FA71E1E3F4DB4000B4791 /* CYMailModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMailModelManager.m; sourceTree = "<group>"; };
+		E14FA7201E3F6424000B4791 /* CYTempAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYTempAttachment.h; sourceTree = "<group>"; };
+		E14FA7211E3F6424000B4791 /* CYTempAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYTempAttachment.m; sourceTree = "<group>"; };
+		E1913DA11E2729F800432EEF /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		E1913DA31E272C3900432EEF /* CYMailModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CYMailModel.xcdatamodel; sourceTree = "<group>"; };
+		E1913DC01E277D0500432EEF /* CYMailSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMailSessionManager.h; sourceTree = "<group>"; };
+		E1913DC11E277D0500432EEF /* CYMailSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMailSessionManager.m; sourceTree = "<group>"; };
+		E1913DC31E277FBB00432EEF /* CYMailSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMailSession.h; sourceTree = "<group>"; };
+		E1913DC41E277FBB00432EEF /* CYMailSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMailSession.m; sourceTree = "<group>"; };
+		E1A16E1F1E27BA4A00C86832 /* CYMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMail.h; sourceTree = "<group>"; };
+		E1A16E201E27BA4A00C86832 /* CYMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMail.m; sourceTree = "<group>"; };
+		E1A16E211E27BA4A00C86832 /* CYMail+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CYMail+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E1A16E221E27BA4A00C86832 /* CYMail+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYMail+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E1A16E231E27BA4A00C86832 /* CYFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYFolder.h; sourceTree = "<group>"; };
+		E1A16E241E27BA4A00C86832 /* CYFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYFolder.m; sourceTree = "<group>"; };
+		E1A16E251E27BA4A00C86832 /* CYFolder+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CYFolder+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E1A16E261E27BA4A00C86832 /* CYFolder+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYFolder+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E1A16E271E27BA4A00C86832 /* CYMailAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMailAccount.h; sourceTree = "<group>"; };
+		E1A16E281E27BA4A00C86832 /* CYMailAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMailAccount.m; sourceTree = "<group>"; };
+		E1A16E291E27BA4A00C86832 /* CYMailAccount+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CYMailAccount+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E1A16E2A1E27BA4A00C86832 /* CYMailAccount+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYMailAccount+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E1A16E2B1E27BA4A00C86832 /* CYAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYAttachment.h; sourceTree = "<group>"; };
+		E1A16E2C1E27BA4A00C86832 /* CYAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAttachment.m; sourceTree = "<group>"; };
+		E1A16E2D1E27BA4A00C86832 /* CYAttachment+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CYAttachment+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E1A16E2E1E27BA4A00C86832 /* CYAttachment+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYAttachment+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E1B20CF71E40810E000032B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1CC2ED11D3E0C1B005FEA04 /* CYMailDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CYMailDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CC2EEE1D3E0C85005FEA04 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E1CC2EEF1D3E0C85005FEA04 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -260,277 +126,33 @@
 		E1CC2EF31D3E0C85005FEA04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1CC2EF41D3E0C85005FEA04 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1CC2EF51D3E0C85005FEA04 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		E1CC2EF71D3E0C85005FEA04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1CC2EF91D3E0C85005FEA04 /* MainMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMacro.h; sourceTree = "<group>"; };
 		E1CC2EFB1D3E0C85005FEA04 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1CC339B1D3E0C86005FEA04 /* CLIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLIColor.h; sourceTree = "<group>"; };
-		E1CC339C1D3E0C86005FEA04 /* CLIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLIColor.m; sourceTree = "<group>"; };
-		E1CC339D1D3E0C86005FEA04 /* CocoaLumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjack.h; sourceTree = "<group>"; };
-		E1CC339E1D3E0C86005FEA04 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		E1CC339F1D3E0C86005FEA04 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
-		E1CC33A01D3E0C86005FEA04 /* DDASLLogCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogCapture.h; sourceTree = "<group>"; };
-		E1CC33A11D3E0C86005FEA04 /* DDASLLogCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogCapture.m; sourceTree = "<group>"; };
-		E1CC33A21D3E0C86005FEA04 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		E1CC33A31D3E0C86005FEA04 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
-		E1CC33A41D3E0C86005FEA04 /* DDAssertMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAssertMacros.h; sourceTree = "<group>"; };
-		E1CC33A51D3E0C86005FEA04 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
-		E1CC33A61D3E0C86005FEA04 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
-		E1CC33A71D3E0C86005FEA04 /* DDLegacyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLegacyMacros.h; sourceTree = "<group>"; };
-		E1CC33A81D3E0C86005FEA04 /* DDLog+LOGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDLog+LOGV.h"; sourceTree = "<group>"; };
-		E1CC33A91D3E0C86005FEA04 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		E1CC33AA1D3E0C86005FEA04 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
-		E1CC33AB1D3E0C86005FEA04 /* DDLogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLogMacros.h; sourceTree = "<group>"; };
-		E1CC33AC1D3E0C86005FEA04 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
-		E1CC33AD1D3E0C86005FEA04 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
-		E1CC33AF1D3E0C86005FEA04 /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
-		E1CC33B01D3E0C86005FEA04 /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
-		E1CC33B11D3E0C86005FEA04 /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
-		E1CC33B21D3E0C86005FEA04 /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
-		E1CC33B31D3E0C86005FEA04 /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
-		E1CC33B41D3E0C86005FEA04 /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
-		E1CC35DC1D3E1195005FEA04 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		E1CC35DD1D3E1195005FEA04 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		E1CC35DE1D3E1195005FEA04 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		E1CC35DF1D3E1195005FEA04 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		E1CC35E01D3E1195005FEA04 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		E1CC35E11D3E1195005FEA04 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
-		E1CC35E21D3E1195005FEA04 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
-		E1CC35E31D3E1195005FEA04 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		E1CC35E41D3E1195005FEA04 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		E1CC35E51D3E1195005FEA04 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		E1CC35E61D3E1195005FEA04 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
-		E1CC35E71D3E1195005FEA04 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
-		E1CC35E81D3E1195005FEA04 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		E1CC35EB1D3E1195005FEA04 /* UITableView+FDIndexPathHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDIndexPathHeightCache.h"; sourceTree = "<group>"; };
-		E1CC35EC1D3E1195005FEA04 /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
-		E1CC35ED1D3E1195005FEA04 /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
-		E1CC35EE1D3E1195005FEA04 /* UITableView+FDKeyedHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDKeyedHeightCache.m"; sourceTree = "<group>"; };
-		E1CC35EF1D3E1195005FEA04 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
-		E1CC35F01D3E1195005FEA04 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
-		E1CC35F11D3E1195005FEA04 /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
-		E1CC35F21D3E1195005FEA04 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
-		E1CC35F51D3E1195005FEA04 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
-		E1CC35F61D3E1195005FEA04 /* IQNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Sort.m"; sourceTree = "<group>"; };
-		E1CC35F71D3E1195005FEA04 /* IQUIScrollView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIScrollView+Additions.h"; sourceTree = "<group>"; };
-		E1CC35F81D3E1195005FEA04 /* IQUIScrollView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIScrollView+Additions.m"; sourceTree = "<group>"; };
-		E1CC35F91D3E1195005FEA04 /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
-		E1CC35FA1D3E1195005FEA04 /* IQUITextFieldView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUITextFieldView+Additions.m"; sourceTree = "<group>"; };
-		E1CC35FB1D3E1195005FEA04 /* IQUIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+Hierarchy.h"; sourceTree = "<group>"; };
-		E1CC35FC1D3E1195005FEA04 /* IQUIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+Hierarchy.m"; sourceTree = "<group>"; };
-		E1CC35FD1D3E1195005FEA04 /* IQUIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIViewController+Additions.h"; sourceTree = "<group>"; };
-		E1CC35FE1D3E1195005FEA04 /* IQUIViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIViewController+Additions.m"; sourceTree = "<group>"; };
-		E1CC35FF1D3E1195005FEA04 /* IQUIWindow+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIWindow+Hierarchy.h"; sourceTree = "<group>"; };
-		E1CC36001D3E1195005FEA04 /* IQUIWindow+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIWindow+Hierarchy.m"; sourceTree = "<group>"; };
-		E1CC36021D3E1195005FEA04 /* IQKeyboardManagerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManagerConstants.h; sourceTree = "<group>"; };
-		E1CC36031D3E1195005FEA04 /* IQKeyboardManagerConstantsInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManagerConstantsInternal.h; sourceTree = "<group>"; };
-		E1CC36041D3E1195005FEA04 /* IQKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManager.h; sourceTree = "<group>"; };
-		E1CC36051D3E1195005FEA04 /* IQKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardManager.m; sourceTree = "<group>"; };
-		E1CC36061D3E1195005FEA04 /* IQKeyboardReturnKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardReturnKeyHandler.h; sourceTree = "<group>"; };
-		E1CC36071D3E1195005FEA04 /* IQKeyboardReturnKeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardReturnKeyHandler.m; sourceTree = "<group>"; };
-		E1CC36091D3E1195005FEA04 /* IQTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTextView.h; sourceTree = "<group>"; };
-		E1CC360A1D3E1195005FEA04 /* IQTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTextView.m; sourceTree = "<group>"; };
-		E1CC360C1D3E1195005FEA04 /* IQBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQBarButtonItem.h; sourceTree = "<group>"; };
-		E1CC360D1D3E1195005FEA04 /* IQBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQBarButtonItem.m; sourceTree = "<group>"; };
-		E1CC360E1D3E1195005FEA04 /* IQTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTitleBarButtonItem.h; sourceTree = "<group>"; };
-		E1CC360F1D3E1195005FEA04 /* IQTitleBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTitleBarButtonItem.m; sourceTree = "<group>"; };
-		E1CC36101D3E1195005FEA04 /* IQToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQToolbar.h; sourceTree = "<group>"; };
-		E1CC36111D3E1195005FEA04 /* IQToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQToolbar.m; sourceTree = "<group>"; };
-		E1CC36121D3E1195005FEA04 /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
-		E1CC36131D3E1195005FEA04 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
-		E1CC36141D3E1195005FEA04 /* KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
-		E1CC36161D3E1195005FEA04 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
-		E1CC36191D3E1195005FEA04 /* JGProgressHUD Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "JGProgressHUD Resources.bundle"; sourceTree = "<group>"; };
-		E1CC361A1D3E1195005FEA04 /* JGProgressHUD-Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JGProgressHUD-Defines.h"; sourceTree = "<group>"; };
-		E1CC361B1D3E1195005FEA04 /* JGProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUD.h; sourceTree = "<group>"; };
-		E1CC361C1D3E1195005FEA04 /* JGProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUD.m; sourceTree = "<group>"; };
-		E1CC361D1D3E1195005FEA04 /* JGProgressHUDAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDAnimation.h; sourceTree = "<group>"; };
-		E1CC361E1D3E1195005FEA04 /* JGProgressHUDAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDAnimation.m; sourceTree = "<group>"; };
-		E1CC361F1D3E1195005FEA04 /* JGProgressHUDErrorIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDErrorIndicatorView.h; sourceTree = "<group>"; };
-		E1CC36201D3E1195005FEA04 /* JGProgressHUDErrorIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDErrorIndicatorView.m; sourceTree = "<group>"; };
-		E1CC36211D3E1195005FEA04 /* JGProgressHUDFadeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDFadeAnimation.h; sourceTree = "<group>"; };
-		E1CC36221D3E1195005FEA04 /* JGProgressHUDFadeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDFadeAnimation.m; sourceTree = "<group>"; };
-		E1CC36231D3E1195005FEA04 /* JGProgressHUDFadeZoomAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDFadeZoomAnimation.h; sourceTree = "<group>"; };
-		E1CC36241D3E1195005FEA04 /* JGProgressHUDFadeZoomAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDFadeZoomAnimation.m; sourceTree = "<group>"; };
-		E1CC36251D3E1195005FEA04 /* JGProgressHUDImageIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDImageIndicatorView.h; sourceTree = "<group>"; };
-		E1CC36261D3E1195005FEA04 /* JGProgressHUDImageIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDImageIndicatorView.m; sourceTree = "<group>"; };
-		E1CC36271D3E1195005FEA04 /* JGProgressHUDIndeterminateIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDIndeterminateIndicatorView.h; sourceTree = "<group>"; };
-		E1CC36281D3E1195005FEA04 /* JGProgressHUDIndeterminateIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDIndeterminateIndicatorView.m; sourceTree = "<group>"; };
-		E1CC36291D3E1195005FEA04 /* JGProgressHUDIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDIndicatorView.h; sourceTree = "<group>"; };
-		E1CC362A1D3E1195005FEA04 /* JGProgressHUDIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDIndicatorView.m; sourceTree = "<group>"; };
-		E1CC362B1D3E1195005FEA04 /* JGProgressHUDPieIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDPieIndicatorView.h; sourceTree = "<group>"; };
-		E1CC362C1D3E1195005FEA04 /* JGProgressHUDPieIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDPieIndicatorView.m; sourceTree = "<group>"; };
-		E1CC362D1D3E1195005FEA04 /* JGProgressHUDRingIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDRingIndicatorView.h; sourceTree = "<group>"; };
-		E1CC362E1D3E1195005FEA04 /* JGProgressHUDRingIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDRingIndicatorView.m; sourceTree = "<group>"; };
-		E1CC362F1D3E1195005FEA04 /* JGProgressHUDSuccessIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDSuccessIndicatorView.h; sourceTree = "<group>"; };
-		E1CC36301D3E1195005FEA04 /* JGProgressHUDSuccessIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDSuccessIndicatorView.m; sourceTree = "<group>"; };
-		E1CC36331D3E1195005FEA04 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
-		E1CC36341D3E1195005FEA04 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
-		E1CC36351D3E1195005FEA04 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
-		E1CC36361D3E1195005FEA04 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
-		E1CC36371D3E1195005FEA04 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
-		E1CC36381D3E1195005FEA04 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
-		E1CC36391D3E1195005FEA04 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
-		E1CC363A1D3E1195005FEA04 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
-		E1CC363B1D3E1195005FEA04 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
-		E1CC363C1D3E1195005FEA04 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
-		E1CC363D1D3E1195005FEA04 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
-		E1CC363E1D3E1195005FEA04 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
-		E1CC363F1D3E1195005FEA04 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
-		E1CC36401D3E1195005FEA04 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
-		E1CC36411D3E1195005FEA04 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
-		E1CC36421D3E1195005FEA04 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		E1CC36431D3E1195005FEA04 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		E1CC36441D3E1195005FEA04 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		E1CC36451D3E1195005FEA04 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		E1CC36461D3E1195005FEA04 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		E1CC36471D3E1195005FEA04 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
-		E1CC36481D3E1195005FEA04 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
-		E1CC36491D3E1195005FEA04 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		E1CC364A1D3E1195005FEA04 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
-		E1CC364B1D3E1195005FEA04 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		E1CC364D1D3E1195005FEA04 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		E1CC36501D3E1195005FEA04 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
-		E1CC36511D3E1195005FEA04 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
-		E1CC36521D3E1195005FEA04 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
-		E1CC36531D3E1195005FEA04 /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBackFooter.m; sourceTree = "<group>"; };
-		E1CC36541D3E1195005FEA04 /* MJRefreshComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshComponent.h; sourceTree = "<group>"; };
-		E1CC36551D3E1195005FEA04 /* MJRefreshComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshComponent.m; sourceTree = "<group>"; };
-		E1CC36561D3E1195005FEA04 /* MJRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooter.h; sourceTree = "<group>"; };
-		E1CC36571D3E1195005FEA04 /* MJRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooter.m; sourceTree = "<group>"; };
-		E1CC36581D3E1195005FEA04 /* MJRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeader.h; sourceTree = "<group>"; };
-		E1CC36591D3E1195005FEA04 /* MJRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeader.m; sourceTree = "<group>"; };
-		E1CC365D1D3E1195005FEA04 /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
-		E1CC365E1D3E1195005FEA04 /* MJRefreshAutoGifFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoGifFooter.m; sourceTree = "<group>"; };
-		E1CC365F1D3E1195005FEA04 /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
-		E1CC36601D3E1195005FEA04 /* MJRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
-		E1CC36611D3E1195005FEA04 /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
-		E1CC36621D3E1195005FEA04 /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
-		E1CC36641D3E1195005FEA04 /* MJRefreshBackGifFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackGifFooter.h; sourceTree = "<group>"; };
-		E1CC36651D3E1195005FEA04 /* MJRefreshBackGifFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBackGifFooter.m; sourceTree = "<group>"; };
-		E1CC36661D3E1195005FEA04 /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
-		E1CC36671D3E1195005FEA04 /* MJRefreshBackNormalFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBackNormalFooter.m; sourceTree = "<group>"; };
-		E1CC36681D3E1195005FEA04 /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
-		E1CC36691D3E1195005FEA04 /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
-		E1CC366B1D3E1195005FEA04 /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshGifHeader.h; sourceTree = "<group>"; };
-		E1CC366C1D3E1195005FEA04 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshGifHeader.m; sourceTree = "<group>"; };
-		E1CC366D1D3E1195005FEA04 /* MJRefreshNormalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshNormalHeader.h; sourceTree = "<group>"; };
-		E1CC366E1D3E1195005FEA04 /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshNormalHeader.m; sourceTree = "<group>"; };
-		E1CC366F1D3E1195005FEA04 /* MJRefreshStateHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshStateHeader.h; sourceTree = "<group>"; };
-		E1CC36701D3E1195005FEA04 /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshStateHeader.m; sourceTree = "<group>"; };
-		E1CC36711D3E1195005FEA04 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
-		E1CC36721D3E1195005FEA04 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
-		E1CC36731D3E1195005FEA04 /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
-		E1CC36741D3E1195005FEA04 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
-		E1CC36751D3E1195005FEA04 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
-		E1CC36761D3E1195005FEA04 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
-		E1CC36771D3E1195005FEA04 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
-		E1CC36781D3E1195005FEA04 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
-		E1CC36791D3E1195005FEA04 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
-		E1CC367A1D3E1195005FEA04 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
-		E1CC367B1D3E1195005FEA04 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		E1CC367D1D3E1195005FEA04 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
-		E1CC367E1D3E1195005FEA04 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
-		E1CC367F1D3E1195005FEA04 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
-		E1CC36801D3E1195005FEA04 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ImageContentType.m"; sourceTree = "<group>"; };
-		E1CC36811D3E1195005FEA04 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
-		E1CC36821D3E1195005FEA04 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
-		E1CC36831D3E1195005FEA04 /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
-		E1CC36841D3E1195005FEA04 /* SDWebImageCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageCompat.m; sourceTree = "<group>"; };
-		E1CC36851D3E1195005FEA04 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
-		E1CC36861D3E1195005FEA04 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
-		E1CC36871D3E1195005FEA04 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
-		E1CC36881D3E1195005FEA04 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
-		E1CC36891D3E1195005FEA04 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
-		E1CC368A1D3E1195005FEA04 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
-		E1CC368B1D3E1195005FEA04 /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
-		E1CC368C1D3E1195005FEA04 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
-		E1CC368D1D3E1195005FEA04 /* SDWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageOperation.h; sourceTree = "<group>"; };
-		E1CC368E1D3E1195005FEA04 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
-		E1CC368F1D3E1195005FEA04 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
-		E1CC36901D3E1195005FEA04 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
-		E1CC36911D3E1195005FEA04 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
-		E1CC36921D3E1195005FEA04 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
-		E1CC36931D3E1195005FEA04 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
-		E1CC36941D3E1195005FEA04 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
-		E1CC36951D3E1195005FEA04 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MultiFormat.m"; sourceTree = "<group>"; };
-		E1CC36961D3E1195005FEA04 /* UIImage+WebP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WebP.h"; sourceTree = "<group>"; };
-		E1CC36971D3E1195005FEA04 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
-		E1CC36981D3E1195005FEA04 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
-		E1CC36991D3E1195005FEA04 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
-		E1CC369A1D3E1195005FEA04 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
-		E1CC369B1D3E1195005FEA04 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
-		E1CC369C1D3E1195005FEA04 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
-		E1CC369D1D3E1195005FEA04 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		E1CC36F41D3E1589005FEA04 /* MailAttachmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAttachmentViewController.h; sourceTree = "<group>"; };
 		E1CC36F51D3E1589005FEA04 /* MailAttachmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAttachmentViewController.m; sourceTree = "<group>"; };
-		E1CC36F61D3E1589005FEA04 /* MailAttachmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailAttachmentViewController.xib; sourceTree = "<group>"; };
 		E1CC36F71D3E1589005FEA04 /* MailAccountListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAccountListViewController.h; sourceTree = "<group>"; };
 		E1CC36F81D3E1589005FEA04 /* MailAccountListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAccountListViewController.m; sourceTree = "<group>"; };
 		E1CC36FE1D3E1589005FEA04 /* MailDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailDetailViewController.h; sourceTree = "<group>"; };
 		E1CC36FF1D3E1589005FEA04 /* MailDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailDetailViewController.m; sourceTree = "<group>"; };
-		E1CC37001D3E1589005FEA04 /* MailDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailDetailViewController.xib; sourceTree = "<group>"; };
-		E1CC37011D3E1589005FEA04 /* MailEditeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailEditeViewController.h; sourceTree = "<group>"; };
-		E1CC37021D3E1589005FEA04 /* MailEditeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailEditeViewController.m; sourceTree = "<group>"; };
-		E1CC37031D3E1589005FEA04 /* MailEditeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailEditeViewController.xib; sourceTree = "<group>"; };
+		E1CC37011D3E1589005FEA04 /* MailEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailEditViewController.h; sourceTree = "<group>"; };
+		E1CC37021D3E1589005FEA04 /* MailEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailEditViewController.m; sourceTree = "<group>"; };
 		E1CC37041D3E1589005FEA04 /* MailFolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailFolderViewController.h; sourceTree = "<group>"; };
 		E1CC37051D3E1589005FEA04 /* MailFolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailFolderViewController.m; sourceTree = "<group>"; };
-		E1CC37061D3E1589005FEA04 /* MailFolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailFolderViewController.xib; sourceTree = "<group>"; };
 		E1CC370B1D3E1589005FEA04 /* MailHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailHomeViewController.h; sourceTree = "<group>"; };
 		E1CC370C1D3E1589005FEA04 /* MailHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailHomeViewController.m; sourceTree = "<group>"; };
 		E1CC370D1D3E1589005FEA04 /* MailListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailListViewController.h; sourceTree = "<group>"; };
 		E1CC370E1D3E1589005FEA04 /* MailListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailListViewController.m; sourceTree = "<group>"; };
-		E1CC370F1D3E1589005FEA04 /* MailListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailListViewController.xib; sourceTree = "<group>"; };
 		E1CC37121D3E1589005FEA04 /* MailLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailLoginViewController.h; sourceTree = "<group>"; };
 		E1CC37131D3E1589005FEA04 /* MailLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailLoginViewController.m; sourceTree = "<group>"; };
 		E1CC37141D3E1589005FEA04 /* MailLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailLoginViewController.xib; sourceTree = "<group>"; };
-		E1CC37171D3E1589005FEA04 /* CYBaseMailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYBaseMailViewController.h; sourceTree = "<group>"; };
-		E1CC37181D3E1589005FEA04 /* CYBaseMailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYBaseMailViewController.m; sourceTree = "<group>"; };
-		E1CC37251D3E1589005FEA04 /* ZTEFolderModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZTEFolderModel+CoreDataProperties.h"; sourceTree = "<group>"; };
-		E1CC37261D3E1589005FEA04 /* ZTEFolderModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZTEFolderModel+CoreDataProperties.m"; sourceTree = "<group>"; };
-		E1CC37271D3E1589005FEA04 /* ZTEFolderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTEFolderModel.h; sourceTree = "<group>"; };
-		E1CC37281D3E1589005FEA04 /* ZTEFolderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTEFolderModel.m; sourceTree = "<group>"; };
-		E1CC37291D3E1589005FEA04 /* ZTEMailAttachment+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZTEMailAttachment+CoreDataProperties.h"; sourceTree = "<group>"; };
-		E1CC372A1D3E1589005FEA04 /* ZTEMailAttachment+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZTEMailAttachment+CoreDataProperties.m"; sourceTree = "<group>"; };
-		E1CC372B1D3E1589005FEA04 /* ZTEMailAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTEMailAttachment.h; sourceTree = "<group>"; };
-		E1CC372C1D3E1589005FEA04 /* ZTEMailAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTEMailAttachment.m; sourceTree = "<group>"; };
-		E1CC372D1D3E1589005FEA04 /* ZTEMailModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZTEMailModel+CoreDataProperties.h"; sourceTree = "<group>"; };
-		E1CC372E1D3E1589005FEA04 /* ZTEMailModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZTEMailModel+CoreDataProperties.m"; sourceTree = "<group>"; };
-		E1CC372F1D3E1589005FEA04 /* ZTEMailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTEMailModel.h; sourceTree = "<group>"; };
-		E1CC37301D3E1589005FEA04 /* ZTEMailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTEMailModel.m; sourceTree = "<group>"; };
-		E1CC373A1D3E1589005FEA04 /* ZTEMailModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZTEMailModel.xcdatamodel; sourceTree = "<group>"; };
 		E1CC374C1D3E1589005FEA04 /* ZTEMailconfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ZTEMailconfiguration.plist; sourceTree = "<group>"; };
 		E1CC374D1D3E1589005FEA04 /* ZTESupportMail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ZTESupportMail.plist; sourceTree = "<group>"; };
-		E1CC37691D3E1589005FEA04 /* MailAttachmentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAttachmentTableViewCell.h; sourceTree = "<group>"; };
-		E1CC376A1D3E1589005FEA04 /* MailAttachmentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAttachmentTableViewCell.m; sourceTree = "<group>"; };
-		E1CC376B1D3E1589005FEA04 /* MailContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailContactCell.h; sourceTree = "<group>"; };
-		E1CC376C1D3E1589005FEA04 /* MailContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailContactCell.m; sourceTree = "<group>"; };
-		E1CC376D1D3E1589005FEA04 /* MailContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailContactCell.xib; sourceTree = "<group>"; };
-		E1CC37741D3E1589005FEA04 /* MailAddAddrCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAddAddrCell.h; sourceTree = "<group>"; };
-		E1CC37751D3E1589005FEA04 /* MailAddAddrCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAddAddrCell.m; sourceTree = "<group>"; };
-		E1CC37761D3E1589005FEA04 /* MailAddAddrCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailAddAddrCell.xib; sourceTree = "<group>"; };
-		E1CC37771D3E1589005FEA04 /* MailAttachmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAttachmentCell.h; sourceTree = "<group>"; };
-		E1CC37781D3E1589005FEA04 /* MailAttachmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAttachmentCell.m; sourceTree = "<group>"; };
-		E1CC37791D3E1589005FEA04 /* MailAttachmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailAttachmentCell.xib; sourceTree = "<group>"; };
-		E1CC377A1D3E1589005FEA04 /* MailAttachmentHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAttachmentHeader.h; sourceTree = "<group>"; };
-		E1CC377B1D3E1589005FEA04 /* MailAttachmentHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAttachmentHeader.m; sourceTree = "<group>"; };
-		E1CC377C1D3E1589005FEA04 /* MailAttachmentHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailAttachmentHeader.xib; sourceTree = "<group>"; };
-		E1CC377D1D3E1589005FEA04 /* MailTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailTopicCell.h; sourceTree = "<group>"; };
-		E1CC377E1D3E1589005FEA04 /* MailTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailTopicCell.m; sourceTree = "<group>"; };
-		E1CC377F1D3E1589005FEA04 /* MailTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailTopicCell.xib; sourceTree = "<group>"; };
-		E1CC37801D3E1589005FEA04 /* MailListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailListCell.h; sourceTree = "<group>"; };
-		E1CC37811D3E1589005FEA04 /* MailListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailListCell.m; sourceTree = "<group>"; };
-		E1CC37821D3E1589005FEA04 /* MailListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailListCell.xib; sourceTree = "<group>"; };
 		E1CC37DD1D3E16C0005FEA04 /* DocPreviewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocPreviewUtil.h; sourceTree = "<group>"; };
 		E1CC37DE1D3E16C0005FEA04 /* DocPreviewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocPreviewUtil.m; sourceTree = "<group>"; };
 		E1CC37DF1D3E16C0005FEA04 /* MailAddAddrTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAddAddrTextParser.h; sourceTree = "<group>"; };
 		E1CC37E01D3E16C0005FEA04 /* MailAddAddrTextParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAddAddrTextParser.m; sourceTree = "<group>"; };
 		E1CC37E11D3E16C0005FEA04 /* YYSandBoxUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSandBoxUtil.h; sourceTree = "<group>"; };
 		E1CC37E21D3E16C0005FEA04 /* YYSandBoxUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSandBoxUtil.m; sourceTree = "<group>"; };
-		E1CC37E31D3E16C0005FEA04 /* ZTEMailCoreDataUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTEMailCoreDataUtil.h; sourceTree = "<group>"; };
-		E1CC37E41D3E16C0005FEA04 /* ZTEMailCoreDataUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTEMailCoreDataUtil.m; sourceTree = "<group>"; };
-		E1CC37E51D3E16C0005FEA04 /* ZTEMailSessionUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTEMailSessionUtil.h; sourceTree = "<group>"; };
-		E1CC37E61D3E16C0005FEA04 /* ZTEMailSessionUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTEMailSessionUtil.m; sourceTree = "<group>"; };
-		E1CC37EC1D3E1950005FEA04 /* mailcore2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mailcore2.xcodeproj; path = "mailcore2-master/build-mac/mailcore2.xcodeproj"; sourceTree = "<group>"; };
 		E1CC38081D3E19DD005FEA04 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E1CC380A1D3E19E8005FEA04 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E1CC38131D3E20BD005FEA04 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
@@ -541,64 +163,11 @@
 		E1CC381B1D3E2178005FEA04 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
 		E1CC381F1D3E2300005FEA04 /* NSString+CYVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CYVerification.h"; sourceTree = "<group>"; };
 		E1CC38201D3E2300005FEA04 /* NSString+CYVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CYVerification.m"; sourceTree = "<group>"; };
-		E1CC382B1D3E2769005FEA04 /* YYTextContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextContainerView.h; sourceTree = "<group>"; };
-		E1CC382C1D3E2769005FEA04 /* YYTextContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextContainerView.m; sourceTree = "<group>"; };
-		E1CC382D1D3E2769005FEA04 /* YYTextDebugOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextDebugOption.h; sourceTree = "<group>"; };
-		E1CC382E1D3E2769005FEA04 /* YYTextDebugOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextDebugOption.m; sourceTree = "<group>"; };
-		E1CC382F1D3E2769005FEA04 /* YYTextEffectWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextEffectWindow.h; sourceTree = "<group>"; };
-		E1CC38301D3E2769005FEA04 /* YYTextEffectWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextEffectWindow.m; sourceTree = "<group>"; };
-		E1CC38311D3E2769005FEA04 /* YYTextInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextInput.h; sourceTree = "<group>"; };
-		E1CC38321D3E2769005FEA04 /* YYTextInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextInput.m; sourceTree = "<group>"; };
-		E1CC38331D3E2769005FEA04 /* YYTextKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextKeyboardManager.h; sourceTree = "<group>"; };
-		E1CC38341D3E2769005FEA04 /* YYTextKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextKeyboardManager.m; sourceTree = "<group>"; };
-		E1CC38351D3E2769005FEA04 /* YYTextLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextLayout.h; sourceTree = "<group>"; };
-		E1CC38361D3E2769005FEA04 /* YYTextLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextLayout.m; sourceTree = "<group>"; };
-		E1CC38371D3E2769005FEA04 /* YYTextLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextLine.h; sourceTree = "<group>"; };
-		E1CC38381D3E2769005FEA04 /* YYTextLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextLine.m; sourceTree = "<group>"; };
-		E1CC38391D3E2769005FEA04 /* YYTextMagnifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextMagnifier.h; sourceTree = "<group>"; };
-		E1CC383A1D3E2769005FEA04 /* YYTextMagnifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextMagnifier.m; sourceTree = "<group>"; };
-		E1CC383B1D3E2769005FEA04 /* YYTextSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextSelectionView.h; sourceTree = "<group>"; };
-		E1CC383C1D3E2769005FEA04 /* YYTextSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextSelectionView.m; sourceTree = "<group>"; };
-		E1CC383E1D3E2769005FEA04 /* YYTextArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextArchiver.h; sourceTree = "<group>"; };
-		E1CC383F1D3E2769005FEA04 /* YYTextArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextArchiver.m; sourceTree = "<group>"; };
-		E1CC38401D3E2769005FEA04 /* YYTextAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextAttribute.h; sourceTree = "<group>"; };
-		E1CC38411D3E2769005FEA04 /* YYTextAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextAttribute.m; sourceTree = "<group>"; };
-		E1CC38421D3E2769005FEA04 /* YYTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextParser.h; sourceTree = "<group>"; };
-		E1CC38431D3E2769005FEA04 /* YYTextParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextParser.m; sourceTree = "<group>"; };
-		E1CC38441D3E2769005FEA04 /* YYTextRubyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextRubyAnnotation.h; sourceTree = "<group>"; };
-		E1CC38451D3E2769005FEA04 /* YYTextRubyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextRubyAnnotation.m; sourceTree = "<group>"; };
-		E1CC38461D3E2769005FEA04 /* YYTextRunDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextRunDelegate.h; sourceTree = "<group>"; };
-		E1CC38471D3E2769005FEA04 /* YYTextRunDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextRunDelegate.m; sourceTree = "<group>"; };
-		E1CC38491D3E2769005FEA04 /* NSAttributedString+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+YYText.h"; sourceTree = "<group>"; };
-		E1CC384A1D3E2769005FEA04 /* NSAttributedString+YYText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+YYText.m"; sourceTree = "<group>"; };
-		E1CC384B1D3E2769005FEA04 /* NSParagraphStyle+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSParagraphStyle+YYText.h"; sourceTree = "<group>"; };
-		E1CC384C1D3E2769005FEA04 /* NSParagraphStyle+YYText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSParagraphStyle+YYText.m"; sourceTree = "<group>"; };
-		E1CC384D1D3E2769005FEA04 /* UIPasteboard+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPasteboard+YYText.h"; sourceTree = "<group>"; };
-		E1CC384E1D3E2769005FEA04 /* UIPasteboard+YYText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPasteboard+YYText.m"; sourceTree = "<group>"; };
-		E1CC384F1D3E2769005FEA04 /* UIView+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YYText.h"; sourceTree = "<group>"; };
-		E1CC38501D3E2769005FEA04 /* UIView+YYText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YYText.m"; sourceTree = "<group>"; };
-		E1CC38511D3E2769005FEA04 /* YYTextAsyncLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextAsyncLayer.h; sourceTree = "<group>"; };
-		E1CC38521D3E2769005FEA04 /* YYTextAsyncLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextAsyncLayer.m; sourceTree = "<group>"; };
-		E1CC38531D3E2769005FEA04 /* YYTextTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextTransaction.h; sourceTree = "<group>"; };
-		E1CC38541D3E2769005FEA04 /* YYTextTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextTransaction.m; sourceTree = "<group>"; };
-		E1CC38551D3E2769005FEA04 /* YYTextUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextUtilities.h; sourceTree = "<group>"; };
-		E1CC38561D3E2769005FEA04 /* YYTextUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextUtilities.m; sourceTree = "<group>"; };
-		E1CC38571D3E2769005FEA04 /* YYTextWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextWeakProxy.h; sourceTree = "<group>"; };
-		E1CC38581D3E2769005FEA04 /* YYTextWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextWeakProxy.m; sourceTree = "<group>"; };
-		E1CC38591D3E2769005FEA04 /* YYLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYLabel.h; sourceTree = "<group>"; };
-		E1CC385A1D3E2769005FEA04 /* YYLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYLabel.m; sourceTree = "<group>"; };
-		E1CC385B1D3E2769005FEA04 /* YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYText.h; sourceTree = "<group>"; };
-		E1CC385C1D3E2769005FEA04 /* YYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextView.h; sourceTree = "<group>"; };
-		E1CC385D1D3E2769005FEA04 /* YYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextView.m; sourceTree = "<group>"; };
-		E1CC387B1D3E27EF005FEA04 /* SideSilpViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideSilpViewHeader.xib; sourceTree = "<group>"; };
-		E1CC387C1D3E27EF005FEA04 /* SideSlipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideSlipView.h; sourceTree = "<group>"; };
-		E1CC387D1D3E27EF005FEA04 /* SideSlipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSlipView.m; sourceTree = "<group>"; };
 		E1CC38811D3E2829005FEA04 /* JSImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSImagePickerViewController.h; sourceTree = "<group>"; };
 		E1CC38821D3E2829005FEA04 /* JSImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSImagePickerViewController.m; sourceTree = "<group>"; };
-		E1ED51731D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZTEMailUser+CoreDataProperties.h"; sourceTree = "<group>"; };
-		E1ED51741D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZTEMailUser+CoreDataProperties.m"; sourceTree = "<group>"; };
-		E1ED51751D4B57A300FC1A2E /* ZTEMailUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTEMailUser.h; sourceTree = "<group>"; };
-		E1ED51761D4B57A300FC1A2E /* ZTEMailUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTEMailUser.m; sourceTree = "<group>"; };
+		E1FF4C3F1E407D4B0067DFEC /* MailAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailAddressCell.h; sourceTree = "<group>"; };
+		E1FF4C401E407D4B0067DFEC /* MailAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailAddressCell.m; sourceTree = "<group>"; };
+		E362B3E0FD6CF09249ABA059 /* Pods-CYMailDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CYMailDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CYMailDemo/Pods-CYMailDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -608,18 +177,101 @@
 			files = (
 				E1CC380B1D3E19E8005FEA04 /* Security.framework in Frameworks */,
 				E1CC38091D3E19DD005FEA04 /* CFNetwork.framework in Frameworks */,
-				E1CC38071D3E19D2005FEA04 /* libMailCore-ios.a in Frameworks */,
+				3A9887CAFBF918B6FA48B474 /* libPods-CYMailDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B776C4C27E2EF5FC1F70C81D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0DDAEEF9CD3CEC3A7B36AD11 /* libPods-CYMailDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF4753656151DC4E57921D19 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				62C0D81A1BC09E39E096D366 /* Pods-CYMailDemo.debug.xcconfig */,
+				E362B3E0FD6CF09249ABA059 /* Pods-CYMailDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E10337BA1E3785D3006C6BAD /* MailEditeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E10337BE1E3785D3006C6BAD /* MailAttachmentCell.h */,
+				E10337BF1E3785D3006C6BAD /* MailAttachmentCell.m */,
+				E10337C01E3785D3006C6BAD /* MailAttachmentCell.xib */,
+				E10337C11E3785D3006C6BAD /* MailTopicCell.h */,
+				E10337C21E3785D3006C6BAD /* MailTopicCell.m */,
+				E10337C31E3785D3006C6BAD /* MailTopicCell.xib */,
+				E1FF4C3F1E407D4B0067DFEC /* MailAddressCell.h */,
+				E1FF4C401E407D4B0067DFEC /* MailAddressCell.m */,
+			);
+			path = MailEditeViewController;
+			sourceTree = "<group>";
+		};
+		E10A9A591E338AEF003F45C0 /* MailDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E10A9A601E338E0F003F45C0 /* MailAttachmentTableViewCell.h */,
+				E10A9A611E338E0F003F45C0 /* MailAttachmentTableViewCell.m */,
+				E10A9A621E338E0F003F45C0 /* MailContactCell.h */,
+				E10A9A631E338E0F003F45C0 /* MailContactCell.m */,
+				E10A9A641E338E0F003F45C0 /* MailContactCell.xib */,
+				E10A9A681E338E98003F45C0 /* MailDetailBottomView.h */,
+				E10A9A691E338E98003F45C0 /* MailDetailBottomView.m */,
+			);
+			path = MailDetailViewController;
+			sourceTree = "<group>";
+		};
+		E10A9A5A1E338AEF003F45C0 /* MailListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E10A9A5B1E338AEF003F45C0 /* MailListCell.h */,
+				E10A9A5C1E338AEF003F45C0 /* MailListCell.m */,
+				E10A9A5D1E338AEF003F45C0 /* MailListCell.xib */,
+			);
+			path = MailListViewController;
+			sourceTree = "<group>";
+		};
+		E10A9A741E33957B003F45C0 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				E10A9A751E33957B003F45C0 /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		E11384741E26259D00510106 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E11384751E26259D00510106 /* CYBaseMailViewController.h */,
+				E11384761E26259D00510106 /* CYBaseMailViewController.m */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		E1913DA01E2729F800432EEF /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				E1913DA11E2729F800432EEF /* Singleton.h */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
 		E1CC2EC81D3E0C1B005FEA04 = {
 			isa = PBXGroup;
 			children = (
 				E1CC2ED31D3E0C1B005FEA04 /* CYBaseProject */,
 				E1CC2ED21D3E0C1B005FEA04 /* Products */,
+				BF4753656151DC4E57921D19 /* Pods */,
+				B776C4C27E2EF5FC1F70C81D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -670,6 +322,7 @@
 				E1CC2EF21D3E0C85005FEA04 /* Main.storyboard */,
 				E1CC2EF41D3E0C85005FEA04 /* main.m */,
 				E1CC2EF51D3E0C85005FEA04 /* PrefixHeader.pch */,
+				E1485D3F1E2F6C53005CA706 /* File */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -677,7 +330,7 @@
 		E1CC2EF61D3E0C85005FEA04 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				E1CC2EF71D3E0C85005FEA04 /* Assets.xcassets */,
+				E1B20CF71E40810E000032B3 /* Assets.xcassets */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -705,7 +358,6 @@
 				E1CC35DA1D3E1195005FEA04 /* ThirdLib */,
 				E1CC2EFD1D3E0C85005FEA04 /* Category */,
 				E1CC33141D3E0C86005FEA04 /* SDKFile */,
-				E1CC33981D3E0C86005FEA04 /* Tool */,
 			);
 			path = Vender;
 			sourceTree = "<group>";
@@ -723,429 +375,23 @@
 		E1CC33141D3E0C86005FEA04 /* SDKFile */ = {
 			isa = PBXGroup;
 			children = (
-				E1CC37EC1D3E1950005FEA04 /* mailcore2.xcodeproj */,
 			);
 			path = SDKFile;
-			sourceTree = "<group>";
-		};
-		E1CC33981D3E0C86005FEA04 /* Tool */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC33991D3E0C86005FEA04 /* Lumberjack */,
-			);
-			path = Tool;
-			sourceTree = "<group>";
-		};
-		E1CC33991D3E0C86005FEA04 /* Lumberjack */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC339A1D3E0C86005FEA04 /* CLI */,
-				E1CC339D1D3E0C86005FEA04 /* CocoaLumberjack.h */,
-				E1CC339E1D3E0C86005FEA04 /* DDAbstractDatabaseLogger.h */,
-				E1CC339F1D3E0C86005FEA04 /* DDAbstractDatabaseLogger.m */,
-				E1CC33A01D3E0C86005FEA04 /* DDASLLogCapture.h */,
-				E1CC33A11D3E0C86005FEA04 /* DDASLLogCapture.m */,
-				E1CC33A21D3E0C86005FEA04 /* DDASLLogger.h */,
-				E1CC33A31D3E0C86005FEA04 /* DDASLLogger.m */,
-				E1CC33A41D3E0C86005FEA04 /* DDAssertMacros.h */,
-				E1CC33A51D3E0C86005FEA04 /* DDFileLogger.h */,
-				E1CC33A61D3E0C86005FEA04 /* DDFileLogger.m */,
-				E1CC33A71D3E0C86005FEA04 /* DDLegacyMacros.h */,
-				E1CC33A81D3E0C86005FEA04 /* DDLog+LOGV.h */,
-				E1CC33A91D3E0C86005FEA04 /* DDLog.h */,
-				E1CC33AA1D3E0C86005FEA04 /* DDLog.m */,
-				E1CC33AB1D3E0C86005FEA04 /* DDLogMacros.h */,
-				E1CC33AC1D3E0C86005FEA04 /* DDTTYLogger.h */,
-				E1CC33AD1D3E0C86005FEA04 /* DDTTYLogger.m */,
-				E1CC33AE1D3E0C86005FEA04 /* Extensions */,
-			);
-			path = Lumberjack;
-			sourceTree = "<group>";
-		};
-		E1CC339A1D3E0C86005FEA04 /* CLI */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC339B1D3E0C86005FEA04 /* CLIColor.h */,
-				E1CC339C1D3E0C86005FEA04 /* CLIColor.m */,
-			);
-			path = CLI;
-			sourceTree = "<group>";
-		};
-		E1CC33AE1D3E0C86005FEA04 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC33AF1D3E0C86005FEA04 /* DDContextFilterLogFormatter.h */,
-				E1CC33B01D3E0C86005FEA04 /* DDContextFilterLogFormatter.m */,
-				E1CC33B11D3E0C86005FEA04 /* DDDispatchQueueLogFormatter.h */,
-				E1CC33B21D3E0C86005FEA04 /* DDDispatchQueueLogFormatter.m */,
-				E1CC33B31D3E0C86005FEA04 /* DDMultiFormatter.h */,
-				E1CC33B41D3E0C86005FEA04 /* DDMultiFormatter.m */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E1CC35DA1D3E1195005FEA04 /* ThirdLib */ = {
 			isa = PBXGroup;
 			children = (
 				E1CC38801D3E2829005FEA04 /* JSImagePicker */,
-				E1CC38291D3E2769005FEA04 /* YYText */,
-				E1CC35DB1D3E1195005FEA04 /* AFNetworking */,
-				E1CC35EA1D3E1195005FEA04 /* FDTemplateLayoutCell */,
-				E1CC35F31D3E1195005FEA04 /* IQKeyBoardManager */,
-				E1CC36171D3E1195005FEA04 /* JGProgressHUD */,
-				E1CC36321D3E1195005FEA04 /* Masonry */,
-				E1CC364C1D3E1195005FEA04 /* MJRefresh */,
-				E1CC367C1D3E1195005FEA04 /* SDWebImage */,
 			);
 			path = ThirdLib;
-			sourceTree = "<group>";
-		};
-		E1CC35DB1D3E1195005FEA04 /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC35DC1D3E1195005FEA04 /* AFHTTPSessionManager.h */,
-				E1CC35DD1D3E1195005FEA04 /* AFHTTPSessionManager.m */,
-				E1CC35DE1D3E1195005FEA04 /* AFNetworking.h */,
-				E1CC35DF1D3E1195005FEA04 /* AFNetworkReachabilityManager.h */,
-				E1CC35E01D3E1195005FEA04 /* AFNetworkReachabilityManager.m */,
-				E1CC35E11D3E1195005FEA04 /* AFSecurityPolicy.h */,
-				E1CC35E21D3E1195005FEA04 /* AFSecurityPolicy.m */,
-				E1CC35E31D3E1195005FEA04 /* AFURLRequestSerialization.h */,
-				E1CC35E41D3E1195005FEA04 /* AFURLRequestSerialization.m */,
-				E1CC35E51D3E1195005FEA04 /* AFURLResponseSerialization.h */,
-				E1CC35E61D3E1195005FEA04 /* AFURLResponseSerialization.m */,
-				E1CC35E71D3E1195005FEA04 /* AFURLSessionManager.h */,
-				E1CC35E81D3E1195005FEA04 /* AFURLSessionManager.m */,
-				E1CC35E91D3E1195005FEA04 /* UIKit+AFNetworking */,
-			);
-			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		E1CC35E91D3E1195005FEA04 /* UIKit+AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "UIKit+AFNetworking";
-			sourceTree = "<group>";
-		};
-		E1CC35EA1D3E1195005FEA04 /* FDTemplateLayoutCell */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC35EB1D3E1195005FEA04 /* UITableView+FDIndexPathHeightCache.h */,
-				E1CC35EC1D3E1195005FEA04 /* UITableView+FDIndexPathHeightCache.m */,
-				E1CC35ED1D3E1195005FEA04 /* UITableView+FDKeyedHeightCache.h */,
-				E1CC35EE1D3E1195005FEA04 /* UITableView+FDKeyedHeightCache.m */,
-				E1CC35EF1D3E1195005FEA04 /* UITableView+FDTemplateLayoutCell.h */,
-				E1CC35F01D3E1195005FEA04 /* UITableView+FDTemplateLayoutCell.m */,
-				E1CC35F11D3E1195005FEA04 /* UITableView+FDTemplateLayoutCellDebug.h */,
-				E1CC35F21D3E1195005FEA04 /* UITableView+FDTemplateLayoutCellDebug.m */,
-			);
-			path = FDTemplateLayoutCell;
-			sourceTree = "<group>";
-		};
-		E1CC35F31D3E1195005FEA04 /* IQKeyBoardManager */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC35F41D3E1195005FEA04 /* Categories */,
-				E1CC36011D3E1195005FEA04 /* Constants */,
-				E1CC36041D3E1195005FEA04 /* IQKeyboardManager.h */,
-				E1CC36051D3E1195005FEA04 /* IQKeyboardManager.m */,
-				E1CC36061D3E1195005FEA04 /* IQKeyboardReturnKeyHandler.h */,
-				E1CC36071D3E1195005FEA04 /* IQKeyboardReturnKeyHandler.m */,
-				E1CC36081D3E1195005FEA04 /* IQTextView */,
-				E1CC360B1D3E1195005FEA04 /* IQToolbar */,
-				E1CC36141D3E1195005FEA04 /* KeyboardManager.h */,
-				E1CC36151D3E1195005FEA04 /* Resources */,
-			);
-			path = IQKeyBoardManager;
-			sourceTree = "<group>";
-		};
-		E1CC35F41D3E1195005FEA04 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC35F51D3E1195005FEA04 /* IQNSArray+Sort.h */,
-				E1CC35F61D3E1195005FEA04 /* IQNSArray+Sort.m */,
-				E1CC35F71D3E1195005FEA04 /* IQUIScrollView+Additions.h */,
-				E1CC35F81D3E1195005FEA04 /* IQUIScrollView+Additions.m */,
-				E1CC35F91D3E1195005FEA04 /* IQUITextFieldView+Additions.h */,
-				E1CC35FA1D3E1195005FEA04 /* IQUITextFieldView+Additions.m */,
-				E1CC35FB1D3E1195005FEA04 /* IQUIView+Hierarchy.h */,
-				E1CC35FC1D3E1195005FEA04 /* IQUIView+Hierarchy.m */,
-				E1CC35FD1D3E1195005FEA04 /* IQUIViewController+Additions.h */,
-				E1CC35FE1D3E1195005FEA04 /* IQUIViewController+Additions.m */,
-				E1CC35FF1D3E1195005FEA04 /* IQUIWindow+Hierarchy.h */,
-				E1CC36001D3E1195005FEA04 /* IQUIWindow+Hierarchy.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		E1CC36011D3E1195005FEA04 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC36021D3E1195005FEA04 /* IQKeyboardManagerConstants.h */,
-				E1CC36031D3E1195005FEA04 /* IQKeyboardManagerConstantsInternal.h */,
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
-		E1CC36081D3E1195005FEA04 /* IQTextView */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC36091D3E1195005FEA04 /* IQTextView.h */,
-				E1CC360A1D3E1195005FEA04 /* IQTextView.m */,
-			);
-			path = IQTextView;
-			sourceTree = "<group>";
-		};
-		E1CC360B1D3E1195005FEA04 /* IQToolbar */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC360C1D3E1195005FEA04 /* IQBarButtonItem.h */,
-				E1CC360D1D3E1195005FEA04 /* IQBarButtonItem.m */,
-				E1CC360E1D3E1195005FEA04 /* IQTitleBarButtonItem.h */,
-				E1CC360F1D3E1195005FEA04 /* IQTitleBarButtonItem.m */,
-				E1CC36101D3E1195005FEA04 /* IQToolbar.h */,
-				E1CC36111D3E1195005FEA04 /* IQToolbar.m */,
-				E1CC36121D3E1195005FEA04 /* IQUIView+IQKeyboardToolbar.h */,
-				E1CC36131D3E1195005FEA04 /* IQUIView+IQKeyboardToolbar.m */,
-			);
-			path = IQToolbar;
-			sourceTree = "<group>";
-		};
-		E1CC36151D3E1195005FEA04 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC36161D3E1195005FEA04 /* IQKeyboardManager.bundle */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		E1CC36171D3E1195005FEA04 /* JGProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC36181D3E1195005FEA04 /* JGProgressHUD */,
-				E1CC36311D3E1195005FEA04 /* JGProgressHUD Framework */,
-			);
-			path = JGProgressHUD;
-			sourceTree = "<group>";
-		};
-		E1CC36181D3E1195005FEA04 /* JGProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC36191D3E1195005FEA04 /* JGProgressHUD Resources.bundle */,
-				E1CC361A1D3E1195005FEA04 /* JGProgressHUD-Defines.h */,
-				E1CC361B1D3E1195005FEA04 /* JGProgressHUD.h */,
-				E1CC361C1D3E1195005FEA04 /* JGProgressHUD.m */,
-				E1CC361D1D3E1195005FEA04 /* JGProgressHUDAnimation.h */,
-				E1CC361E1D3E1195005FEA04 /* JGProgressHUDAnimation.m */,
-				E1CC361F1D3E1195005FEA04 /* JGProgressHUDErrorIndicatorView.h */,
-				E1CC36201D3E1195005FEA04 /* JGProgressHUDErrorIndicatorView.m */,
-				E1CC36211D3E1195005FEA04 /* JGProgressHUDFadeAnimation.h */,
-				E1CC36221D3E1195005FEA04 /* JGProgressHUDFadeAnimation.m */,
-				E1CC36231D3E1195005FEA04 /* JGProgressHUDFadeZoomAnimation.h */,
-				E1CC36241D3E1195005FEA04 /* JGProgressHUDFadeZoomAnimation.m */,
-				E1CC36251D3E1195005FEA04 /* JGProgressHUDImageIndicatorView.h */,
-				E1CC36261D3E1195005FEA04 /* JGProgressHUDImageIndicatorView.m */,
-				E1CC36271D3E1195005FEA04 /* JGProgressHUDIndeterminateIndicatorView.h */,
-				E1CC36281D3E1195005FEA04 /* JGProgressHUDIndeterminateIndicatorView.m */,
-				E1CC36291D3E1195005FEA04 /* JGProgressHUDIndicatorView.h */,
-				E1CC362A1D3E1195005FEA04 /* JGProgressHUDIndicatorView.m */,
-				E1CC362B1D3E1195005FEA04 /* JGProgressHUDPieIndicatorView.h */,
-				E1CC362C1D3E1195005FEA04 /* JGProgressHUDPieIndicatorView.m */,
-				E1CC362D1D3E1195005FEA04 /* JGProgressHUDRingIndicatorView.h */,
-				E1CC362E1D3E1195005FEA04 /* JGProgressHUDRingIndicatorView.m */,
-				E1CC362F1D3E1195005FEA04 /* JGProgressHUDSuccessIndicatorView.h */,
-				E1CC36301D3E1195005FEA04 /* JGProgressHUDSuccessIndicatorView.m */,
-			);
-			path = JGProgressHUD;
-			sourceTree = "<group>";
-		};
-		E1CC36311D3E1195005FEA04 /* JGProgressHUD Framework */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "JGProgressHUD Framework";
-			sourceTree = "<group>";
-		};
-		E1CC36321D3E1195005FEA04 /* Masonry */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC36331D3E1195005FEA04 /* MASCompositeConstraint.h */,
-				E1CC36341D3E1195005FEA04 /* MASCompositeConstraint.m */,
-				E1CC36351D3E1195005FEA04 /* MASConstraint+Private.h */,
-				E1CC36361D3E1195005FEA04 /* MASConstraint.h */,
-				E1CC36371D3E1195005FEA04 /* MASConstraint.m */,
-				E1CC36381D3E1195005FEA04 /* MASConstraintMaker.h */,
-				E1CC36391D3E1195005FEA04 /* MASConstraintMaker.m */,
-				E1CC363A1D3E1195005FEA04 /* MASLayoutConstraint.h */,
-				E1CC363B1D3E1195005FEA04 /* MASLayoutConstraint.m */,
-				E1CC363C1D3E1195005FEA04 /* Masonry.h */,
-				E1CC363D1D3E1195005FEA04 /* MASUtilities.h */,
-				E1CC363E1D3E1195005FEA04 /* MASViewAttribute.h */,
-				E1CC363F1D3E1195005FEA04 /* MASViewAttribute.m */,
-				E1CC36401D3E1195005FEA04 /* MASViewConstraint.h */,
-				E1CC36411D3E1195005FEA04 /* MASViewConstraint.m */,
-				E1CC36421D3E1195005FEA04 /* NSArray+MASAdditions.h */,
-				E1CC36431D3E1195005FEA04 /* NSArray+MASAdditions.m */,
-				E1CC36441D3E1195005FEA04 /* NSArray+MASShorthandAdditions.h */,
-				E1CC36451D3E1195005FEA04 /* NSLayoutConstraint+MASDebugAdditions.h */,
-				E1CC36461D3E1195005FEA04 /* NSLayoutConstraint+MASDebugAdditions.m */,
-				E1CC36471D3E1195005FEA04 /* View+MASAdditions.h */,
-				E1CC36481D3E1195005FEA04 /* View+MASAdditions.m */,
-				E1CC36491D3E1195005FEA04 /* View+MASShorthandAdditions.h */,
-				E1CC364A1D3E1195005FEA04 /* ViewController+MASAdditions.h */,
-				E1CC364B1D3E1195005FEA04 /* ViewController+MASAdditions.m */,
-			);
-			path = Masonry;
-			sourceTree = "<group>";
-		};
-		E1CC364C1D3E1195005FEA04 /* MJRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC364D1D3E1195005FEA04 /* LICENSE */,
-				E1CC364E1D3E1195005FEA04 /* MJRefresh */,
-				E1CC367B1D3E1195005FEA04 /* README.md */,
-			);
-			path = MJRefresh;
-			sourceTree = "<group>";
-		};
-		E1CC364E1D3E1195005FEA04 /* MJRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC364F1D3E1195005FEA04 /* Base */,
-				E1CC365A1D3E1195005FEA04 /* Custom */,
-				E1CC36711D3E1195005FEA04 /* MJRefresh.bundle */,
-				E1CC36721D3E1195005FEA04 /* MJRefresh.h */,
-				E1CC36731D3E1195005FEA04 /* MJRefreshConst.h */,
-				E1CC36741D3E1195005FEA04 /* MJRefreshConst.m */,
-				E1CC36751D3E1195005FEA04 /* UIScrollView+MJExtension.h */,
-				E1CC36761D3E1195005FEA04 /* UIScrollView+MJExtension.m */,
-				E1CC36771D3E1195005FEA04 /* UIScrollView+MJRefresh.h */,
-				E1CC36781D3E1195005FEA04 /* UIScrollView+MJRefresh.m */,
-				E1CC36791D3E1195005FEA04 /* UIView+MJExtension.h */,
-				E1CC367A1D3E1195005FEA04 /* UIView+MJExtension.m */,
-			);
-			path = MJRefresh;
-			sourceTree = "<group>";
-		};
-		E1CC364F1D3E1195005FEA04 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC36501D3E1195005FEA04 /* MJRefreshAutoFooter.h */,
-				E1CC36511D3E1195005FEA04 /* MJRefreshAutoFooter.m */,
-				E1CC36521D3E1195005FEA04 /* MJRefreshBackFooter.h */,
-				E1CC36531D3E1195005FEA04 /* MJRefreshBackFooter.m */,
-				E1CC36541D3E1195005FEA04 /* MJRefreshComponent.h */,
-				E1CC36551D3E1195005FEA04 /* MJRefreshComponent.m */,
-				E1CC36561D3E1195005FEA04 /* MJRefreshFooter.h */,
-				E1CC36571D3E1195005FEA04 /* MJRefreshFooter.m */,
-				E1CC36581D3E1195005FEA04 /* MJRefreshHeader.h */,
-				E1CC36591D3E1195005FEA04 /* MJRefreshHeader.m */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		E1CC365A1D3E1195005FEA04 /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC365B1D3E1195005FEA04 /* Footer */,
-				E1CC366A1D3E1195005FEA04 /* Header */,
-			);
-			path = Custom;
-			sourceTree = "<group>";
-		};
-		E1CC365B1D3E1195005FEA04 /* Footer */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC365C1D3E1195005FEA04 /* Auto */,
-				E1CC36631D3E1195005FEA04 /* Back */,
-			);
-			path = Footer;
-			sourceTree = "<group>";
-		};
-		E1CC365C1D3E1195005FEA04 /* Auto */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC365D1D3E1195005FEA04 /* MJRefreshAutoGifFooter.h */,
-				E1CC365E1D3E1195005FEA04 /* MJRefreshAutoGifFooter.m */,
-				E1CC365F1D3E1195005FEA04 /* MJRefreshAutoNormalFooter.h */,
-				E1CC36601D3E1195005FEA04 /* MJRefreshAutoNormalFooter.m */,
-				E1CC36611D3E1195005FEA04 /* MJRefreshAutoStateFooter.h */,
-				E1CC36621D3E1195005FEA04 /* MJRefreshAutoStateFooter.m */,
-			);
-			path = Auto;
-			sourceTree = "<group>";
-		};
-		E1CC36631D3E1195005FEA04 /* Back */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC36641D3E1195005FEA04 /* MJRefreshBackGifFooter.h */,
-				E1CC36651D3E1195005FEA04 /* MJRefreshBackGifFooter.m */,
-				E1CC36661D3E1195005FEA04 /* MJRefreshBackNormalFooter.h */,
-				E1CC36671D3E1195005FEA04 /* MJRefreshBackNormalFooter.m */,
-				E1CC36681D3E1195005FEA04 /* MJRefreshBackStateFooter.h */,
-				E1CC36691D3E1195005FEA04 /* MJRefreshBackStateFooter.m */,
-			);
-			path = Back;
-			sourceTree = "<group>";
-		};
-		E1CC366A1D3E1195005FEA04 /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC366B1D3E1195005FEA04 /* MJRefreshGifHeader.h */,
-				E1CC366C1D3E1195005FEA04 /* MJRefreshGifHeader.m */,
-				E1CC366D1D3E1195005FEA04 /* MJRefreshNormalHeader.h */,
-				E1CC366E1D3E1195005FEA04 /* MJRefreshNormalHeader.m */,
-				E1CC366F1D3E1195005FEA04 /* MJRefreshStateHeader.h */,
-				E1CC36701D3E1195005FEA04 /* MJRefreshStateHeader.m */,
-			);
-			path = Header;
-			sourceTree = "<group>";
-		};
-		E1CC367C1D3E1195005FEA04 /* SDWebImage */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC367D1D3E1195005FEA04 /* MKAnnotationView+WebCache.h */,
-				E1CC367E1D3E1195005FEA04 /* MKAnnotationView+WebCache.m */,
-				E1CC367F1D3E1195005FEA04 /* NSData+ImageContentType.h */,
-				E1CC36801D3E1195005FEA04 /* NSData+ImageContentType.m */,
-				E1CC36811D3E1195005FEA04 /* SDImageCache.h */,
-				E1CC36821D3E1195005FEA04 /* SDImageCache.m */,
-				E1CC36831D3E1195005FEA04 /* SDWebImageCompat.h */,
-				E1CC36841D3E1195005FEA04 /* SDWebImageCompat.m */,
-				E1CC36851D3E1195005FEA04 /* SDWebImageDecoder.h */,
-				E1CC36861D3E1195005FEA04 /* SDWebImageDecoder.m */,
-				E1CC36871D3E1195005FEA04 /* SDWebImageDownloader.h */,
-				E1CC36881D3E1195005FEA04 /* SDWebImageDownloader.m */,
-				E1CC36891D3E1195005FEA04 /* SDWebImageDownloaderOperation.h */,
-				E1CC368A1D3E1195005FEA04 /* SDWebImageDownloaderOperation.m */,
-				E1CC368B1D3E1195005FEA04 /* SDWebImageManager.h */,
-				E1CC368C1D3E1195005FEA04 /* SDWebImageManager.m */,
-				E1CC368D1D3E1195005FEA04 /* SDWebImageOperation.h */,
-				E1CC368E1D3E1195005FEA04 /* SDWebImagePrefetcher.h */,
-				E1CC368F1D3E1195005FEA04 /* SDWebImagePrefetcher.m */,
-				E1CC36901D3E1195005FEA04 /* UIButton+WebCache.h */,
-				E1CC36911D3E1195005FEA04 /* UIButton+WebCache.m */,
-				E1CC36921D3E1195005FEA04 /* UIImage+GIF.h */,
-				E1CC36931D3E1195005FEA04 /* UIImage+GIF.m */,
-				E1CC36941D3E1195005FEA04 /* UIImage+MultiFormat.h */,
-				E1CC36951D3E1195005FEA04 /* UIImage+MultiFormat.m */,
-				E1CC36961D3E1195005FEA04 /* UIImage+WebP.h */,
-				E1CC36971D3E1195005FEA04 /* UIImage+WebP.m */,
-				E1CC36981D3E1195005FEA04 /* UIImageView+HighlightedWebCache.h */,
-				E1CC36991D3E1195005FEA04 /* UIImageView+HighlightedWebCache.m */,
-				E1CC369A1D3E1195005FEA04 /* UIImageView+WebCache.h */,
-				E1CC369B1D3E1195005FEA04 /* UIImageView+WebCache.m */,
-				E1CC369C1D3E1195005FEA04 /* UIView+WebCacheOperation.h */,
-				E1CC369D1D3E1195005FEA04 /* UIView+WebCacheOperation.m */,
-			);
-			path = SDWebImage;
 			sourceTree = "<group>";
 		};
 		E1CC36F11D3E11B8005FEA04 /* MyLib */ = {
 			isa = PBXGroup;
 			children = (
-				E1CC38791D3E27EF005FEA04 /* SideSlipView */,
+				E1913DA01E2729F800432EEF /* Singleton */,
+				E11384741E26259D00510106 /* BaseViewController */,
 			);
 			path = MyLib;
 			sourceTree = "<group>";
@@ -1167,28 +413,21 @@
 			children = (
 				E1CC36F41D3E1589005FEA04 /* MailAttachmentViewController.h */,
 				E1CC36F51D3E1589005FEA04 /* MailAttachmentViewController.m */,
-				E1CC36F61D3E1589005FEA04 /* MailAttachmentViewController.xib */,
 				E1CC36F71D3E1589005FEA04 /* MailAccountListViewController.h */,
 				E1CC36F81D3E1589005FEA04 /* MailAccountListViewController.m */,
 				E1CC36FE1D3E1589005FEA04 /* MailDetailViewController.h */,
 				E1CC36FF1D3E1589005FEA04 /* MailDetailViewController.m */,
-				E1CC37001D3E1589005FEA04 /* MailDetailViewController.xib */,
-				E1CC37011D3E1589005FEA04 /* MailEditeViewController.h */,
-				E1CC37021D3E1589005FEA04 /* MailEditeViewController.m */,
-				E1CC37031D3E1589005FEA04 /* MailEditeViewController.xib */,
+				E1CC37011D3E1589005FEA04 /* MailEditViewController.h */,
+				E1CC37021D3E1589005FEA04 /* MailEditViewController.m */,
 				E1CC37041D3E1589005FEA04 /* MailFolderViewController.h */,
 				E1CC37051D3E1589005FEA04 /* MailFolderViewController.m */,
-				E1CC37061D3E1589005FEA04 /* MailFolderViewController.xib */,
 				E1CC370B1D3E1589005FEA04 /* MailHomeViewController.h */,
 				E1CC370C1D3E1589005FEA04 /* MailHomeViewController.m */,
 				E1CC370D1D3E1589005FEA04 /* MailListViewController.h */,
 				E1CC370E1D3E1589005FEA04 /* MailListViewController.m */,
-				E1CC370F1D3E1589005FEA04 /* MailListViewController.xib */,
 				E1CC37121D3E1589005FEA04 /* MailLoginViewController.h */,
 				E1CC37131D3E1589005FEA04 /* MailLoginViewController.m */,
 				E1CC37141D3E1589005FEA04 /* MailLoginViewController.xib */,
-				E1CC37171D3E1589005FEA04 /* CYBaseMailViewController.h */,
-				E1CC37181D3E1589005FEA04 /* CYBaseMailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1196,22 +435,24 @@
 		E1CC37241D3E1589005FEA04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E1CC37251D3E1589005FEA04 /* ZTEFolderModel+CoreDataProperties.h */,
-				E1CC37261D3E1589005FEA04 /* ZTEFolderModel+CoreDataProperties.m */,
-				E1CC37271D3E1589005FEA04 /* ZTEFolderModel.h */,
-				E1CC37281D3E1589005FEA04 /* ZTEFolderModel.m */,
-				E1CC37291D3E1589005FEA04 /* ZTEMailAttachment+CoreDataProperties.h */,
-				E1CC372A1D3E1589005FEA04 /* ZTEMailAttachment+CoreDataProperties.m */,
-				E1CC372B1D3E1589005FEA04 /* ZTEMailAttachment.h */,
-				E1CC372C1D3E1589005FEA04 /* ZTEMailAttachment.m */,
-				E1CC372D1D3E1589005FEA04 /* ZTEMailModel+CoreDataProperties.h */,
-				E1CC372E1D3E1589005FEA04 /* ZTEMailModel+CoreDataProperties.m */,
-				E1CC372F1D3E1589005FEA04 /* ZTEMailModel.h */,
-				E1CC37301D3E1589005FEA04 /* ZTEMailModel.m */,
-				E1ED51731D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.h */,
-				E1ED51741D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.m */,
-				E1ED51751D4B57A300FC1A2E /* ZTEMailUser.h */,
-				E1ED51761D4B57A300FC1A2E /* ZTEMailUser.m */,
+				E1A16E1F1E27BA4A00C86832 /* CYMail.h */,
+				E1A16E201E27BA4A00C86832 /* CYMail.m */,
+				E1A16E211E27BA4A00C86832 /* CYMail+CoreDataProperties.h */,
+				E1A16E221E27BA4A00C86832 /* CYMail+CoreDataProperties.m */,
+				E1A16E231E27BA4A00C86832 /* CYFolder.h */,
+				E1A16E241E27BA4A00C86832 /* CYFolder.m */,
+				E1A16E251E27BA4A00C86832 /* CYFolder+CoreDataProperties.h */,
+				E1A16E261E27BA4A00C86832 /* CYFolder+CoreDataProperties.m */,
+				E1A16E271E27BA4A00C86832 /* CYMailAccount.h */,
+				E1A16E281E27BA4A00C86832 /* CYMailAccount.m */,
+				E1A16E291E27BA4A00C86832 /* CYMailAccount+CoreDataProperties.h */,
+				E1A16E2A1E27BA4A00C86832 /* CYMailAccount+CoreDataProperties.m */,
+				E1A16E2B1E27BA4A00C86832 /* CYAttachment.h */,
+				E1A16E2C1E27BA4A00C86832 /* CYAttachment.m */,
+				E1A16E2D1E27BA4A00C86832 /* CYAttachment+CoreDataProperties.h */,
+				E1A16E2E1E27BA4A00C86832 /* CYAttachment+CoreDataProperties.m */,
+				E14FA7201E3F6424000B4791 /* CYTempAttachment.h */,
+				E14FA7211E3F6424000B4791 /* CYTempAttachment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1219,6 +460,7 @@
 		E1CC37371D3E1589005FEA04 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				E10A9A741E33957B003F45C0 /* Localizable */,
 				E1CC37381D3E1589005FEA04 /* CoreData */,
 				E1CC374B1D3E1589005FEA04 /* Plist */,
 			);
@@ -1228,7 +470,7 @@
 		E1CC37381D3E1589005FEA04 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E1CC37391D3E1589005FEA04 /* ZTEMailModel.xcdatamodeld */,
+				E1913DA21E272C3900432EEF /* CYMailModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1245,76 +487,32 @@
 		E1CC37611D3E1589005FEA04 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E1CC37681D3E1589005FEA04 /* MailDetailCell */,
-				E1CC37731D3E1589005FEA04 /* MailEditeCell */,
-				E1CC37801D3E1589005FEA04 /* MailListCell.h */,
-				E1CC37811D3E1589005FEA04 /* MailListCell.m */,
-				E1CC37821D3E1589005FEA04 /* MailListCell.xib */,
+				E10337BA1E3785D3006C6BAD /* MailEditeViewController */,
+				E10A9A591E338AEF003F45C0 /* MailDetailViewController */,
+				E10A9A5A1E338AEF003F45C0 /* MailListViewController */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E1CC37681D3E1589005FEA04 /* MailDetailCell */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC37691D3E1589005FEA04 /* MailAttachmentTableViewCell.h */,
-				E1CC376A1D3E1589005FEA04 /* MailAttachmentTableViewCell.m */,
-				E1CC376B1D3E1589005FEA04 /* MailContactCell.h */,
-				E1CC376C1D3E1589005FEA04 /* MailContactCell.m */,
-				E1CC376D1D3E1589005FEA04 /* MailContactCell.xib */,
-			);
-			path = MailDetailCell;
-			sourceTree = "<group>";
-		};
-		E1CC37731D3E1589005FEA04 /* MailEditeCell */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC37741D3E1589005FEA04 /* MailAddAddrCell.h */,
-				E1CC37751D3E1589005FEA04 /* MailAddAddrCell.m */,
-				E1CC37761D3E1589005FEA04 /* MailAddAddrCell.xib */,
-				E1CC37771D3E1589005FEA04 /* MailAttachmentCell.h */,
-				E1CC37781D3E1589005FEA04 /* MailAttachmentCell.m */,
-				E1CC37791D3E1589005FEA04 /* MailAttachmentCell.xib */,
-				E1CC377A1D3E1589005FEA04 /* MailAttachmentHeader.h */,
-				E1CC377B1D3E1589005FEA04 /* MailAttachmentHeader.m */,
-				E1CC377C1D3E1589005FEA04 /* MailAttachmentHeader.xib */,
-				E1CC377D1D3E1589005FEA04 /* MailTopicCell.h */,
-				E1CC377E1D3E1589005FEA04 /* MailTopicCell.m */,
-				E1CC377F1D3E1589005FEA04 /* MailTopicCell.xib */,
-			);
-			path = MailEditeCell;
 			sourceTree = "<group>";
 		};
 		E1CC37DC1D3E16C0005FEA04 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E14FA71D1E3F4DB4000B4791 /* CYMailModelManager.h */,
+				E14FA71E1E3F4DB4000B4791 /* CYMailModelManager.m */,
 				E1CC37DD1D3E16C0005FEA04 /* DocPreviewUtil.h */,
 				E1CC37DE1D3E16C0005FEA04 /* DocPreviewUtil.m */,
 				E1CC37DF1D3E16C0005FEA04 /* MailAddAddrTextParser.h */,
 				E1CC37E01D3E16C0005FEA04 /* MailAddAddrTextParser.m */,
 				E1CC37E11D3E16C0005FEA04 /* YYSandBoxUtil.h */,
 				E1CC37E21D3E16C0005FEA04 /* YYSandBoxUtil.m */,
-				E1CC37E31D3E16C0005FEA04 /* ZTEMailCoreDataUtil.h */,
-				E1CC37E41D3E16C0005FEA04 /* ZTEMailCoreDataUtil.m */,
-				E1CC37E51D3E16C0005FEA04 /* ZTEMailSessionUtil.h */,
-				E1CC37E61D3E16C0005FEA04 /* ZTEMailSessionUtil.m */,
+				E1913DC01E277D0500432EEF /* CYMailSessionManager.h */,
+				E1913DC11E277D0500432EEF /* CYMailSessionManager.m */,
+				E1913DC31E277FBB00432EEF /* CYMailSession.h */,
+				E1913DC41E277FBB00432EEF /* CYMailSession.m */,
+				E10ED1361E28D4B900445B74 /* CYMailUtil.h */,
+				E10ED1371E28D4B900445B74 /* CYMailUtil.m */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		E1CC37ED1D3E1950005FEA04 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC37F81D3E1951005FEA04 /* libMailCore.a */,
-				E1CC37FA1D3E1951005FEA04 /* libMailCore-ios.a */,
-				E1CC37FC1D3E1951005FEA04 /* tests */,
-				E1CC37FE1D3E1951005FEA04 /* test-ios.app */,
-				E1CC38001D3E1951005FEA04 /* MailCore.framework */,
-				E1CC38021D3E1951005FEA04 /* MailCore.framework */,
-				E1CC38041D3E1951005FEA04 /* unittest.xctest */,
-				E1CC38061D3E1951005FEA04 /* unittestcpp */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E1CC38121D3E20BD005FEA04 /* UIView */ = {
@@ -1355,104 +553,6 @@
 			path = NSString;
 			sourceTree = "<group>";
 		};
-		E1CC38291D3E2769005FEA04 /* YYText */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC382A1D3E2769005FEA04 /* Component */,
-				E1CC383D1D3E2769005FEA04 /* String */,
-				E1CC38481D3E2769005FEA04 /* Utility */,
-				E1CC38591D3E2769005FEA04 /* YYLabel.h */,
-				E1CC385A1D3E2769005FEA04 /* YYLabel.m */,
-				E1CC385B1D3E2769005FEA04 /* YYText.h */,
-				E1CC385C1D3E2769005FEA04 /* YYTextView.h */,
-				E1CC385D1D3E2769005FEA04 /* YYTextView.m */,
-			);
-			path = YYText;
-			sourceTree = "<group>";
-		};
-		E1CC382A1D3E2769005FEA04 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC382B1D3E2769005FEA04 /* YYTextContainerView.h */,
-				E1CC382C1D3E2769005FEA04 /* YYTextContainerView.m */,
-				E1CC382D1D3E2769005FEA04 /* YYTextDebugOption.h */,
-				E1CC382E1D3E2769005FEA04 /* YYTextDebugOption.m */,
-				E1CC382F1D3E2769005FEA04 /* YYTextEffectWindow.h */,
-				E1CC38301D3E2769005FEA04 /* YYTextEffectWindow.m */,
-				E1CC38311D3E2769005FEA04 /* YYTextInput.h */,
-				E1CC38321D3E2769005FEA04 /* YYTextInput.m */,
-				E1CC38331D3E2769005FEA04 /* YYTextKeyboardManager.h */,
-				E1CC38341D3E2769005FEA04 /* YYTextKeyboardManager.m */,
-				E1CC38351D3E2769005FEA04 /* YYTextLayout.h */,
-				E1CC38361D3E2769005FEA04 /* YYTextLayout.m */,
-				E1CC38371D3E2769005FEA04 /* YYTextLine.h */,
-				E1CC38381D3E2769005FEA04 /* YYTextLine.m */,
-				E1CC38391D3E2769005FEA04 /* YYTextMagnifier.h */,
-				E1CC383A1D3E2769005FEA04 /* YYTextMagnifier.m */,
-				E1CC383B1D3E2769005FEA04 /* YYTextSelectionView.h */,
-				E1CC383C1D3E2769005FEA04 /* YYTextSelectionView.m */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
-		E1CC383D1D3E2769005FEA04 /* String */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC383E1D3E2769005FEA04 /* YYTextArchiver.h */,
-				E1CC383F1D3E2769005FEA04 /* YYTextArchiver.m */,
-				E1CC38401D3E2769005FEA04 /* YYTextAttribute.h */,
-				E1CC38411D3E2769005FEA04 /* YYTextAttribute.m */,
-				E1CC38421D3E2769005FEA04 /* YYTextParser.h */,
-				E1CC38431D3E2769005FEA04 /* YYTextParser.m */,
-				E1CC38441D3E2769005FEA04 /* YYTextRubyAnnotation.h */,
-				E1CC38451D3E2769005FEA04 /* YYTextRubyAnnotation.m */,
-				E1CC38461D3E2769005FEA04 /* YYTextRunDelegate.h */,
-				E1CC38471D3E2769005FEA04 /* YYTextRunDelegate.m */,
-			);
-			path = String;
-			sourceTree = "<group>";
-		};
-		E1CC38481D3E2769005FEA04 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC38491D3E2769005FEA04 /* NSAttributedString+YYText.h */,
-				E1CC384A1D3E2769005FEA04 /* NSAttributedString+YYText.m */,
-				E1CC384B1D3E2769005FEA04 /* NSParagraphStyle+YYText.h */,
-				E1CC384C1D3E2769005FEA04 /* NSParagraphStyle+YYText.m */,
-				E1CC384D1D3E2769005FEA04 /* UIPasteboard+YYText.h */,
-				E1CC384E1D3E2769005FEA04 /* UIPasteboard+YYText.m */,
-				E1CC384F1D3E2769005FEA04 /* UIView+YYText.h */,
-				E1CC38501D3E2769005FEA04 /* UIView+YYText.m */,
-				E1CC38511D3E2769005FEA04 /* YYTextAsyncLayer.h */,
-				E1CC38521D3E2769005FEA04 /* YYTextAsyncLayer.m */,
-				E1CC38531D3E2769005FEA04 /* YYTextTransaction.h */,
-				E1CC38541D3E2769005FEA04 /* YYTextTransaction.m */,
-				E1CC38551D3E2769005FEA04 /* YYTextUtilities.h */,
-				E1CC38561D3E2769005FEA04 /* YYTextUtilities.m */,
-				E1CC38571D3E2769005FEA04 /* YYTextWeakProxy.h */,
-				E1CC38581D3E2769005FEA04 /* YYTextWeakProxy.m */,
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
-		E1CC38791D3E27EF005FEA04 /* SideSlipView */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC387A1D3E27EF005FEA04 /* ContentView */,
-				E1CC387B1D3E27EF005FEA04 /* SideSilpViewHeader.xib */,
-				E1CC387C1D3E27EF005FEA04 /* SideSlipView.h */,
-				E1CC387D1D3E27EF005FEA04 /* SideSlipView.m */,
-			);
-			path = SideSlipView;
-			sourceTree = "<group>";
-		};
-		E1CC387A1D3E27EF005FEA04 /* ContentView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ContentView;
-			sourceTree = "<group>";
-		};
 		E1CC38801D3E2829005FEA04 /* JSImagePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1469,14 +569,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1CC2EE81D3E0C1B005FEA04 /* Build configuration list for PBXNativeTarget "CYMailDemo" */;
 			buildPhases = (
+				AAA04CDC371A4829D6D32ADC /* [CP] Check Pods Manifest.lock */,
 				E1CC2ECD1D3E0C1B005FEA04 /* Sources */,
 				E1CC2ECE1D3E0C1B005FEA04 /* Frameworks */,
 				E1CC2ECF1D3E0C1B005FEA04 /* Resources */,
+				8A695EA0FF091D3A19E1C6A0 /* [CP] Embed Pods Frameworks */,
+				AF94E4F278CE158D782F964A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E1CC380D1D3E1A2A005FEA04 /* PBXTargetDependency */,
 			);
 			name = CYMailDemo;
 			productName = CYBaseProject;
@@ -1504,16 +606,11 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = E1CC2EC81D3E0C1B005FEA04;
 			productRefGroup = E1CC2ED21D3E0C1B005FEA04 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E1CC37ED1D3E1950005FEA04 /* Products */;
-					ProjectRef = E1CC37EC1D3E1950005FEA04 /* mailcore2.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				E1CC2ED01D3E0C1B005FEA04 /* CYMailDemo */,
@@ -1521,272 +618,141 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		E1CC37F81D3E1951005FEA04 /* libMailCore.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMailCore.a;
-			remoteRef = E1CC37F71D3E1951005FEA04 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1CC37FA1D3E1951005FEA04 /* libMailCore-ios.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libMailCore-ios.a";
-			remoteRef = E1CC37F91D3E1951005FEA04 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1CC37FC1D3E1951005FEA04 /* tests */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = tests;
-			remoteRef = E1CC37FB1D3E1951005FEA04 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1CC37FE1D3E1951005FEA04 /* test-ios.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "test-ios.app";
-			remoteRef = E1CC37FD1D3E1951005FEA04 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1CC38001D3E1951005FEA04 /* MailCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MailCore.framework;
-			remoteRef = E1CC37FF1D3E1951005FEA04 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1CC38021D3E1951005FEA04 /* MailCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MailCore.framework;
-			remoteRef = E1CC38011D3E1951005FEA04 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1CC38041D3E1951005FEA04 /* unittest.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = unittest.xctest;
-			remoteRef = E1CC38031D3E1951005FEA04 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1CC38061D3E1951005FEA04 /* unittestcpp */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = unittestcpp;
-			remoteRef = E1CC38051D3E1951005FEA04 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		E1CC2ECF1D3E0C1B005FEA04 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1CC37DA1D3E1589005FEA04 /* MailListCell.xib in Resources */,
-				E1CC37D81D3E1589005FEA04 /* MailTopicCell.xib in Resources */,
-				E1CC36B51D3E1195005FEA04 /* IQKeyboardManager.bundle in Resources */,
-				E1CC387E1D3E27EF005FEA04 /* SideSilpViewHeader.xib in Resources */,
+				E10A9A5F1E338AEF003F45C0 /* MailListCell.xib in Resources */,
+				E1485D401E2F6C53005CA706 /* File in Resources */,
+				E10337C91E3785D3006C6BAD /* MailTopicCell.xib in Resources */,
 				E1CC37981D3E1589005FEA04 /* MailLoginViewController.xib in Resources */,
+				E10337C71E3785D3006C6BAD /* MailAttachmentCell.xib in Resources */,
+				E10A9A781E33957B003F45C0 /* Localizable.strings in Resources */,
+				E1B20CF81E40810E000032B3 /* Assets.xcassets in Resources */,
 				E1CC33BA1D3E0C86005FEA04 /* Info.plist in Resources */,
-				E1CC37861D3E1589005FEA04 /* MailAttachmentViewController.xib in Resources */,
-				E1CC36B61D3E1195005FEA04 /* JGProgressHUD Resources.bundle in Resources */,
-				E1CC37CD1D3E1589005FEA04 /* MailContactCell.xib in Resources */,
-				E1CC36CC1D3E1195005FEA04 /* LICENSE in Resources */,
-				E1CC37D41D3E1589005FEA04 /* MailAttachmentCell.xib in Resources */,
 				E1CC33B61D3E0C86005FEA04 /* LaunchScreen.storyboard in Resources */,
-				E1CC378C1D3E1589005FEA04 /* MailDetailViewController.xib in Resources */,
-				E1CC37951D3E1589005FEA04 /* MailListViewController.xib in Resources */,
-				E1CC33B91D3E0C86005FEA04 /* Assets.xcassets in Resources */,
-				E1CC37D21D3E1589005FEA04 /* MailAddAddrCell.xib in Resources */,
-				E1CC37901D3E1589005FEA04 /* MailFolderViewController.xib in Resources */,
-				E1CC37D61D3E1589005FEA04 /* MailAttachmentHeader.xib in Resources */,
 				E1CC37BE1D3E1589005FEA04 /* ZTEMailconfiguration.plist in Resources */,
-				E1CC36DB1D3E1195005FEA04 /* MJRefresh.bundle in Resources */,
-				E1CC378E1D3E1589005FEA04 /* MailEditeViewController.xib in Resources */,
 				E1CC37BF1D3E1589005FEA04 /* ZTESupportMail.plist in Resources */,
 				E1CC33B71D3E0C86005FEA04 /* Main.storyboard in Resources */,
+				E10A9A671E338E0F003F45C0 /* MailContactCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8A695EA0FF091D3A19E1C6A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CYMailDemo/Pods-CYMailDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAA04CDC371A4829D6D32ADC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AF94E4F278CE158D782F964A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CYMailDemo/Pods-CYMailDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E1CC2ECD1D3E0C1B005FEA04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1CC38701D3E2769005FEA04 /* NSParagraphStyle+YYText.m in Sources */,
-				E1CC36AE1D3E1195005FEA04 /* IQKeyboardManager.m in Sources */,
-				E1CC37A51D3E1589005FEA04 /* ZTEFolderModel+CoreDataProperties.m in Sources */,
-				E1CC36D21D3E1195005FEA04 /* MJRefreshAutoGifFooter.m in Sources */,
-				E1CC36B01D3E1195005FEA04 /* IQTextView.m in Sources */,
-				E1CC36D81D3E1195005FEA04 /* MJRefreshGifHeader.m in Sources */,
-				E1CC36BC1D3E1195005FEA04 /* JGProgressHUDImageIndicatorView.m in Sources */,
-				E1CC36B11D3E1195005FEA04 /* IQBarButtonItem.m in Sources */,
-				E1CC36A81D3E1195005FEA04 /* IQNSArray+Sort.m in Sources */,
-				E1CC35B21D3E0C87005FEA04 /* DDASLLogCapture.m in Sources */,
-				E1CC36E31D3E1195005FEA04 /* SDImageCache.m in Sources */,
-				E1CC37CC1D3E1589005FEA04 /* MailContactCell.m in Sources */,
-				E1CC36AC1D3E1195005FEA04 /* IQUIViewController+Additions.m in Sources */,
-				E1CC36BB1D3E1195005FEA04 /* JGProgressHUDFadeZoomAnimation.m in Sources */,
+				E10A9A661E338E0F003F45C0 /* MailContactCell.m in Sources */,
+				E1FF4C421E407D4B0067DFEC /* MailAddressCell.m in Sources */,
 				E1CC38171D3E20BD005FEA04 /* UIView+Frame.m in Sources */,
-				E1CC36AD1D3E1195005FEA04 /* IQUIWindow+Hierarchy.m in Sources */,
-				E1CC36B41D3E1195005FEA04 /* IQUIView+IQKeyboardToolbar.m in Sources */,
-				E1CC35B51D3E0C87005FEA04 /* DDLog.m in Sources */,
-				E1CC36D31D3E1195005FEA04 /* MJRefreshAutoNormalFooter.m in Sources */,
-				E1CC36C31D3E1195005FEA04 /* MASConstraint.m in Sources */,
-				E1CC36E21D3E1195005FEA04 /* NSData+ImageContentType.m in Sources */,
-				E1CC36EE1D3E1195005FEA04 /* UIImageView+HighlightedWebCache.m in Sources */,
-				E1CC37D31D3E1589005FEA04 /* MailAttachmentCell.m in Sources */,
+				E1A16E341E27BA4A00C86832 /* CYMailAccount+CoreDataProperties.m in Sources */,
 				E1CC37851D3E1589005FEA04 /* MailAttachmentViewController.m in Sources */,
-				E1CC37CB1D3E1589005FEA04 /* MailAttachmentTableViewCell.m in Sources */,
-				E1CC36DF1D3E1195005FEA04 /* UIView+MJExtension.m in Sources */,
-				E1CC36C71D3E1195005FEA04 /* MASViewConstraint.m in Sources */,
-				E1CC36A41D3E1195005FEA04 /* UITableView+FDIndexPathHeightCache.m in Sources */,
-				E1CC37A91D3E1589005FEA04 /* ZTEMailModel+CoreDataProperties.m in Sources */,
-				E1CC36DE1D3E1195005FEA04 /* UIScrollView+MJRefresh.m in Sources */,
-				E1ED51781D4B57A300FC1A2E /* ZTEMailUser.m in Sources */,
-				E1CC35B01D3E0C87005FEA04 /* CLIColor.m in Sources */,
-				E1CC386B1D3E2769005FEA04 /* YYTextAttribute.m in Sources */,
+				E1A16E351E27BA4A00C86832 /* CYAttachment.m in Sources */,
+				E1A16E311E27BA4A00C86832 /* CYFolder.m in Sources */,
+				E14FA71F1E3F4DB4000B4791 /* CYMailModelManager.m in Sources */,
+				E1913DA41E272C3900432EEF /* CYMailModel.xcdatamodeld in Sources */,
 				E1CC37971D3E1589005FEA04 /* MailLoginViewController.m in Sources */,
-				E1CC37D91D3E1589005FEA04 /* MailListCell.m in Sources */,
-				E1CC36ED1D3E1195005FEA04 /* UIImage+WebP.m in Sources */,
-				E1CC38691D3E2769005FEA04 /* YYTextSelectionView.m in Sources */,
-				E1CC387F1D3E27EF005FEA04 /* SideSlipView.m in Sources */,
-				E1CC36B21D3E1195005FEA04 /* IQTitleBarButtonItem.m in Sources */,
-				E1CC37D51D3E1589005FEA04 /* MailAttachmentHeader.m in Sources */,
-				E1CC35B81D3E0C87005FEA04 /* DDDispatchQueueLogFormatter.m in Sources */,
-				E1CC36D71D3E1195005FEA04 /* MJRefreshBackStateFooter.m in Sources */,
-				E1CC379A1D3E1589005FEA04 /* CYBaseMailViewController.m in Sources */,
+				E1A16E361E27BA4A00C86832 /* CYAttachment+CoreDataProperties.m in Sources */,
+				E1913DC21E277D0500432EEF /* CYMailSessionManager.m in Sources */,
 				E1CC37871D3E1589005FEA04 /* MailAccountListViewController.m in Sources */,
-				E1CC36D01D3E1195005FEA04 /* MJRefreshFooter.m in Sources */,
-				E1CC37A61D3E1589005FEA04 /* ZTEFolderModel.m in Sources */,
-				E1CC369E1D3E1195005FEA04 /* AFHTTPSessionManager.m in Sources */,
-				E1CC35B11D3E0C87005FEA04 /* DDAbstractDatabaseLogger.m in Sources */,
-				E1CC36CA1D3E1195005FEA04 /* View+MASAdditions.m in Sources */,
-				E1CC369F1D3E1195005FEA04 /* AFNetworkReachabilityManager.m in Sources */,
-				E1CC36DA1D3E1195005FEA04 /* MJRefreshStateHeader.m in Sources */,
-				E1CC38661D3E2769005FEA04 /* YYTextLayout.m in Sources */,
-				E1CC386F1D3E2769005FEA04 /* NSAttributedString+YYText.m in Sources */,
+				E10A9A651E338E0F003F45C0 /* MailAttachmentTableViewCell.m in Sources */,
+				E10A9A5E1E338AEF003F45C0 /* MailListCell.m in Sources */,
 				E1CC37941D3E1589005FEA04 /* MailListViewController.m in Sources */,
-				E1CC36EC1D3E1195005FEA04 /* UIImage+MultiFormat.m in Sources */,
-				E1CC38631D3E2769005FEA04 /* YYTextEffectWindow.m in Sources */,
-				E1CC35B71D3E0C87005FEA04 /* DDContextFilterLogFormatter.m in Sources */,
-				E1CC36C41D3E1195005FEA04 /* MASConstraintMaker.m in Sources */,
 				E1CC38211D3E2300005FEA04 /* NSString+CYVerification.m in Sources */,
-				E1CC36E51D3E1195005FEA04 /* SDWebImageDecoder.m in Sources */,
-				E1CC36C01D3E1195005FEA04 /* JGProgressHUDRingIndicatorView.m in Sources */,
-				E1CC36B71D3E1195005FEA04 /* JGProgressHUD.m in Sources */,
-				E1CC36DC1D3E1195005FEA04 /* MJRefreshConst.m in Sources */,
+				E1913DC51E277FBB00432EEF /* CYMailSession.m in Sources */,
 				E1CC33B81D3E0C86005FEA04 /* main.m in Sources */,
-				E1CC38621D3E2769005FEA04 /* YYTextDebugOption.m in Sources */,
 				E1CC38181D3E20BD005FEA04 /* UIView+Toast.m in Sources */,
 				E1CC378F1D3E1589005FEA04 /* MailFolderViewController.m in Sources */,
-				E1CC37A71D3E1589005FEA04 /* ZTEMailAttachment+CoreDataProperties.m in Sources */,
-				E1CC38611D3E2769005FEA04 /* YYTextContainerView.m in Sources */,
-				E1CC36C61D3E1195005FEA04 /* MASViewAttribute.m in Sources */,
-				E1CC36B81D3E1195005FEA04 /* JGProgressHUDAnimation.m in Sources */,
-				E1CC36E91D3E1195005FEA04 /* SDWebImagePrefetcher.m in Sources */,
-				E1CC38731D3E2769005FEA04 /* YYTextAsyncLayer.m in Sources */,
-				E1CC36EB1D3E1195005FEA04 /* UIImage+GIF.m in Sources */,
-				E1CC38751D3E2769005FEA04 /* YYTextUtilities.m in Sources */,
-				E1CC37D71D3E1589005FEA04 /* MailTopicCell.m in Sources */,
-				E1CC386D1D3E2769005FEA04 /* YYTextRubyAnnotation.m in Sources */,
-				E1CC37EA1D3E16C0005FEA04 /* ZTEMailCoreDataUtil.m in Sources */,
-				E1CC36CB1D3E1195005FEA04 /* ViewController+MASAdditions.m in Sources */,
-				E1CC36A31D3E1195005FEA04 /* AFURLSessionManager.m in Sources */,
+				E1A16E321E27BA4A00C86832 /* CYFolder+CoreDataProperties.m in Sources */,
+				E1A16E331E27BA4A00C86832 /* CYMailAccount.m in Sources */,
+				E11384771E26259D00510106 /* CYBaseMailViewController.m in Sources */,
+				E10ED1381E28D4B900445B74 /* CYMailUtil.m in Sources */,
+				E10337C81E3785D3006C6BAD /* MailTopicCell.m in Sources */,
 				E1CC38831D3E2829005FEA04 /* JSImagePickerViewController.m in Sources */,
-				E1CC37EB1D3E16C0005FEA04 /* ZTEMailSessionUtil.m in Sources */,
-				E1CC36CE1D3E1195005FEA04 /* MJRefreshBackFooter.m in Sources */,
-				E1CC36CF1D3E1195005FEA04 /* MJRefreshComponent.m in Sources */,
-				E1CC36A51D3E1195005FEA04 /* UITableView+FDKeyedHeightCache.m in Sources */,
+				E1A16E301E27BA4A00C86832 /* CYMail+CoreDataProperties.m in Sources */,
 				E1CC37E81D3E16C0005FEA04 /* MailAddAddrTextParser.m in Sources */,
-				E1CC36CD1D3E1195005FEA04 /* MJRefreshAutoFooter.m in Sources */,
 				E1CC37E91D3E16C0005FEA04 /* YYSandBoxUtil.m in Sources */,
-				E1CC36C51D3E1195005FEA04 /* MASLayoutConstraint.m in Sources */,
-				E1CC36EF1D3E1195005FEA04 /* UIImageView+WebCache.m in Sources */,
-				E1CC37D11D3E1589005FEA04 /* MailAddAddrCell.m in Sources */,
-				E1CC36BF1D3E1195005FEA04 /* JGProgressHUDPieIndicatorView.m in Sources */,
-				E1CC36A21D3E1195005FEA04 /* AFURLResponseSerialization.m in Sources */,
-				E1CC36C91D3E1195005FEA04 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
-				E1CC36C21D3E1195005FEA04 /* MASCompositeConstraint.m in Sources */,
-				E1CC36D11D3E1195005FEA04 /* MJRefreshHeader.m in Sources */,
-				E1CC36BE1D3E1195005FEA04 /* JGProgressHUDIndicatorView.m in Sources */,
-				E1CC35B91D3E0C87005FEA04 /* DDMultiFormatter.m in Sources */,
-				E1CC36AB1D3E1195005FEA04 /* IQUIView+Hierarchy.m in Sources */,
-				E1CC36D41D3E1195005FEA04 /* MJRefreshAutoStateFooter.m in Sources */,
-				E1CC36E81D3E1195005FEA04 /* SDWebImageManager.m in Sources */,
-				E1CC36AA1D3E1195005FEA04 /* IQUITextFieldView+Additions.m in Sources */,
-				E1CC36E41D3E1195005FEA04 /* SDWebImageCompat.m in Sources */,
-				E1CC36D51D3E1195005FEA04 /* MJRefreshBackGifFooter.m in Sources */,
-				E1CC36AF1D3E1195005FEA04 /* IQKeyboardReturnKeyHandler.m in Sources */,
-				E1CC36C11D3E1195005FEA04 /* JGProgressHUDSuccessIndicatorView.m in Sources */,
-				E1CC38721D3E2769005FEA04 /* UIView+YYText.m in Sources */,
 				E1CC37E71D3E16C0005FEA04 /* DocPreviewUtil.m in Sources */,
-				E1CC36BD1D3E1195005FEA04 /* JGProgressHUDIndeterminateIndicatorView.m in Sources */,
-				E1CC38771D3E2769005FEA04 /* YYLabel.m in Sources */,
-				E1CC36A91D3E1195005FEA04 /* IQUIScrollView+Additions.m in Sources */,
-				E1CC37A81D3E1589005FEA04 /* ZTEMailAttachment.m in Sources */,
-				E1CC36DD1D3E1195005FEA04 /* UIScrollView+MJExtension.m in Sources */,
-				E1CC36E71D3E1195005FEA04 /* SDWebImageDownloaderOperation.m in Sources */,
-				E1CC38781D3E2769005FEA04 /* YYTextView.m in Sources */,
-				E1CC386E1D3E2769005FEA04 /* YYTextRunDelegate.m in Sources */,
-				E1CC36B91D3E1195005FEA04 /* JGProgressHUDErrorIndicatorView.m in Sources */,
-				E1CC35B41D3E0C87005FEA04 /* DDFileLogger.m in Sources */,
-				E1CC36A11D3E1195005FEA04 /* AFURLRequestSerialization.m in Sources */,
-				E1CC36F01D3E1195005FEA04 /* UIView+WebCacheOperation.m in Sources */,
-				E1CC38671D3E2769005FEA04 /* YYTextLine.m in Sources */,
-				E1CC36A61D3E1195005FEA04 /* UITableView+FDTemplateLayoutCell.m in Sources */,
-				E1CC38741D3E2769005FEA04 /* YYTextTransaction.m in Sources */,
-				E1CC38761D3E2769005FEA04 /* YYTextWeakProxy.m in Sources */,
-				E1CC37AA1D3E1589005FEA04 /* ZTEMailModel.m in Sources */,
-				E1CC36A01D3E1195005FEA04 /* AFSecurityPolicy.m in Sources */,
-				E1CC36D61D3E1195005FEA04 /* MJRefreshBackNormalFooter.m in Sources */,
-				E1CC386C1D3E2769005FEA04 /* YYTextParser.m in Sources */,
-				E1CC36E11D3E1195005FEA04 /* MKAnnotationView+WebCache.m in Sources */,
-				E1CC36B31D3E1195005FEA04 /* IQToolbar.m in Sources */,
-				E1CC36A71D3E1195005FEA04 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
-				E1CC36E61D3E1195005FEA04 /* SDWebImageDownloader.m in Sources */,
-				E1CC35B61D3E0C87005FEA04 /* DDTTYLogger.m in Sources */,
-				E1CC36EA1D3E1195005FEA04 /* UIButton+WebCache.m in Sources */,
-				E1CC36E01D3E1195005FEA04 /* README.md in Sources */,
-				E1ED51771D4B57A300FC1A2E /* ZTEMailUser+CoreDataProperties.m in Sources */,
-				E1CC36C81D3E1195005FEA04 /* NSArray+MASAdditions.m in Sources */,
-				E1CC38711D3E2769005FEA04 /* UIPasteboard+YYText.m in Sources */,
-				E1CC38681D3E2769005FEA04 /* YYTextMagnifier.m in Sources */,
-				E1CC36D91D3E1195005FEA04 /* MJRefreshNormalHeader.m in Sources */,
-				E1CC38651D3E2769005FEA04 /* YYTextKeyboardManager.m in Sources */,
-				E1CC386A1D3E2769005FEA04 /* YYTextArchiver.m in Sources */,
-				E1CC378D1D3E1589005FEA04 /* MailEditeViewController.m in Sources */,
+				E1CC378D1D3E1589005FEA04 /* MailEditViewController.m in Sources */,
 				E1CC33B51D3E0C86005FEA04 /* AppDelegate.m in Sources */,
 				E1CC381C1D3E2178005FEA04 /* UIColor+HexString.m in Sources */,
+				E14FA7221E3F6424000B4791 /* CYTempAttachment.m in Sources */,
+				E1A16E2F1E27BA4A00C86832 /* CYMail.m in Sources */,
 				E1CC37931D3E1589005FEA04 /* MailHomeViewController.m in Sources */,
-				E1CC36BA1D3E1195005FEA04 /* JGProgressHUDFadeAnimation.m in Sources */,
 				E1CC378B1D3E1589005FEA04 /* MailDetailViewController.m in Sources */,
-				E1CC37AE1D3E1589005FEA04 /* ZTEMailModel.xcdatamodeld in Sources */,
-				E1CC38641D3E2769005FEA04 /* YYTextInput.m in Sources */,
-				E1CC35B31D3E0C87005FEA04 /* DDASLLogger.m in Sources */,
+				E10337C61E3785D3006C6BAD /* MailAttachmentCell.m in Sources */,
+				E10A9A6A1E338E98003F45C0 /* MailDetailBottomView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		E1CC380D1D3E1A2A005FEA04 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "static mailcore2 ios";
-			targetProxy = E1CC380C1D3E1A2A005FEA04 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
+		E10A9A751E33957B003F45C0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E10A9A771E33957B003F45C0 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E1CC2EF01D3E0C85005FEA04 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E1CC2EF11D3E0C85005FEA04 /* Base */,
+				E10A9A6E1E339438003F45C0 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1795,6 +761,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E1CC2EF31D3E0C85005FEA04 /* Base */,
+				E10A9A6F1E339438003F45C0 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1806,6 +773,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1850,6 +818,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1886,25 +855,14 @@
 		};
 		E1CC2EE91D3E0C1B005FEA04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62C0D81A1BC09E39E096D366 /* Pods-CYMailDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CYBaseProject/Resource/Global/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CYBaseProject/Resource/Plist/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-lctemplate-ios",
-					"-letpan-ios",
-					"-lxml2",
-					"-lsasl2",
-					"-liconv",
-					"-ltidy",
-					"-lz",
-					"-lc++",
-					"-lresolv",
-					"-stdlib=libc++",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lxypeter.CYBaseProject;
 				PRODUCT_NAME = CYMailDemo;
 			};
@@ -1912,25 +870,14 @@
 		};
 		E1CC2EEA1D3E0C1B005FEA04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E362B3E0FD6CF09249ABA059 /* Pods-CYMailDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CYBaseProject/Resource/Global/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CYBaseProject/Resource/Plist/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-lctemplate-ios",
-					"-letpan-ios",
-					"-lxml2",
-					"-lsasl2",
-					"-liconv",
-					"-ltidy",
-					"-lz",
-					"-lc++",
-					"-lresolv",
-					"-stdlib=libc++",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lxypeter.CYBaseProject;
 				PRODUCT_NAME = CYMailDemo;
 			};
@@ -1960,13 +907,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E1CC37391D3E1589005FEA04 /* ZTEMailModel.xcdatamodeld */ = {
+		E1913DA21E272C3900432EEF /* CYMailModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E1CC373A1D3E1589005FEA04 /* ZTEMailModel.xcdatamodel */,
+				E1913DA31E272C3900432EEF /* CYMailModel.xcdatamodel */,
 			);
-			currentVersion = E1CC373A1D3E1589005FEA04 /* ZTEMailModel.xcdatamodel */;
-			path = ZTEMailModel.xcdatamodeld;
+			currentVersion = E1913DA31E272C3900432EEF /* CYMailModel.xcdatamodel */;
+			path = CYMailModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

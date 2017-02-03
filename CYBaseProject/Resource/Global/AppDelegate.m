@@ -18,15 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    //1.设置 log 信息
-    [self setLogger];
-    
     [IQKeyboardManager sharedManager].enable = YES;
-    
-    DDLogError(@"Paper jam");
-    DDLogWarn(@"Toner is low");
-    DDLogInfo(@"Warming up printer (pre-customization)");
-    DDLogVerbose(@"Intializing protcol x26 (pre-customization)");
     
     return YES;
 }
@@ -52,20 +44,4 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-/**
- *  @author YYang, 16-02-08 16:02:10
- *
- *  日志操作
- */
-- (void)setLogger{
-    //设置打印级别
-    [DDLog addLogger:[DDTTYLogger sharedInstance]withLevel:ddLogLevel];
-    //彩色打印
-    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
-    //自定义颜色
-    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor purpleColor] backgroundColor:[UIColor whiteColor] forFlag:DDLogFlagInfo];
-}
-
-
 @end

@@ -8,6 +8,10 @@
 
 #import "CYBaseMailViewController.h"
 
+@class CYMailAccount;
+
 @interface MailHomeViewController : CYBaseMailViewController
+
+@property (nonatomic, strong) CYMailAccount *account;
 
 @end

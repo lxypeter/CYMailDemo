@@ -7,21 +7,34 @@
 //
 
 #import "MailFolderViewController.h"
-#import "ZTEMailSessionUtil.h"
-#import "ZTEMailCoreDataUtil.h"
-#import "ZTEFolderModel.h"
-#import "ZTEMailModel.h"
+#import <Masonry.h>
+#import "CYMailSessionManager.h"
+#import "CYMailModelManager.h"
+#import "CYMailUtil.h"
 
 static NSString *const reuseableID = @"MailFolderCell";
 
-@interface MailFolderViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView *myTableView;
-@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
-@property (nonatomic,strong) NSMutableArray *dataArray;
+@interface MailFolderViewController ()<UITableViewDelegate,UITableViewDataSource,CAAnimationDelegate>
+@property (nonatomic, strong, readonly) CYMailSession *session;
+@property (nonatomic, strong) UIView *backgroundView;
+@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic, strong) UIButton *coverButton;
+@property (nonatomic,strong) NSArray *dataArray;
 @property (nonatomic,strong) NSIndexPath *selectedIndex;
+@property (nonatomic, assign, getter=isAnimating) BOOL animating;
+@property (nonatomic, assign) BOOL hasMoved;
 @end
 
 @implementation MailFolderViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    }
+    return self;
+}
 
 #pragma mark - Life Cycle
 - (void)viewDidLoad {
@@ -31,27 +44,65 @@ static NSString *const reuseableID = @"MailFolderCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
+    [self fadeInAnimate];
 }
 
 - (void)configureSubviews{
-    self.title = @"选择文件夹";
-    self.myTableView.delegate = self;
-    self.myTableView.dataSource = self;
     
-    self.myTableView.rowHeight =  44;
-    self.myTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    self.view.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+    [self.view addSubview:self.coverButton];
+    [self.coverButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    [self.view addSubview:self.backgroundView];
+    [self.backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top);
+        make.right.equalTo(self.view.mas_right);
+        make.bottom.equalTo(self.view.mas_bottom);
+        make.width.equalTo(self.view.mas_width).multipliedBy(0.8);
+    }];
+    
+}
 
-    self.myTableView.backgroundColor = UICOLOR(@"F7F8F9");
+#pragma mark - Animate method
+- (void)fadeInAnimate{
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    [animation setDuration:0.25];
+    animation.keyPath = @"position.x";
+    animation.fromValue = @(ScreenWidth*1.4);
+    animation.toValue = @(ScreenWidth*0.6);
+    [self.backgroundView.layer addAnimation:animation forKey:nil];
+}
+
+- (void)fadeOutAnimate{
+    if (self.isAnimating) {
+        return;
+    }
+    self.animating = YES;
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    [animation setDuration:0.25];
+    animation.delegate = self;
+    animation.keyPath = @"position.x";
+    animation.fromValue = @(ScreenWidth*0.6);
+    animation.toValue = @(ScreenWidth*1.4);
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    [self.backgroundView.layer addAnimation:animation forKey:nil];
 }
 
 #pragma mark - Delegate Methods
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataArray.count;
+#pragma mark Animate Delegate
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    [self dismissViewControllerAnimated:NO completion:^{
+        if (self.hasMoved&&self.moveSuccessBlock) {
+            self.moveSuccessBlock();
+        }
+    }];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 44;
+#pragma mark TableView Delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,9 +113,8 @@ static NSString *const reuseableID = @"MailFolderCell";
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     }
     
-    ZTEFolderModel *mailFolder = self.dataArray[indexPath.row];
-    
-    cell.textLabel.text = [ZTEMailSessionUtil chnNameOfFolder:mailFolder.name];
+    CYFolder *folder = self.dataArray[indexPath.row];
+    cell.textLabel.text = NSLocalizedString([folder.name uppercaseString], nil);
     
     if (self.selectedIndex == indexPath) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -82,9 +132,9 @@ static NSString *const reuseableID = @"MailFolderCell";
 }
 
 #pragma mark - Event Response
-- (IBAction)confirmBtnClicked:(UIButton *)sender{
+- (IBAction)confirmBtnClicked{
     if(!self.selectedIndex){
-        [self.view makeToast:@"请先选择需要移动邮件至哪个文件夹!"];
+        [self showToast:MsgConfirmFolder];
         return;
     }
     [self moveFolder];
@@ -92,78 +142,123 @@ static NSString *const reuseableID = @"MailFolderCell";
 
 #pragma mark - Network Methods
 - (void)loadMailFolder{
-    NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
-    ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
-    // 查询
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ZTEFolderModel"];
-    
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"ownerAddress=%@",util.username];
-    
-    request.predicate = pre;
-    
-    //读取信息
-    NSError *error = nil;
-    NSArray *mailFolders = [coreDataContext executeFetchRequest:request error:&error];
-    if (!error) {
-
-        for (ZTEFolderModel *mailFolder in mailFolders) {
-            if(![self.mailModel.folderPath isEqualToString:mailFolder.path]){
-                [self.dataArray addObject:mailFolder];
-            }
+    NSArray *folders = [self.folder.account.folders allObjects];
+    NSMutableArray *array = [NSMutableArray array];
+    for (CYFolder *folder in folders) {
+        if(![self.folder.path isEqualToString:folder.path]){
+            [array addObject:folder];
         }
-        [self sortFolderArray];
-        [self.myTableView reloadData];
-        
-    }else{
-        NSLog(@"%@",error);
     }
+    self.dataArray = [CYMailUtil sortFolders:array];
+    
+    [self.tableView reloadData];
+    
 }
 
 - (void)moveFolder{
+    CYFolder *folder = self.dataArray[self.selectedIndex.row];
+    
     [self showHudWithMsg:@"邮件移动中...."];
-    ZTEMailSessionUtil *util = [ZTEMailSessionUtil shareUtil];
-    NSManagedObjectContext *coreDataContext = [ZTEMailCoreDataUtil shareContext];
-    ZTEFolderModel *mailFolder = self.dataArray[self.selectedIndex.row];
     __weak typeof(self) weakSelf = self;
-    [util moveMessagesWithFolder:self.mailModel.folderPath uid:[self.mailModel.uid integerValue] destFolder:mailFolder.path success:^{
-        [self hideHud];
-        [coreDataContext deleteObject:self.mailModel];
-        [coreDataContext save:nil];
-        [self.navigationController.viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if([obj isKindOfClass:NSClassFromString(@"MailHomeViewController")]){
-                [self.navigationController popToViewController:obj animated:YES];
-                *stop = YES;
-            }
-        }];
+    [self.session moveMail:self.mail destFolder:folder.path success:^{
+        [self hideHuds];
+        self.hasMoved = YES;
+        [[CYMailModelManager sharedCYMailModelManager]deleteMail:weakSelf.mail error:nil];
+        [self fadeOutAnimate];
     } failure:^(NSError *error) {
-        [self hideHud];
-        [weakSelf.view makeToast:[NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]]];
-    }];
-}
-
-#pragma mark - Tool Method
-- (void)sortFolderArray{
-    [self.dataArray sortUsingComparator:^NSComparisonResult(ZTEFolderModel *_Nonnull obj1, ZTEFolderModel *_Nonnull obj2) {
-        
-        NSComparisonResult result;
-        if ([[obj1.path uppercaseString]isEqualToString:@"INBOX"]) {
-            return NSOrderedAscending;
-        }
-        if ([[obj2.path uppercaseString]isEqualToString:@"INBOX"]) {
-            return NSOrderedDescending;
-        }
-        result = [obj1.name compare:obj2.name];
-        
-        return result;
+        [self hideHuds];
+        [weakSelf showToast:[NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]]];
     }];
 }
 
 #pragma mark -Getters and Setters
-- (NSMutableArray *)dataArray{
+- (NSArray *)dataArray{
     if(!_dataArray){
-        _dataArray = [NSMutableArray array];
+        _dataArray = [NSArray array];
     }
     return _dataArray;
+}
+
+- (UITableView *)tableView{
+    if(!_tableView){
+        _tableView  =({
+            UITableView *var =[[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+            var.showsVerticalScrollIndicator = NO;
+            var.backgroundView = nil;
+            var.delegate =self;
+            var.dataSource  = self;
+            var.rowHeight = UITableViewAutomaticDimension;
+            var.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+            var.backgroundColor = UICOLOR(@"F7F8F9");
+            var.rowHeight =  44;
+            var;
+        });
+    }
+    return _tableView;
+}
+
+- (UIButton *)coverButton{
+    if (!_coverButton) {
+        _coverButton = [[UIButton alloc]init];
+        [_coverButton addTarget:self action:@selector(fadeOutAnimate) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _coverButton;
+}
+
+- (UIView *)backgroundView{
+    if (!_backgroundView) {
+        _backgroundView = [[UIView alloc]init];
+        _backgroundView.backgroundColor = [UIColor whiteColor];
+        
+        UIView *headerView = [[UIView alloc]init];
+        headerView.backgroundColor = UICOLOR(@"#F5F5F5");
+        [_backgroundView addSubview:headerView];
+        [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_backgroundView.mas_top);
+            make.left.equalTo(_backgroundView.mas_left);
+            make.right.equalTo(_backgroundView.mas_right);
+            make.height.mas_equalTo(64);
+        }];
+        
+        UILabel *titleLabel = [[UILabel alloc]init];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.font = [UIFont systemFontOfSize:17];
+        titleLabel.text = MsgChooseFolder;
+        titleLabel.textColor = UICOLOR(@"#2D4664");
+        [headerView addSubview:titleLabel];
+        [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(headerView.mas_top).offset(20);
+            make.left.equalTo(headerView.mas_left);
+            make.right.equalTo(headerView.mas_right);
+            make.bottom.equalTo(headerView.mas_bottom);
+        }];
+        
+        UIButton *congfirmButton = [[UIButton alloc]init];
+        [congfirmButton setTitle:MsgConfirm forState:UIControlStateNormal];
+        [congfirmButton setTitleColor:UICOLOR(@"#2D4664") forState:UIControlStateNormal];
+        congfirmButton.titleLabel.font = [UIFont systemFontOfSize:15];
+        [congfirmButton addTarget:self action:@selector(confirmBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+        [headerView addSubview:congfirmButton];
+        [congfirmButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(headerView.mas_top).offset(20);
+            make.right.mas_equalTo(-15);
+            make.width.mas_equalTo(50);
+            make.bottom.equalTo(headerView.mas_bottom);
+        }];
+        
+        [_backgroundView addSubview:self.tableView];
+        [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(headerView.mas_bottom);
+            make.right.equalTo(_backgroundView.mas_right);
+            make.left.equalTo(_backgroundView.mas_left);
+            make.bottom.equalTo(_backgroundView.mas_bottom);
+        }];
+    }
+    return _backgroundView;
+}
+
+- (CYMailSession *)session{
+    return [[CYMailSessionManager sharedCYMailSessionManager]getSessionWithUsername:self.folder.account.username];
 }
 
 @end

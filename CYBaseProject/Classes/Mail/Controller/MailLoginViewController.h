@@ -8,9 +8,9 @@
 
 #import "CYBaseMailViewController.h"
 
-@class ZTEMailUser;
+@class CYMailAccount;
 @interface MailLoginViewController : CYBaseMailViewController
 
-@property (nonatomic, strong) NSMutableArray<ZTEMailUser *> *accounts;
+@property (nonatomic, strong) NSMutableArray<CYMailAccount *> *accounts;
 
 @end

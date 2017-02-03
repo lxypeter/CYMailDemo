@@ -8,15 +8,9 @@
 
 #import "CYBaseMailViewController.h"
 
-@class ZTEMailAttachment;
+@class CYMail;
 @interface MailAttachmentViewController : CYBaseMailViewController
 
-@property (nonatomic, strong) NSString *ownerAddress;
-@property (nonatomic, strong) NSString *folderPath;
-@property (nonatomic, assign) NSInteger uid;
-@property (nonatomic, strong) UIViewController *parentController;
-@property (nonatomic, strong) NSArray<ZTEMailAttachment *> *attachments;
-
-- (instancetype)initWithOwnerAddress:(NSString *)ownerAddress folderPath:(NSString *)folderPath uid:(NSInteger)uid attachments:(NSArray<ZTEMailAttachment *> *)attachments parentController:(UIViewController *)parentController;
+@property (nonatomic, strong) CYMail *mail;
 
 @end

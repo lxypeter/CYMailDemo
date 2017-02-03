@@ -11,6 +11,9 @@
 @interface DocPreviewUtil : NSObject
 
 + (DocPreviewUtil *)shareUtil;
-- (void)previewDocOfPath:(NSString *)path controller:(UIViewController *)controller;
++ (NSString *)filePathWithFilename:(NSString *)filename directory:(NSString *)directory;
+
+- (BOOL)previewDocOfPath:(NSString *)path controller:(UIViewController *)controller completion:(void (^)())completion;
+- (BOOL)previewInOtherAppOfPath:(NSString *)path controller:(UIViewController *)controller completion:(void (^)())completion;
 
 @end
